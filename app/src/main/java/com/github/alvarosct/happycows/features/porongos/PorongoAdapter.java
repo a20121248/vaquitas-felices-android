@@ -37,14 +37,14 @@ public class PorongoAdapter extends RecyclerView.Adapter<PorongoAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Porongo obj = objList.get(position);
 
-        holder.tv_heading.setText("Porongo #" + obj.getUid());
+        holder.tv_heading.setText("Porongo #" + obj.getId());
         holder.tv_subheading.setText(obj.getFamilia());
 
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(activity, CalidadActivity.class);
-                i.putExtra("ID", obj.getUid());
+                i.putExtra("ID", obj.getId());
                 activity.startActivity(i);
             }
         });

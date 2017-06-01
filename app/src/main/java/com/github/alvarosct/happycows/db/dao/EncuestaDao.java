@@ -1,11 +1,13 @@
 package com.github.alvarosct.happycows.db.dao;
 
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import com.github.alvarosct.happycows.db.models.Encuesta;
-import com.github.alvarosct.happycows.db.models.Pregunta;
 
 import java.util.List;
 
@@ -14,10 +16,35 @@ import java.util.List;
  */
 
 @Dao
-public interface EncuestaDao {
-    @Query("SELECT * FROM encuesta")
+public interface EncuestaDao extends BaseDao<Encuesta> {
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insert(Encuesta entity);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long[] insertAll(List<Encuesta> entities);
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    void update(Encuesta entity);
+
+    @Delete
+    void delete(Encuesta entity);
+
+    @Query("SELECT * FROM Encuesta WHERE status = 1")
     List<Encuesta> getAll();
 
-    @Insert
-    void insertar(Encuesta porongo);
+    @Query("SELECT * FROM Encuesta WHERE status = 1 AND localChange = 1")
+    List<Encuesta> getLocallyChanged();
+
+    @Query("SELECT Count(*) FROM Encuesta WHERE status = 1")
+    int getCountAll();
+
+    @Query("SELECT Count(*) FROM Encuesta WHERE status = 1 AND localChange = 1")
+    int getCountChanged();
+
+    @Query("SELECT * FROM Encuesta WHERE id = :id AND status = 1")
+    Encuesta getById(int id);
+
+    @Query("DELETE FROM Encuesta WHERE id = :id")
+    void deleteById(int id);
 }

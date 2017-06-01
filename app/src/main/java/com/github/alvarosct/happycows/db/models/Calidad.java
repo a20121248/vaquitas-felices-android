@@ -1,38 +1,25 @@
 package com.github.alvarosct.happycows.db.models;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
 
 /**
  * Created by Android-Dev on 26/05/2017.
  */
 
 @Entity
-public class Calidad {
+public class Calidad extends BaseModel{
 
-    @PrimaryKey
-    private int uid;
-
-    @ColumnInfo(name = "color")
     private String color;
 
-    @ColumnInfo(name = "olor")
     private String olor;
 
-    @ColumnInfo(name = "alcohol")
     private String alcohol;
 
-    @ColumnInfo(name = "brix")
     private String brix;
 
-    public int getUid() {
-        return uid;
-    }
+    private int porongoId;
 
-    public void setUid(int uid) {
-        this.uid = uid;
-    }
+
 
     public String getColor() {
         return color;
@@ -64,5 +51,13 @@ public class Calidad {
 
     public void setBrix(String brix) {
         this.brix = brix;
+    }
+
+    public int getPorongoId() {
+        return porongoId;
+    }
+
+    public void setPorongoId(int porongoId) {
+        this.porongoId = porongoId;
     }
 }

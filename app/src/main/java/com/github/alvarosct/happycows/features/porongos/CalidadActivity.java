@@ -25,6 +25,7 @@ public class CalidadActivity extends AppCompatActivity {
     EditText etBrix;
 
     private AppDatabase db;
+    private int porongoId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,20 +33,23 @@ public class CalidadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quality);
         ButterKnife.bind(this);
 
+        porongoId = getIntent().getExtras().getInt("ID", -1);
+
         db = AppDatabase.getInstance(CalidadActivity.this);
     }
 
     @OnClick(R.id.bt_send)
     public void onViewClicked() {
         Calidad c = new Calidad();
-        c.setUid(db.calidadModel().getAll().size() + 1);
+        c.setId(db.calidadModel().getAll().size() + 1);
+        c.setPorongoId(porongoId);
 
         c.setColor(etColor.getText().toString());
         c.setOlor(etOlor.getText().toString());
         c.setAlcohol(etAlcohol.getText().toString());
         c.setBrix(etBrix.getText().toString());
 
-        db.calidadModel().insertar(c);
+        db.calidadModel().insert(c);
         finish();
     }
 }

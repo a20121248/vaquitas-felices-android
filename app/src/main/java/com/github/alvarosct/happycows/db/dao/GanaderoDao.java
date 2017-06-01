@@ -1,11 +1,13 @@
 package com.github.alvarosct.happycows.db.dao;
 
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import com.github.alvarosct.happycows.db.models.Ganadero;
-import com.github.alvarosct.happycows.db.models.Porongo;
 
 import java.util.List;
 
@@ -14,10 +16,35 @@ import java.util.List;
  */
 
 @Dao
-public interface GanaderoDao {
-    @Query("SELECT * FROM ganadero")
+public interface GanaderoDao extends BaseDao<Ganadero> {
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insert(Ganadero entity);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long[] insertAll(List<Ganadero> entities);
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    void update(Ganadero entity);
+
+    @Delete
+    void delete(Ganadero entity);
+
+    @Query("SELECT * FROM Ganadero WHERE status = 1")
     List<Ganadero> getAll();
 
-    @Insert
-    void insertar(Ganadero porongo);
+    @Query("SELECT * FROM Ganadero WHERE status = 1 AND localChange = 1")
+    List<Ganadero> getLocallyChanged();
+
+    @Query("SELECT Count(*) FROM Ganadero WHERE status = 1")
+    int getCountAll();
+
+    @Query("SELECT Count(*) FROM Ganadero WHERE status = 1 AND localChange = 1")
+    int getCountChanged();
+
+    @Query("SELECT * FROM Ganadero WHERE id = :id AND status = 1")
+    Ganadero getById(int id);
+
+    @Query("DELETE FROM Ganadero WHERE id = :id")
+    void deleteById(int id);
 }
