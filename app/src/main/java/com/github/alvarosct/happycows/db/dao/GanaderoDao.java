@@ -30,7 +30,7 @@ public interface GanaderoDao extends BaseDao<Ganadero> {
     @Delete
     void delete(Ganadero entity);
 
-    @Query("SELECT * FROM Ganadero WHERE deletedAt = ''")
+    @Query("SELECT * FROM Ganadero")
     List<Ganadero> getAll();
 
     @Query("SELECT * FROM Ganadero WHERE deletedAt = '' AND localChange = 1")

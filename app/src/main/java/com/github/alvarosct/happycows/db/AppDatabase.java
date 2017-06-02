@@ -28,7 +28,7 @@ import java.lang.reflect.Method;
 @Database(entities = {
         TableMaster.class,
         Porongo.class, Encuesta.class, Ganadero.class,
-        Pregunta.class, User.class}, version = 2)
+        Pregunta.class, User.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;

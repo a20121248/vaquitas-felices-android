@@ -6,10 +6,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 
+import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.R;
+import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
 import com.github.alvarosct.happycows.db.AppDatabase;
 import com.github.alvarosct.happycows.db.models.Porongo;
+import com.github.alvarosct.happycows.utils.Injector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +28,18 @@ public class PorongoFormActivity extends AppCompatActivity {
 
     private AppDatabase db;
     private Porongo porongo;
+    private ViewPagerAdapter adapter;
+    private int maxStep = 0;
+    private int totalSteps = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.porongo_form);
+
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
         ButterKnife.bind(this);
 
         porongo = new Porongo();
@@ -41,13 +52,40 @@ public class PorongoFormActivity extends AppCompatActivity {
 
 
     public void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new PorongoFormPesoFragment(), "Peso");
         adapter.addFrag(new PorongoFormColorFragment(), "Color");
         adapter.addFrag(new PorongoFormOlorFragment(), "Olor");
         adapter.addFrag(new PorongoFormAlcoholFragment(), "Alcohol");
         adapter.addFrag(new PorongoFormBrixFragment(), "Brix");
+
+        totalSteps = adapter.getCount();
         viewPager.setAdapter(adapter);
+    }
+
+    public void completeStep(int step){
+
+        int newStep = step + 1;
+        if (newStep > maxStep){
+            maxStep = newStep;
+        }
+
+        if (maxStep == totalSteps){
+            Injector.provideRepository().updatePorongo(porongo,
+                    new LoadingCallback<Porongo>(PorongoFormActivity.this, "Registrando Porongo...") {
+                        @Override
+                        public void onSuccess(boolean fromRemote, Porongo response) {
+                            super.onSuccess(fromRemote, response);
+                            if (fromRemote){
+                                AppDatabase.getInstance().porongoModel().insert(response);
+                            }
+                            finish();
+                        }
+                    });
+        } else {
+            pager.setCurrentItem(newStep);
+        }
+
     }
 
     public Porongo getPorongo() {

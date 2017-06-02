@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.ascthelper.utils.dialogs.DialogCustom;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.features.main.MainActivity;
@@ -53,11 +54,15 @@ public class SyncDatabaseActivity extends AppCompatActivity {
 
     @OnClick(R.id.bt_sync)
     public void onBtSyncClicked() {
+        if (onSync) return;
+
         onSync = true;
+        UtilMethods.showDialog("Actualizando...", this);
         new SyncManager(new ISync() {
             @Override
             public void onSyncDone() {
-                onSync = true;
+                onSync = false;
+                UtilMethods.hideDialog();
                 openMainActivity();
             }
         }).startSync();

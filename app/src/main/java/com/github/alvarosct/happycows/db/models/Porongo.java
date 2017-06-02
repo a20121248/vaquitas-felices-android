@@ -12,10 +12,11 @@ import com.google.gson.annotations.SerializedName;
 public class Porongo extends BaseModel {
 
 
-//    @SerializedName("id_orden_prod")
+    //    @SerializedName("id_orden_prod")
 //    public String id_orden_prod;
-//    @SerializedName("fecha_hora_ordeno")
-//    public String fecha_hora_ordeno;
+
+    @SerializedName("fecha_hora_ordeno")
+    public String fechaHoraOrdeno = "10-10-2017 05:10";
 
 
     @SerializedName("id_ganadero")
@@ -24,22 +25,26 @@ public class Porongo extends BaseModel {
     @SerializedName("peso")
     private double peso;
 
-//    TODO: Pending WS names
+    @SerializedName("color")
     private String color;
+    @SerializedName("olor")
     private String olor;
+    @SerializedName("devolucion")
+    private int devolucion = 0;
 
     @SerializedName("alcohol")
     private int alcohol;
     @SerializedName("porc_brix")
     private double brix;
     @SerializedName("acidez")
-    public int acidez;
+    public int acidez = 100;
     @SerializedName("ph")
-    public double ph;
+    public double ph = 1.3;
     @SerializedName("densidad")
-    public int densidad;
+    public int densidad = 234;
     @SerializedName("limpieza")
-    public int limpieza;
+    public int limpieza = 3;
+
 
     public int getGanaderoId() {
         return ganaderoId;
@@ -119,5 +124,21 @@ public class Porongo extends BaseModel {
 
     public void setLimpieza(int limpieza) {
         this.limpieza = limpieza;
+    }
+
+    public String getFechaHoraOrdeno() {
+        return fechaHoraOrdeno;
+    }
+
+    public void setFechaHoraOrdeno(String fechaHoraOrdeno) {
+        this.fechaHoraOrdeno = fechaHoraOrdeno;
+    }
+
+    public int getDevolucion() {
+        return devolucion;
+    }
+
+    public void setDevolucion(int devolucion) {
+        this.devolucion = devolucion;
     }
 }

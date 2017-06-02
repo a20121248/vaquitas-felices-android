@@ -1,7 +1,7 @@
 package com.github.alvarosct.happycows.data.source.callbacks;
 
-import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.happycows.data.source.remote.ApiError;
+import com.github.alvarosct.happycows.utils.Constants;
 
 /**
  * Created by Alvaro Santa Cruz on 27/02/2017.

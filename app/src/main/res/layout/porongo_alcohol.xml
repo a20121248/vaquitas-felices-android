@@ -33,7 +33,7 @@
         android:singleLine="true"
         android:gravity="center"
         android:imeOptions="actionDone"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:hint="Ingresa el valor"
         android:textSize="@dimen/text_button_size" />
 

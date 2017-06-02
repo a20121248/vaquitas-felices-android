@@ -43,7 +43,7 @@ public class GanaderoAdapter extends RecyclerView.Adapter<GanaderoAdapter.ViewHo
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(activity, PorongoDisplayActivity.class);
+                Intent i = new Intent(activity, PorongoFormActivity.class);
                 i.putExtra("ID", obj.getId());
                 activity.startActivity(i);
             }

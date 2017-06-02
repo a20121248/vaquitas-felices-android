@@ -2,10 +2,10 @@ package com.github.alvarosct.happycows.data.source.callbacks;
 
 import android.util.Log;
 
-import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.data.source.remote.ApiError;
 import com.github.alvarosct.happycows.data.source.remote.RequestManager;
+import com.github.alvarosct.happycows.utils.Constants;
 
 import java.lang.annotation.Annotation;
 

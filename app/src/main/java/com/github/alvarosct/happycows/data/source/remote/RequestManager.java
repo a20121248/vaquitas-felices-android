@@ -38,7 +38,7 @@ public class RequestManager {
 
         final OkHttpClient client = getClient();
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL + "api/");
+                .baseUrl(BuildConfig.BASE_URL);
 
         builder = builder.addConverterFactory(GsonConverterFactory.create(gson));
         retrofit =  builder.client(client).build();
