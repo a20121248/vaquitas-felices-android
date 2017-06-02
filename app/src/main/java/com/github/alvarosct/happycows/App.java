@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.db.AppDatabase;
+import com.github.alvarosct.happycows.db.DatabaseInitializer;
 import com.github.alvarosct.happycows.db.models.TableMaster;
 import com.github.alvarosct.happycows.utils.Constants;
 
@@ -49,6 +50,8 @@ public class App extends Application {
     }
 
     private void loadTableMaster() {
+
+        DatabaseInitializer.populateSync(AppDatabase.getInstance());
 
         List<TableMaster> tables = new ArrayList<>();
         tables.add(new TableMaster("Ganadero"));

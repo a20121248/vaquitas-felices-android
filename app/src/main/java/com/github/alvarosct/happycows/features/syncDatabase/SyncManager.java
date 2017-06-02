@@ -54,7 +54,6 @@ public class SyncManager {
 //                              Use this instead of (SugarRecord.saveInTx();) to save the passport
                                 long[] saved = AppDatabase.getInstance().modelByName(name).insertAll((List) response);
                                 updateProgressDownload(1, name);
-
                             }
                         };
                         thread.start();

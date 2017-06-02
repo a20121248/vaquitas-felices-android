@@ -30,7 +30,7 @@ public interface PreguntaDao extends BaseDao<Pregunta> {
     @Delete
     void delete(Pregunta entity);
 
-    @Query("SELECT * FROM Pregunta WHERE deletedAt = ''")
+    @Query("SELECT * FROM Pregunta")
     List<Pregunta> getAll();
 
     @Query("SELECT * FROM Pregunta WHERE deletedAt = '' AND localChange = 1")

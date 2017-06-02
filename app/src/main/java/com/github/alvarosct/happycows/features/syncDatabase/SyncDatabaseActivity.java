@@ -22,8 +22,6 @@ public class SyncDatabaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sync);
         ButterKnife.bind(this);
-
-
     }
 
     @Override

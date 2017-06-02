@@ -18,30 +18,56 @@ package com.github.alvarosct.happycows.db;
 
 import android.support.annotation.NonNull;
 
+import com.github.alvarosct.happycows.db.models.Insumo;
+import com.github.alvarosct.happycows.db.models.Pregunta;
+import com.github.alvarosct.happycows.db.models.PreguntaInsumo;
+
 public class DatabaseInitializer {
 
     public static void populateSync(@NonNull final AppDatabase db) {
         populateWithTestData(db);
     }
 
-
-
-
-
-
-    //    SHOULD NOT BE CALLED
+    //    TODO: REMOVE THIS! SHOULD NOT BE CALLED
     private static void populateWithTestData(AppDatabase db) {
 
 //        TODO: REMOVE THIS! DUMMY DATA UNTIL THE WS ARE DONE!
-        if (db.ganaderoModel().getCountAll() == 0) {
+        addPregunta(db, "¿Esta de acuerdo con el trato brindado por el personal de Vacas Felices?");
+        addPregunta(db, "¿Esta de acuerdo con el monto que se le asigna por kilo de leche?");
+        addPregunta(db, "¿Cree usted que Vacas Felices contribuye a su desarrollo personal?");
 
-            addGanadero(db, "Gonzales", 33);
-            addGanadero(db, "Agapito", 34);
-            addGanadero(db, "Vega", 35);
-        }
+//        TODO: REMOVE THIS! DUMMY DATA UNTIL THE WS ARE DONE!
+        addPreguntaInsumo(db, "¿Presenta abolladuras?");
+        addPreguntaInsumo(db, "¿Esta roto?");
+        addPreguntaInsumo(db, "¿Es fresco?");
+        addPreguntaInsumo(db, "¿Huele bien?");
+        addPreguntaInsumo(db, "¿Fue entragado a tiempo?");
 
+//        TODO: REMOVE THIS! DUMMY DATA UNTIL THE WS ARE DONE!
+        addInsumos(db, "Fresa", "fruta");
+        addInsumos(db, "Platano", "fruta");
+        addInsumos(db, "Botella", "vidrio");
+        addInsumos(db, "Vaso", "vidrio");
+        addInsumos(db, "Etiqueta", "plastico");
     }
 
-    private static void addGanadero(AppDatabase db, String gonzales, int i1) {
+    private static void addInsumos(AppDatabase db, String nombre, String tipo) {
+        Insumo insumo = new Insumo();
+        insumo.setNombre(nombre);
+        insumo.setTipo(tipo);
+        db.insumoModel().insert(insumo);
     }
+
+    private static void addPregunta(AppDatabase db, String preg) {
+        Pregunta p = new Pregunta();
+        p.setDescripcion(preg);
+        db.preguntaModel().insert(p);
+    }
+
+    private static void addPreguntaInsumo(AppDatabase db, String preg) {
+        PreguntaInsumo p = new PreguntaInsumo();
+        p.setDescripcion(preg);
+        db.preguntaInsumoModel().insert(p);
+    }
+
 }

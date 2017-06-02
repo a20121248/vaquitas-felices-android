@@ -6,18 +6,22 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.github.alvarosct.happycows.db.dao.BaseDao;
-import com.github.alvarosct.happycows.db.dao.TableMasterDao;
-import com.github.alvarosct.happycows.db.dao.UserDao;
 import com.github.alvarosct.happycows.db.dao.EncuestaDao;
 import com.github.alvarosct.happycows.db.dao.GanaderoDao;
+import com.github.alvarosct.happycows.db.dao.InsumoDao;
 import com.github.alvarosct.happycows.db.dao.PorongoDao;
 import com.github.alvarosct.happycows.db.dao.PreguntaDao;
-import com.github.alvarosct.happycows.db.models.TableMaster;
-import com.github.alvarosct.happycows.db.models.User;
+import com.github.alvarosct.happycows.db.dao.PreguntaInsumoDao;
+import com.github.alvarosct.happycows.db.dao.TableMasterDao;
+import com.github.alvarosct.happycows.db.dao.UserDao;
 import com.github.alvarosct.happycows.db.models.Encuesta;
 import com.github.alvarosct.happycows.db.models.Ganadero;
+import com.github.alvarosct.happycows.db.models.Insumo;
 import com.github.alvarosct.happycows.db.models.Porongo;
 import com.github.alvarosct.happycows.db.models.Pregunta;
+import com.github.alvarosct.happycows.db.models.PreguntaInsumo;
+import com.github.alvarosct.happycows.db.models.TableMaster;
+import com.github.alvarosct.happycows.db.models.User;
 
 import java.lang.reflect.Method;
 
@@ -28,15 +32,15 @@ import java.lang.reflect.Method;
 @Database(entities = {
         TableMaster.class,
         Porongo.class, Encuesta.class, Ganadero.class,
-        Pregunta.class, User.class}, version = 3)
+        Pregunta.class, PreguntaInsumo.class, Insumo.class, User.class}, version = 4)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
 
-    public BaseDao modelByName(String name){
-        String formattedName = name.substring(0,1).toLowerCase() + name.substring(1);
+    public BaseDao modelByName(String name) {
+        String formattedName = name.substring(0, 1).toLowerCase() + name.substring(1);
         try {
-            Method m = this.getClass().getMethod( formattedName + "Model");
+            Method m = this.getClass().getMethod(formattedName + "Model");
             return (BaseDao) m.invoke(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,6 +53,10 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PorongoDao porongoModel();
 
     public abstract EncuestaDao encuestaModel();
+
+    public abstract PreguntaInsumoDao preguntaInsumoModel();
+
+    public abstract InsumoDao insumoModel();
 
     public abstract GanaderoDao ganaderoModel();
 
@@ -66,6 +74,7 @@ public abstract class AppDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
+
     public static AppDatabase getInstance() {
         return INSTANCE;
     }

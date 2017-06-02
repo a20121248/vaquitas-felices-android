@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.features.porongos;
+package com.github.alvarosct.happycows.features.insumos;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,9 @@ import com.github.alvarosct.ascthelper.utils.SimpleDividerItemDecoration;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.db.AppDatabase;
 import com.github.alvarosct.happycows.db.models.Ganadero;
-import com.github.alvarosct.happycows.db.models.Porongo;
+import com.github.alvarosct.happycows.db.models.Insumo;
+import com.github.alvarosct.happycows.features.porongos.PorongoFormActivity;
+import com.github.alvarosct.happycows.features.sic.GanaderoAdapter;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class GanaderosActivity extends AppCompatActivity implements IAdapterDetail {
+public class InsumoListActivity extends AppCompatActivity implements IAdapterDetail {
 
     @BindView(R.id.rv_data)
     SuperRecyclerView rvData;
@@ -26,7 +28,7 @@ public class GanaderosActivity extends AppCompatActivity implements IAdapterDeta
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ganaderos);
+        setContentView(R.layout.activity_list_insumo);
         ButterKnife.bind(this);
 
         setupView();
@@ -40,8 +42,8 @@ public class GanaderosActivity extends AppCompatActivity implements IAdapterDeta
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvData.setLayoutManager(layoutManager);
 
-        List<Ganadero> list = AppDatabase.getInstance(this).ganaderoModel().getAll();
-        GanaderoAdapter adapter = new GanaderoAdapter(this, list);
+        List<Insumo> list = AppDatabase.getInstance(this).insumoModel().getAll();
+        InsumosAdapter adapter = new InsumosAdapter(this, list);
         rvData.setAdapter(adapter);
     }
 
@@ -55,10 +57,10 @@ public class GanaderosActivity extends AppCompatActivity implements IAdapterDeta
 
     @Override
     public void openDetail(int id) {
-        Intent i = new Intent(this, PorongoFormActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putInt("ID", id);
-        startActivity(i, bundle);
+//        Intent i = new Intent(this, PorongoFormActivity.class);
+//        Bundle bundle = new Bundle();
+//        bundle.putInt("ID", id);
+//        startActivity(i, bundle);
 
     }
 }
