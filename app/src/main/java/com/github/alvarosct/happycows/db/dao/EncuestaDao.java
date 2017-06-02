@@ -30,19 +30,19 @@ public interface EncuestaDao extends BaseDao<Encuesta> {
     @Delete
     void delete(Encuesta entity);
 
-    @Query("SELECT * FROM Encuesta WHERE status = 1")
+    @Query("SELECT * FROM Encuesta WHERE deletedAt = ''")
     List<Encuesta> getAll();
 
-    @Query("SELECT * FROM Encuesta WHERE status = 1 AND localChange = 1")
+    @Query("SELECT * FROM Encuesta WHERE deletedAt = '' AND localChange = 1")
     List<Encuesta> getLocallyChanged();
 
-    @Query("SELECT Count(*) FROM Encuesta WHERE status = 1")
+    @Query("SELECT Count(*) FROM Encuesta WHERE deletedAt = ''")
     int getCountAll();
 
-    @Query("SELECT Count(*) FROM Encuesta WHERE status = 1 AND localChange = 1")
+    @Query("SELECT Count(*) FROM Encuesta WHERE deletedAt = '' AND localChange = 1")
     int getCountChanged();
 
-    @Query("SELECT * FROM Encuesta WHERE id = :id AND status = 1")
+    @Query("SELECT * FROM Encuesta WHERE id = :id AND deletedAt = ''")
     Encuesta getById(int id);
 
     @Query("DELETE FROM Encuesta WHERE id = :id")

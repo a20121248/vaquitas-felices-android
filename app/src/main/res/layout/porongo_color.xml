@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginStart="@dimen/margin_default"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="¿Que color tiene la leche?"
+        android:textSize="@dimen/text_size_large" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/bt_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/red"
+        android:minHeight="@dimen/min_button_height"
+        android:minWidth="@dimen/min_button_width"
+        android:padding="@dimen/margin_default"
+        android:text="Rojo"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_button_size" />
+
+    <Button
+        android:id="@+id/bt_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/yellow"
+        android:minHeight="@dimen/min_button_height"
+        android:minWidth="@dimen/min_button_width"
+        android:padding="@dimen/margin_default"
+        android:text="Amarillo"
+        android:textSize="@dimen/text_button_size" />
+
+    <Button
+        android:id="@+id/bt_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/min_button_height"
+        android:minWidth="@dimen/min_button_width"
+        android:padding="@dimen/margin_default"
+        android:text="Blanco"
+        android:textSize="@dimen/text_button_size" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="2" />
+
+</LinearLayout>

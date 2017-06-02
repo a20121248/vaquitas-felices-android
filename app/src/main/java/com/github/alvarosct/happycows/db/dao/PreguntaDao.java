@@ -30,19 +30,19 @@ public interface PreguntaDao extends BaseDao<Pregunta> {
     @Delete
     void delete(Pregunta entity);
 
-    @Query("SELECT * FROM Pregunta WHERE status = 1")
+    @Query("SELECT * FROM Pregunta WHERE deletedAt = ''")
     List<Pregunta> getAll();
 
-    @Query("SELECT * FROM Pregunta WHERE status = 1 AND localChange = 1")
+    @Query("SELECT * FROM Pregunta WHERE deletedAt = '' AND localChange = 1")
     List<Pregunta> getLocallyChanged();
 
-    @Query("SELECT Count(*) FROM Pregunta WHERE status = 1")
+    @Query("SELECT Count(*) FROM Pregunta WHERE deletedAt = ''")
     int getCountAll();
 
-    @Query("SELECT Count(*) FROM Pregunta WHERE status = 1 AND localChange = 1")
+    @Query("SELECT Count(*) FROM Pregunta WHERE deletedAt = '' AND localChange = 1")
     int getCountChanged();
 
-    @Query("SELECT * FROM Pregunta WHERE id = :id AND status = 1")
+    @Query("SELECT * FROM Pregunta WHERE id = :id AND deletedAt = ''")
     Pregunta getById(int id);
 
     @Query("DELETE FROM Pregunta WHERE id = :id")

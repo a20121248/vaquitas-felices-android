@@ -6,12 +6,14 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.github.alvarosct.happycows.db.dao.BaseDao;
-import com.github.alvarosct.happycows.db.dao.CalidadDao;
+import com.github.alvarosct.happycows.db.dao.TableMasterDao;
+import com.github.alvarosct.happycows.db.dao.UserDao;
 import com.github.alvarosct.happycows.db.dao.EncuestaDao;
 import com.github.alvarosct.happycows.db.dao.GanaderoDao;
 import com.github.alvarosct.happycows.db.dao.PorongoDao;
 import com.github.alvarosct.happycows.db.dao.PreguntaDao;
-import com.github.alvarosct.happycows.db.models.Calidad;
+import com.github.alvarosct.happycows.db.models.TableMaster;
+import com.github.alvarosct.happycows.db.models.User;
 import com.github.alvarosct.happycows.db.models.Encuesta;
 import com.github.alvarosct.happycows.db.models.Ganadero;
 import com.github.alvarosct.happycows.db.models.Porongo;
@@ -24,8 +26,9 @@ import java.lang.reflect.Method;
  */
 
 @Database(entities = {
+        TableMaster.class,
         Porongo.class, Encuesta.class, Ganadero.class,
-        Pregunta.class, Calidad.class}, version = 1)
+        Pregunta.class, User.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
@@ -41,6 +44,8 @@ public abstract class AppDatabase extends RoomDatabase {
         return null;
     }
 
+    public abstract TableMasterDao tableMasterModel();
+
     public abstract PorongoDao porongoModel();
 
     public abstract EncuestaDao encuestaModel();
@@ -49,7 +54,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract PreguntaDao preguntaModel();
 
-    public abstract CalidadDao calidadModel();
+    public abstract UserDao userModel();
 
     public static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {
@@ -59,6 +64,9 @@ public abstract class AppDatabase extends RoomDatabase {
                             .allowMainThreadQueries()
                             .build();
         }
+        return INSTANCE;
+    }
+    public static AppDatabase getInstance() {
         return INSTANCE;
     }
 

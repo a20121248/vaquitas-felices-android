@@ -18,31 +18,30 @@ package com.github.alvarosct.happycows.db;
 
 import android.support.annotation.NonNull;
 
-import com.github.alvarosct.happycows.db.models.Porongo;
-
 public class DatabaseInitializer {
 
     public static void populateSync(@NonNull final AppDatabase db) {
         populateWithTestData(db);
     }
 
+
+
+
+
+
+    //    SHOULD NOT BE CALLED
     private static void populateWithTestData(AppDatabase db) {
 
 //        TODO: REMOVE THIS! DUMMY DATA UNTIL THE WS ARE DONE!
-        if (db.porongoModel().getCountAll() == 0) {
+        if (db.ganaderoModel().getCountAll() == 0) {
 
-            addPorongo(db, "Gonzales", 33);
-            addPorongo(db, "Agapito", 34);
-            addPorongo(db, "Vega", 35);
+            addGanadero(db, "Gonzales", 33);
+            addGanadero(db, "Agapito", 34);
+            addGanadero(db, "Vega", 35);
         }
 
     }
 
-    private static void addPorongo(AppDatabase db, String gonzales, int i1) {
-        Porongo p = new Porongo();
-        p.setFamilia(gonzales);
-        p.setNumero(i1);
-        db.modelByName("Porongo").insert(p);
-//        db.porongoModel().insert(p);
+    private static void addGanadero(AppDatabase db, String gonzales, int i1) {
     }
 }

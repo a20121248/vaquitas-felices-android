@@ -30,19 +30,19 @@ public interface PorongoDao extends BaseDao<Porongo> {
     @Delete
     void delete(Porongo entity);
 
-    @Query("SELECT * FROM Porongo WHERE status = 1")
+    @Query("SELECT * FROM Porongo WHERE deletedAt = ''")
     List<Porongo> getAll();
 
-    @Query("SELECT * FROM Porongo WHERE status = 1 AND localChange = 1")
+    @Query("SELECT * FROM Porongo WHERE deletedAt = '' AND localChange = 1")
     List<Porongo> getLocallyChanged();
 
-    @Query("SELECT Count(*) FROM Porongo WHERE status = 1")
+    @Query("SELECT Count(*) FROM Porongo WHERE deletedAt = ''")
     int getCountAll();
 
-    @Query("SELECT Count(*) FROM Porongo WHERE status = 1 AND localChange = 1")
+    @Query("SELECT Count(*) FROM Porongo WHERE deletedAt = '' AND localChange = 1")
     int getCountChanged();
 
-    @Query("SELECT * FROM Porongo WHERE id = :id AND status = 1")
+    @Query("SELECT * FROM Porongo WHERE id = :id AND deletedAt = ''")
     Porongo getById(int id);
 
     @Query("DELETE FROM Porongo WHERE id = :id")

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.db.models.Porongo;
+import com.github.alvarosct.happycows.db.models.Ganadero;
 
 import java.util.List;
 
@@ -17,11 +17,11 @@ import java.util.List;
  * Created by Android-Dev on 26/05/2017.
  */
 
-public class PorongoAdapter extends RecyclerView.Adapter<PorongoAdapter.ViewHolder> {
-    protected List<Porongo> objList;
+public class GanaderoAdapter extends RecyclerView.Adapter<GanaderoAdapter.ViewHolder> {
+    protected List<Ganadero> objList;
     protected Activity activity;
 
-    public PorongoAdapter(Activity activity, List<Porongo> objList) {
+    public GanaderoAdapter(Activity activity, List<Ganadero> objList) {
         this.objList = objList;
         this.activity = activity;
     }
@@ -35,15 +35,15 @@ public class PorongoAdapter extends RecyclerView.Adapter<PorongoAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Porongo obj = objList.get(position);
+        final Ganadero obj = objList.get(position);
 
-        holder.tv_heading.setText("Porongo #" + obj.getId());
-        holder.tv_subheading.setText(obj.getFamilia());
+        holder.tv_heading.setText(obj.getNombres());
+        holder.tv_subheading.setText(obj.getApellidos());
 
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(activity, CalidadActivity.class);
+                Intent i = new Intent(activity, PorongoDisplayActivity.class);
                 i.putExtra("ID", obj.getId());
                 activity.startActivity(i);
             }

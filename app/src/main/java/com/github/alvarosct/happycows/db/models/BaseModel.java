@@ -2,6 +2,9 @@ package com.github.alvarosct.happycows.db.models;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.text.TextUtils;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by Android-Dev on 26/05/2017.
@@ -15,8 +18,37 @@ public class BaseModel {
 
     private boolean localChange;
 
-    private int status = 1;
+    @SerializedName("created_at")
+    private String created;
+    @SerializedName("updated_at")
+    private String modified;
+    @SerializedName("deleted_at")
+    private String deletedAt;
 
+
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public String getModified() {
+        return modified;
+    }
+
+    public void setModified(String modified) {
+        this.modified = modified;
+    }
+
+    public String getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(String deletedAt) {
+        this.deletedAt = deletedAt;
+    }
 
     public int getId() {
         return id;
@@ -34,11 +66,11 @@ public class BaseModel {
         this.localChange = localChange;
     }
 
-    public int getStatus() {
-        return status;
+    public boolean isLocalCreate() {
+        return localChange && TextUtils.isEmpty(created);
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public boolean idNull(){
+        return id <= 0;
     }
 }

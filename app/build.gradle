@@ -51,4 +51,5 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$rootProject.converterGsonVersion"
     compile "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
     compile "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+    compile 'com.android.support:support-v4:25.3.1'
 }
