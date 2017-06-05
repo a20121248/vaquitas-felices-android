@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.db.models.Ganadero;
 
@@ -40,6 +41,8 @@ public class GanaderoAdapter extends RecyclerView.Adapter<GanaderoAdapter.ViewHo
         holder.tv_heading.setText(obj.getNombres());
         holder.tv_subheading.setText(obj.getApellidos());
 
+        holder.iv_cloud.setVisibility(UtilMethods.getVisibility(obj.isLocal()));
+
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,12 +62,14 @@ public class GanaderoAdapter extends RecyclerView.Adapter<GanaderoAdapter.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_heading, tv_subheading;
         private View holder;
+        private View iv_cloud;
 
         public ViewHolder(View v) {
             super(v);
             holder = v.findViewById(R.id.holder);
             tv_heading = (TextView) v.findViewById(R.id.tv_heading);
             tv_subheading = (TextView) v.findViewById(R.id.tv_subheading);
+            iv_cloud = v.findViewById(R.id.iv_cloud);
         }
     }
 

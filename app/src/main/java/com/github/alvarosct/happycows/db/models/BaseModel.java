@@ -1,6 +1,7 @@
 package com.github.alvarosct.happycows.db.models;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.text.TextUtils;
 
@@ -70,7 +71,13 @@ public class BaseModel {
         return localChange && TextUtils.isEmpty(created);
     }
 
-    public boolean idNull(){
+    public boolean idNull() {
         return id <= 0;
     }
+
+    @Ignore
+    public boolean isLocal() {
+        return TextUtils.isEmpty(created);
+    }
+
 }
