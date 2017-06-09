@@ -2,6 +2,7 @@ package com.github.alvarosct.happycows.db.models;
 
 import android.arch.persistence.room.Entity;
 
+import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -11,12 +12,18 @@ import com.google.gson.annotations.SerializedName;
 @Entity
 public class Porongo extends BaseModel {
 
+    public static final String RED = "Roja";
+    public static final String WHITE = "Blanca";
+    public static final String YELLOW = "Amarillla";
+    public static final String GOOD = "Bueno";
+    public static final String BAD = "Malo";
+
 
     //    @SerializedName("id_orden_prod")
 //    public String id_orden_prod;
 
     @SerializedName("fecha_hora_ordeno")
-    public String fechaHoraOrdeno = "10-10-2017 05:10";
+    private String fechaHoraOrdeno;
 
 
     @SerializedName("id_ganadero")
@@ -33,18 +40,31 @@ public class Porongo extends BaseModel {
     private int devolucion = 0;
 
     @SerializedName("alcohol")
-    private int alcohol;
+    private double alcohol;
     @SerializedName("porc_brix")
     private double brix;
     @SerializedName("acidez")
-    public int acidez = 100;
+    private int acidez;
     @SerializedName("ph")
-    public double ph = 1.3;
+    private double ph ;
     @SerializedName("densidad")
-    public int densidad = 234;
-    @SerializedName("limpieza")
-    public int limpieza = 3;
+    private int densidad ;
 
+    @SerializedName("limpieza")
+    private int limpieza ;
+
+    @SerializedName("step")
+    private int step = 0;
+
+
+
+    public int getStep() {
+        return step;
+    }
+
+    public void setStep(int step) {
+        this.step = step;
+    }
 
     public int getGanaderoId() {
         return ganaderoId;
@@ -78,11 +98,11 @@ public class Porongo extends BaseModel {
         this.olor = olor;
     }
 
-    public int getAlcohol() {
+    public double getAlcohol() {
         return alcohol;
     }
 
-    public void setAlcohol(int alcohol) {
+    public void setAlcohol(double alcohol) {
         this.alcohol = alcohol;
     }
 

@@ -2,6 +2,7 @@ package com.github.alvarosct.happycows.data.source;
 
 import android.support.annotation.NonNull;
 
+import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.source.callbacks.WrapFallback;
 import com.github.alvarosct.happycows.db.models.Ganadero;
@@ -38,6 +39,9 @@ public class DataSourceRepository implements DataSource {
 
     @Override
     public void updatePorongo(final Porongo entity, final BaseCallback<Porongo> callback) {
+
+        entity.setFechaHoraOrdeno(UtilMethods.calendarToString());
+
         dataSourceRemote.updatePorongo(entity, new WrapFallback<Porongo>(callback) {
             @Override
             public void onLocalDB() {

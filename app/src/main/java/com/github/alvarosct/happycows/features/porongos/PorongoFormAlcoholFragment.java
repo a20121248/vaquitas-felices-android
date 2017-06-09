@@ -56,7 +56,7 @@ public class PorongoFormAlcoholFragment extends Fragment {
 
                     String value = textView.getText().toString();
                     if (!value.isEmpty()) {
-                        activity.getPorongo().setAlcohol(Integer.parseInt(value));
+                        activity.getPorongo().setAlcohol(Double.parseDouble(value));
                         activity.completeStep(3);
                     } else {
                         UtilMethods.showToast("El campo no puede esta vacío.");

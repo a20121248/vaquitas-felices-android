@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.alvarosct.happycows.R;
+import com.github.alvarosct.happycows.db.models.Porongo;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -49,13 +50,13 @@ public class PorongoFormColorFragment extends Fragment {
         String color = "";
         switch (view.getId()) {
             case R.id.bt_red:
-                color = "Rojo";
+                color = Porongo.RED;
                 break;
             case R.id.bt_yellow:
-                color = "Amarilla";
+                color = Porongo.YELLOW;
                 break;
             case R.id.bt_white:
-                color = "Blanco";
+                color = Porongo.WHITE;
                 break;
         }
 
