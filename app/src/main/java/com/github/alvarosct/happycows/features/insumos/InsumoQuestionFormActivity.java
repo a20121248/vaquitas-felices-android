@@ -10,10 +10,8 @@ import android.view.WindowManager;
 
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.db.AppDatabase;
-import com.github.alvarosct.happycows.db.models.Pregunta;
-import com.github.alvarosct.happycows.db.models.PreguntaInsumo;
-import com.github.alvarosct.happycows.features.sic.PreguntaSicFragment;
+import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.models.PreguntaInsumo;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;

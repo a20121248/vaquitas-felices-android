@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.github.alvarosct.happycows.db;
+package com.github.alvarosct.happycows.data.db;
 
 import android.support.annotation.NonNull;
 
-import com.github.alvarosct.happycows.db.models.Insumo;
-import com.github.alvarosct.happycows.db.models.Pregunta;
-import com.github.alvarosct.happycows.db.models.PreguntaInsumo;
+import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.Pregunta;
+import com.github.alvarosct.happycows.data.db.models.PreguntaInsumo;
 
 public class DatabaseInitializer {
 

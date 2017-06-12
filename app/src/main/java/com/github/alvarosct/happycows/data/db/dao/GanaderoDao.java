@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.db.dao;
+package com.github.alvarosct.happycows.data.db.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -7,7 +7,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.github.alvarosct.happycows.db.models.Ganadero;
+import com.github.alvarosct.happycows.data.db.models.Ganadero;
 
 import java.util.List;
 

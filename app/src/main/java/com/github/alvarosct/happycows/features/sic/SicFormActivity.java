@@ -10,11 +10,8 @@ import android.view.WindowManager;
 
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
-import com.github.alvarosct.happycows.db.AppDatabase;
-import com.github.alvarosct.happycows.db.models.Porongo;
-import com.github.alvarosct.happycows.db.models.Pregunta;
-import com.github.alvarosct.happycows.utils.Injector;
+import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;

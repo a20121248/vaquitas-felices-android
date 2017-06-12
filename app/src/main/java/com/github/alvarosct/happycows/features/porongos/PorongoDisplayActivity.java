@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.db.models.Porongo;
+import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.google.gson.Gson;
 
 import butterknife.BindView;

@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.ascthelper.utils.dialogs.DialogCustom;
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.features.main.MainActivity;
+import com.github.alvarosct.happycows.features.main.MenuActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -43,7 +43,7 @@ public class SyncDatabaseActivity extends AppCompatActivity {
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(SyncDatabaseActivity.this, MainActivity.class);
+                Intent i = new Intent(SyncDatabaseActivity.this, MenuActivity.class);
                 startActivity(i);
                 finish();
             }

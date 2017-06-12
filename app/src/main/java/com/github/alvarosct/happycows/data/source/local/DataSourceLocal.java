@@ -3,11 +3,11 @@ package com.github.alvarosct.happycows.data.source.local;
 import com.github.alvarosct.happycows.data.source.DataSource;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.source.remote.ApiError;
-import com.github.alvarosct.happycows.db.AppDatabase;
-import com.github.alvarosct.happycows.db.models.Ganadero;
-import com.github.alvarosct.happycows.db.models.Porongo;
-import com.github.alvarosct.happycows.db.models.Pregunta;
-import com.github.alvarosct.happycows.db.models.User;
+import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.models.Ganadero;
+import com.github.alvarosct.happycows.data.db.models.Porongo;
+import com.github.alvarosct.happycows.data.db.models.Pregunta;
+import com.github.alvarosct.happycows.data.db.models.User;
 import com.github.alvarosct.happycows.utils.UtilMethodsCustom;
 
 import java.util.List;

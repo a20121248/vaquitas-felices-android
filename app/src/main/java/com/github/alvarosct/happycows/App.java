@@ -4,9 +4,9 @@ import android.app.Application;
 import android.content.Context;
 
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
-import com.github.alvarosct.happycows.db.AppDatabase;
-import com.github.alvarosct.happycows.db.DatabaseInitializer;
-import com.github.alvarosct.happycows.db.models.TableMaster;
+import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.DatabaseInitializer;
+import com.github.alvarosct.happycows.data.db.models.TableMaster;
 import com.github.alvarosct.happycows.utils.Constants;
 
 import java.util.ArrayList;

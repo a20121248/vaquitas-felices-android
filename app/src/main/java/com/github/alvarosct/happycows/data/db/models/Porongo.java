@@ -1,8 +1,7 @@
-package com.github.alvarosct.happycows.db.models;
+package com.github.alvarosct.happycows.data.db.models;
 
 import android.arch.persistence.room.Entity;
 
-import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.google.gson.annotations.SerializedName;
 
 /**

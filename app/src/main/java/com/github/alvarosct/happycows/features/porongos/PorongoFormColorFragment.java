@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.db.models.Porongo;
+import com.github.alvarosct.happycows.data.db.models.Porongo;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

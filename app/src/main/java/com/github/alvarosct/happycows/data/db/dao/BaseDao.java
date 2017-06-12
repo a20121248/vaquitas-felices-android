@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.db.dao;
+package com.github.alvarosct.happycows.data.db.dao;
 
 import java.util.List;
 

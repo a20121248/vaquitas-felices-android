@@ -19,9 +19,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".features.main.MainActivity" />
+        <activity android:name=".features.main.MenuActivity" />
+
         <activity android:name=".features.porongos.GanaderosPorongosActivity" />
         <activity android:name=".features.porongos.PorongoFormActivity" />
+
+
         <activity android:name=".features.sic.GanaderosSicActivity" />
         <activity android:name=".features.sic.SicFormActivity" />
         <activity android:name=".features.insumos.InsumoListActivity" />

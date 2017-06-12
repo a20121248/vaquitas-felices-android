@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 import com.github.alvarosct.happycows.data.source.DataSourceRepository;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.source.remote.ApiError;
-import com.github.alvarosct.happycows.db.AppDatabase;
-import com.github.alvarosct.happycows.db.models.TableMaster;
+import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.models.TableMaster;
 import com.github.alvarosct.happycows.utils.Injector;
 
 import java.lang.reflect.Method;

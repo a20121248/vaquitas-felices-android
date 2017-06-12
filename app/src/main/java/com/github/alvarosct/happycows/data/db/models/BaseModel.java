@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.db.models;
+package com.github.alvarosct.happycows.data.db.models;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;

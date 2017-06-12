@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.db.models.PreguntaInsumo;
+import com.github.alvarosct.happycows.data.db.models.PreguntaInsumo;
 import com.google.gson.Gson;
 
 import butterknife.BindView;

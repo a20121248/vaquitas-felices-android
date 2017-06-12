@@ -8,11 +8,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
-import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
-import com.github.alvarosct.happycows.db.AppDatabase;
-import com.github.alvarosct.happycows.db.models.Porongo;
+import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.utils.Injector;
 
 import java.util.ArrayList;

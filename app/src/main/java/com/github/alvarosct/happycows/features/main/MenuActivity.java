@@ -13,7 +13,7 @@ import com.github.alvarosct.happycows.features.sic.GanaderosSicActivity;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
 
     @Override
@@ -28,15 +28,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent;
         switch (view.getId()) {
             case R.id.bt_sic:
-                intent = new Intent(MainActivity.this, GanaderosSicActivity.class);
+                intent = new Intent(MenuActivity.this, GanaderosSicActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_insumos:
-                intent = new Intent(MainActivity.this, InsumoListActivity.class);
+                intent = new Intent(MenuActivity.this, InsumoListActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_qa:
-                intent = new Intent(MainActivity.this, GanaderosPorongosActivity.class);
+                intent = new Intent(MenuActivity.this, GanaderosPorongosActivity.class);
                 startActivity(intent);
                 break;
         }

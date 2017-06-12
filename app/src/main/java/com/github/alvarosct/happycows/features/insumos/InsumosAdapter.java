@@ -6,13 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.db.models.Insumo;
-import com.github.alvarosct.happycows.features.sic.SicFormActivity;
+import com.github.alvarosct.happycows.data.db.models.Insumo;
 
 import java.util.List;
 

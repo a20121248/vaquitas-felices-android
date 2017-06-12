@@ -1,27 +1,27 @@
-package com.github.alvarosct.happycows.db;
+package com.github.alvarosct.happycows.data.db;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.github.alvarosct.happycows.db.dao.BaseDao;
-import com.github.alvarosct.happycows.db.dao.EncuestaDao;
-import com.github.alvarosct.happycows.db.dao.GanaderoDao;
-import com.github.alvarosct.happycows.db.dao.InsumoDao;
-import com.github.alvarosct.happycows.db.dao.PorongoDao;
-import com.github.alvarosct.happycows.db.dao.PreguntaDao;
-import com.github.alvarosct.happycows.db.dao.PreguntaInsumoDao;
-import com.github.alvarosct.happycows.db.dao.TableMasterDao;
-import com.github.alvarosct.happycows.db.dao.UserDao;
-import com.github.alvarosct.happycows.db.models.Encuesta;
-import com.github.alvarosct.happycows.db.models.Ganadero;
-import com.github.alvarosct.happycows.db.models.Insumo;
-import com.github.alvarosct.happycows.db.models.Porongo;
-import com.github.alvarosct.happycows.db.models.Pregunta;
-import com.github.alvarosct.happycows.db.models.PreguntaInsumo;
-import com.github.alvarosct.happycows.db.models.TableMaster;
-import com.github.alvarosct.happycows.db.models.User;
+import com.github.alvarosct.happycows.data.db.dao.BaseDao;
+import com.github.alvarosct.happycows.data.db.dao.EncuestaDao;
+import com.github.alvarosct.happycows.data.db.dao.GanaderoDao;
+import com.github.alvarosct.happycows.data.db.dao.InsumoDao;
+import com.github.alvarosct.happycows.data.db.dao.PorongoDao;
+import com.github.alvarosct.happycows.data.db.dao.PreguntaDao;
+import com.github.alvarosct.happycows.data.db.dao.PreguntaInsumoDao;
+import com.github.alvarosct.happycows.data.db.dao.TableMasterDao;
+import com.github.alvarosct.happycows.data.db.dao.UserDao;
+import com.github.alvarosct.happycows.data.db.models.Encuesta;
+import com.github.alvarosct.happycows.data.db.models.Ganadero;
+import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.Porongo;
+import com.github.alvarosct.happycows.data.db.models.Pregunta;
+import com.github.alvarosct.happycows.data.db.models.PreguntaInsumo;
+import com.github.alvarosct.happycows.data.db.models.TableMaster;
+import com.github.alvarosct.happycows.data.db.models.User;
 
 import java.lang.reflect.Method;
 

@@ -10,8 +10,7 @@ import android.widget.TextView;
 
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.db.models.Ganadero;
-import com.github.alvarosct.happycows.features.porongos.PorongoFormActivity;
+import com.github.alvarosct.happycows.data.db.models.Ganadero;
 
 import java.util.List;
 

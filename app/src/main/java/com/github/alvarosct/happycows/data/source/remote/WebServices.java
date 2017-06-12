@@ -1,9 +1,9 @@
 package com.github.alvarosct.happycows.data.source.remote;
 
-import com.github.alvarosct.happycows.db.models.Ganadero;
-import com.github.alvarosct.happycows.db.models.Porongo;
-import com.github.alvarosct.happycows.db.models.Pregunta;
-import com.github.alvarosct.happycows.db.models.User;
+import com.github.alvarosct.happycows.data.db.models.Ganadero;
+import com.github.alvarosct.happycows.data.db.models.Porongo;
+import com.github.alvarosct.happycows.data.db.models.Pregunta;
+import com.github.alvarosct.happycows.data.db.models.User;
 
 import java.util.List;
 
