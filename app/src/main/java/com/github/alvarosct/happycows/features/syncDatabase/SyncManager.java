@@ -24,11 +24,11 @@ public class SyncManager {
     protected int itemsToDownload = 0;
     protected int itemsDownloadSuccess = 0;
     protected int itemsDownloadFailure = 0;
-    protected SyncDatabaseActivity.ISync iSync;
+    protected ISync iSync;
 
     private DataSourceRepository mRepository = Injector.provideRepository();
 
-    public SyncManager(@NonNull SyncDatabaseActivity.ISync iSync) {
+    public SyncManager(@NonNull ISync iSync) {
         this.iSync = iSync;
     }
 

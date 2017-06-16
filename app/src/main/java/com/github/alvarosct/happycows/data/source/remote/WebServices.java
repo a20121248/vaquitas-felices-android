@@ -1,6 +1,7 @@
 package com.github.alvarosct.happycows.data.source.remote;
 
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
+import com.github.alvarosct.happycows.data.db.models.Insumo;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.User;
@@ -47,5 +48,11 @@ public interface WebServices {
 
     @GET(Urls.GANADEROS)
     Call<List<Pregunta>> listPregunta(@Query("update") String updated);
+
+
+
+
+    @GET(Urls.INSUMOS)
+    Call<List<Insumo>> listInsumo();
 
 }

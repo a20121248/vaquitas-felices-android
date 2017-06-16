@@ -22,4 +22,7 @@ public class Constants {
     public static final String PREF_FLAG_FIRST = "FIRST_TIME";
     public static final String PREF_FLAG_BD_SYNCED = "BD_LOCAL";
 
+    public static final String RESULT_INSUMO = "RESULT_INSUMO";
+    public static final int INTENT_SELECT_MATERIAL = 1234;
+
 }

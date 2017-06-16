@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/group_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_ventas"
+            android:icon="@drawable/ic_add"
+            android:title="Registrar Ventas" />
+    </group>
+
+    <group
+        android:id="@+id/group_2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_materiales"
+            android:icon="@drawable/ic_add"
+            android:title="Materiales usados" />
+        <item
+            android:id="@+id/nav_necesidades"
+            android:icon="@drawable/ic_add"
+            android:title="Necesidades de productos" />
+        <item
+            android:id="@+id/nav_degustaciones"
+            android:icon="@drawable/ic_add"
+            android:title="Registrar degustaciones" />
+    </group>
+
+    <group
+        android:id="@+id/group_3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_nuevo_usuario"
+            android:icon="@drawable/ic_add"
+            android:title="Nuevo usuario" />
+    </group>
+
+    <group
+        android:id="@+id/group_4"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_sync"
+            android:icon="@drawable/ic_add"
+            android:title="Sincronizar" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_add"
+            android:title="Cerrar Sesión" />
+    </group>
+
+</menu>

@@ -1,5 +1,7 @@
 package com.github.alvarosct.happycows.data.source.local;
 
+import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
 import com.github.alvarosct.happycows.data.source.DataSource;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.source.remote.ApiError;
@@ -77,5 +79,15 @@ public class DataSourceLocal implements DataSource {
     @Override
     public void listPregunta(boolean loadTableFlg, BaseCallback<List<Pregunta>> callback) {
         //DO NOT IMPLEMENT THIS METHOD
+    }
+
+    @Override
+    public void listInsumo(boolean loadTableFlg, BaseCallback<List<Insumo>> callback) {
+
+    }
+
+    @Override
+    public void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<String> callback) {
+
     }
 }

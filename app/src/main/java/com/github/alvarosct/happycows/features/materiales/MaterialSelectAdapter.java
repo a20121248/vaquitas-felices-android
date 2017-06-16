@@ -1,16 +1,14 @@
-package com.github.alvarosct.happycows.features.insumos;
+package com.github.alvarosct.happycows.features.materiales;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.utils.IDetail;
 
 import java.util.List;
 
@@ -18,19 +16,19 @@ import java.util.List;
  * Created by Android-Dev on 26/05/2017.
  */
 
-public class InsumosAdapter extends RecyclerView.Adapter<InsumosAdapter.ViewHolder> {
+public class MaterialSelectAdapter extends RecyclerView.Adapter<MaterialSelectAdapter.ViewHolder> {
     protected List<Insumo> objList;
-    protected Activity activity;
+    protected IDetail<Insumo> iDetail;
 
-    public InsumosAdapter(Activity activity, List<Insumo> objList) {
+    public MaterialSelectAdapter(IDetail<Insumo> iAdapterDetail, List<Insumo> objList) {
         this.objList = objList;
-        this.activity = activity;
+        this.iDetail = iAdapterDetail;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.row_list, parent, false);
+                .inflate(R.layout.simple_row_list, parent, false);
         return new ViewHolder(v);
     }
 
@@ -39,16 +37,11 @@ public class InsumosAdapter extends RecyclerView.Adapter<InsumosAdapter.ViewHold
         final Insumo obj = objList.get(position);
 
         holder.tv_heading.setText(obj.getNombres());
-        holder.tv_subheading.setText(obj.getNombres());
-
-        holder.iv_cloud.setVisibility(UtilMethods.getVisibility(obj.isLocal()));
 
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(activity, InsumoQuestionFormActivity.class);
-                i.putExtra("ID", obj.getId());
-                activity.startActivity(i);
+                iDetail.openDetail(obj);
             }
         });
     }

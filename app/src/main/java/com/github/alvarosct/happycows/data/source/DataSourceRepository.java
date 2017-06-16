@@ -3,6 +3,8 @@ package com.github.alvarosct.happycows.data.source;
 import android.support.annotation.NonNull;
 
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
+import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.source.callbacks.WrapFallback;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
@@ -81,6 +83,17 @@ public class DataSourceRepository implements DataSource {
     @Override
     public void listPregunta(boolean loadTableFlg, BaseCallback<List<Pregunta>> callback) {
         (loadTableFlg ? dataSourceRemote : dataSourceLocal).listPregunta(loadTableFlg, callback);
+    }
+
+    @Override
+    public void listInsumo(boolean loadTableFlg, BaseCallback<List<Insumo>> callback) {
+        dataSourceRemote.listInsumo(false, callback);
+    }
+
+    @Override
+    public void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<String> callback) {
+        dataSourceRemote.registerMaterialesUsados(insumoItemList, callback);
+
     }
 
 }

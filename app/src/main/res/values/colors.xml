@@ -6,5 +6,5 @@
 
     <color name="red">#d50000</color>
     <color name="yellow">#ffab00</color>
-    <color name="black">#000000</color>
+    <color name="bg_grey">#eeeeee</color>
 </resources>

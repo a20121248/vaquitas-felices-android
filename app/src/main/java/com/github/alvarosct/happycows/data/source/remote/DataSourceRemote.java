@@ -1,5 +1,9 @@
 package com.github.alvarosct.happycows.data.source.remote;
 
+import android.os.Handler;
+
+import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
 import com.github.alvarosct.happycows.data.source.DataSource;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
@@ -64,5 +68,22 @@ public class DataSourceRemote implements DataSource {
     public void listPregunta(boolean loadTableFlg, BaseCallback<List<Pregunta>> callback) {
         String updated = AppDatabase.getInstance().tableMasterModel().getLastSyncForTable("Pregunta");
         RequestManager.getWebServices().listPregunta(updated).enqueue(callback);
+    }
+
+    @Override
+    public void listInsumo(boolean loadTableFlg, BaseCallback<List<Insumo>> callback) {
+        RequestManager.getWebServices().listInsumo().enqueue(callback);
+    }
+
+    @Override
+    public void registerMaterialesUsados(List<InsumoItem> insumoItemList, final BaseCallback<String> callback) {
+
+//        TODO: REPLACE WITH WS
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                callback.onSuccess(true, "Se han registrado correctamente los materiales.");
+            }
+        }, 1000);
     }
 }

@@ -69,4 +69,8 @@ public class PreferenceManager {
         return mPreferences.getBoolean(flagName, false);
     }
 
+    public boolean isUserLoged() {
+//        TODO: Implement LOGIN
+        return true;
+    }
 }

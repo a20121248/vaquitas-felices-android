@@ -1,6 +1,8 @@
 package com.github.alvarosct.happycows.data.source;
 
 
+import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
@@ -26,4 +28,12 @@ public interface DataSource {
     void listUser(boolean loadTableFlg, BaseCallback<List<User>> callback);
 
     void listPregunta(boolean loadTableFlg, BaseCallback<List<Pregunta>> callback);
+
+
+
+
+
+    void listInsumo(boolean loadTableFlg, BaseCallback<List<Insumo>> callback);
+
+    void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<String> callback);
 }

@@ -37,7 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(null);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         setAction(getIntent().getStringExtra(Constants.BUNDLE_ACTION));
-        twoPaneFlg = getResources().getBoolean(R.bool.has_two_panes);
+        twoPaneFlg = false;
     }
 
     protected boolean isTwoPaneView() {
@@ -124,8 +124,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         boolean secondaryFlg = fragmentSecondary != null;
-        boolean actionShow = fragmentSecondary.getAction().equals(Constants.ACTION_SHOW);
-        boolean twoPane = getResources().getBoolean(R.bool.has_two_panes);
+        boolean twoPane = false;
 
         if (secondaryFlg && !twoPane) {
             fragmentSecondary.closeForm(true);
@@ -143,12 +142,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public Toolbar getToolbar(boolean primary) {
         return primary ? tbPrimary : tbSecondary;
-    }
-
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     //    TODO: Check Dependencies and then Remove. Unsed.

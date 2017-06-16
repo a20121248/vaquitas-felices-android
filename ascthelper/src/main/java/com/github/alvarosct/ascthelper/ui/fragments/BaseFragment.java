@@ -27,7 +27,7 @@ public class BaseFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         parent = (BaseActivity) getActivity();
-        twoPaneFlg = getResources().getBoolean(R.bool.has_two_panes);
+        twoPaneFlg = false;
         setupVariables();
     }
 

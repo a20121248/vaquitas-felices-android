@@ -8,4 +8,6 @@
     <dimen name="margin_default">16dp</dimen>
     <dimen name="margin_large">32dp</dimen>
     <dimen name="text_menu">24sp</dimen>
+    <dimen name="menu_min_height">120dp</dimen>
+    <dimen name="button_elevation">4dp</dimen>
 </resources>

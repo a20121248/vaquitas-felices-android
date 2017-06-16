@@ -1,21 +1,20 @@
 package com.github.alvarosct.happycows.features.syncDatabase;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.github.alvarosct.ascthelper.ui.activities.BaseOnePanelChildActivity;
 import com.github.alvarosct.happycows.R;
+import com.github.alvarosct.happycows.features.main.NavigationActivity;
 
-import butterknife.ButterKnife;
 
-
-public class SyncDatabaseActivity extends BaseOnePanelChildActivity {
-
+public class SyncDatabaseNavActivity extends NavigationActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public int getLayout() {
+        return R.layout.base_activity_one_panel;
+    }
 
+    @Override
+    public void setupContent() {
         Fragment fragment = new SyncDatabaseFragment();
         fragment.setArguments(getIntent().getExtras());
         showFragment(fragment, true);

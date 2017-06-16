@@ -43,19 +43,7 @@ public class DatabaseInitializer {
         addPreguntaInsumo(db, "¿Huele bien?");
         addPreguntaInsumo(db, "¿Fue entragado a tiempo?");
 
-//        TODO: REMOVE THIS! DUMMY DATA UNTIL THE WS ARE DONE!
-        addInsumos(db, "Fresa", "fruta");
-        addInsumos(db, "Platano", "fruta");
-        addInsumos(db, "Botella", "vidrio");
-        addInsumos(db, "Vaso", "vidrio");
-        addInsumos(db, "Etiqueta", "plastico");
-    }
 
-    private static void addInsumos(AppDatabase db, String nombre, String tipo) {
-        Insumo insumo = new Insumo();
-        insumo.setNombre(nombre);
-        insumo.setTipo(tipo);
-        db.insumoModel().insert(insumo);
     }
 
     private static void addPregunta(AppDatabase db, String preg) {

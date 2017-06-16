@@ -13,10 +13,13 @@ public class Urls {
 
     public static final String PORONGOS = "porongos";
     public static final String GANADEROS = "ranchers";
-
     public static final String PREGUNTAS = "preguntas";
+
     public static final String USERS = "user";
     public static final String ME = "user/me";
-
     public static final String ID = "id";
+
+
+
+    public static final String INSUMOS = "insumos";
 }

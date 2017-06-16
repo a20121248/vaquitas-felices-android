@@ -12,14 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".features.syncDatabase.SyncDatabaseActivity">
+
+        <activity android:name=".features.splash.SplashActivity"
+            android:theme="@style/AppTheme_FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".features.syncDatabase.SyncDatabaseActivity"/>
+        <activity android:name=".features.syncDatabase.SyncDatabaseNavActivity"/>
+        <activity android:name=".features.main.BlankActivity"/>
+        <activity android:name=".features.main.MenuBioActivity" />
 
-        <activity android:name=".features.main.MenuActivity" />
+        <activity android:name=".features.materiales.MaterialesRegistrarActivity" />
+        <activity android:name=".features.materiales.MaterialSelectActivity"
+            android:theme="@style/AppTheme_FullScreen" />
 
         <activity android:name=".features.porongos.GanaderosPorongosActivity" />
         <activity android:name=".features.porongos.PorongoFormActivity" />
