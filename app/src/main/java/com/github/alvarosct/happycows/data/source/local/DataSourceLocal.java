@@ -1,5 +1,6 @@
 package com.github.alvarosct.happycows.data.source.local;
 
+import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
 import com.github.alvarosct.happycows.data.source.DataSource;
@@ -88,6 +89,11 @@ public class DataSourceLocal implements DataSource {
 
     @Override
     public void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<String> callback) {
+
+    }
+
+    @Override
+    public void registerClient(Client client, BaseCallback<String> callback) {
 
     }
 }

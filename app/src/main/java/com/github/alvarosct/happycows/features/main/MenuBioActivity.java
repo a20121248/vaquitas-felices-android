@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.features.materiales.MaterialesRegistrarActivity;
+import com.github.alvarosct.happycows.features.usuarios.registrar.UsuarioRegistrarActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -34,7 +35,7 @@ public class MenuBioActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.bt_new_user:
-                intent = new Intent(MenuBioActivity.this, MaterialesRegistrarActivity.class);
+                intent = new Intent(MenuBioActivity.this, UsuarioRegistrarActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_necesidad:

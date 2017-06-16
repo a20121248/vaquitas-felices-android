@@ -2,6 +2,7 @@ package com.github.alvarosct.happycows.data.source.remote;
 
 import android.os.Handler;
 
+import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
 import com.github.alvarosct.happycows.data.source.DataSource;
@@ -83,6 +84,18 @@ public class DataSourceRemote implements DataSource {
             @Override
             public void run() {
                 callback.onSuccess(true, "Se han registrado correctamente los materiales.");
+            }
+        }, 1000);
+    }
+
+    @Override
+    public void registerClient(Client client, final BaseCallback<String> callback) {
+
+//        TODO: REPLACE WITH WS
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                callback.onSuccess(true, "Se han registrado correctamente el cliente.");
             }
         }, 1000);
     }

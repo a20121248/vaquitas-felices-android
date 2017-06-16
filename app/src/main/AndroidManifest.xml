@@ -29,6 +29,8 @@
         <activity android:name=".features.materiales.MaterialSelectActivity"
             android:theme="@style/AppTheme_FullScreen" />
 
+        <activity android:name=".features.usuarios.registrar.UsuarioRegistrarActivity" />
+
         <activity android:name=".features.porongos.GanaderosPorongosActivity" />
         <activity android:name=".features.porongos.PorongoFormActivity" />
 

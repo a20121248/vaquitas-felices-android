@@ -1,6 +1,7 @@
 package com.github.alvarosct.happycows.data.source;
 
 
+import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
@@ -36,4 +37,6 @@ public interface DataSource {
     void listInsumo(boolean loadTableFlg, BaseCallback<List<Insumo>> callback);
 
     void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<String> callback);
+
+    void registerClient(Client client, BaseCallback<String> callback);
 }
