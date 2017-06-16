@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.features.venta.productos;
+package com.github.alvarosct.happycows.features.productos;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,10 +15,8 @@ import com.github.alvarosct.ascthelper.utils.SimpleDividerItemDecoration;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.models.Producto;
-import com.github.alvarosct.happycows.features.materiales.MaterialSelectAdapter;
 import com.github.alvarosct.happycows.utils.Constants;
 import com.github.alvarosct.happycows.utils.IDetail;
-import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

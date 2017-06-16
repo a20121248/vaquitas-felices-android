@@ -19,10 +19,12 @@ import android.widget.TextView;
 
 import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.happycows.R;
+import com.github.alvarosct.happycows.features.degustaciones.DegustacionesRegistrarActivity;
 import com.github.alvarosct.happycows.features.materiales.MaterialesRegistrarActivity;
+import com.github.alvarosct.happycows.features.necesidades.NecesidadesRegistrarActivity;
 import com.github.alvarosct.happycows.features.syncDatabase.SyncDatabaseNavActivity;
 import com.github.alvarosct.happycows.features.usuarios.registrar.UsuarioRegistrarActivity;
-import com.github.alvarosct.happycows.features.venta.registrar.VentaRegistrarActivity;
+import com.github.alvarosct.happycows.features.venta.VentaRegistrarActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +56,8 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
         new DrawerItem(7, R.id.nav_ventas, 1, VentaRegistrarActivity.class);
         new DrawerItem(14, R.id.nav_nuevo_usuario, 1, UsuarioRegistrarActivity.class);
         new DrawerItem(9, R.id.nav_materiales, 1, MaterialesRegistrarActivity.class);
-        new DrawerItem(10, R.id.nav_necesidades, 1, MaterialesRegistrarActivity.class);
-        new DrawerItem(11, R.id.nav_degustaciones, 1, MaterialesRegistrarActivity.class);
+        new DrawerItem(10, R.id.nav_necesidades, 1, NecesidadesRegistrarActivity.class);
+        new DrawerItem(11, R.id.nav_degustaciones, 1, DegustacionesRegistrarActivity.class);
 
         new DrawerItem(1000, R.id.nav_sync, 1, SyncDatabaseNavActivity.class);
 //        new DrawerItem(1001, R.id.nav_bio, 4, BiochemicalActivity.class);
@@ -94,7 +96,7 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
     private TextView tvResourceName;
     private Activity activity;
 
-    public View getView(Activity activity, @LayoutRes int layoutId) {
+    public View getView(final Activity activity, @LayoutRes int layoutId) {
         View content = activity.getLayoutInflater().inflate(layoutId, null);
 
 
@@ -106,6 +108,14 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
 
         View headerView = inflater.inflate(R.layout.nav_header_main, null);
         tvResourceName = (TextView) headerView.findViewById(R.id.tv_resource_name);
+        View holder = headerView.findViewById(R.id.holder);
+        holder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.startActivity(new Intent(activity, MenuBioActivity.class));
+                activity.getParent().finish();
+            }
+        });
 
         navigationView.addHeaderView(headerView);
         navigationView.setNavigationItemSelectedListener(this);

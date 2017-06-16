@@ -5,6 +5,7 @@ import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
 import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
+import com.github.alvarosct.happycows.data.db.pojos.ProductoItem;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
@@ -40,6 +41,10 @@ public interface DataSource {
     void listInsumo(boolean loadTableFlg, BaseCallback<List<Insumo>> callback);
 
     void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<String> callback);
+
+    void registerDegustaciones(List<ProductoItem> productoItemList, BaseCallback<String> callback);
+
+    void registerNecesidades(List<ProductoItem> productoItemList, BaseCallback<String> callback);
 
     void registerClient(Client client, BaseCallback<Client> callback);
 

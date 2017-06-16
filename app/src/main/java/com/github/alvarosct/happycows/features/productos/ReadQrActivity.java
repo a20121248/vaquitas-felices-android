@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.features.venta.productos;
+package com.github.alvarosct.happycows.features.productos;
 
 import android.app.Activity;
 import android.graphics.Color;

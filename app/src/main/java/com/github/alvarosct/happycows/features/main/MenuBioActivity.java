@@ -6,9 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.github.alvarosct.happycows.R;
+import com.github.alvarosct.happycows.features.degustaciones.DegustacionesRegistrarActivity;
 import com.github.alvarosct.happycows.features.materiales.MaterialesRegistrarActivity;
+import com.github.alvarosct.happycows.features.necesidades.NecesidadesRegistrarActivity;
 import com.github.alvarosct.happycows.features.usuarios.registrar.UsuarioRegistrarActivity;
-import com.github.alvarosct.happycows.features.venta.registrar.VentaRegistrarActivity;
+import com.github.alvarosct.happycows.features.venta.VentaRegistrarActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,11 +42,11 @@ public class MenuBioActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.bt_necesidad:
-                intent = new Intent(MenuBioActivity.this, MaterialesRegistrarActivity.class);
+                intent = new Intent(MenuBioActivity.this, NecesidadesRegistrarActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_degustaciones:
-                intent = new Intent(MenuBioActivity.this, MaterialesRegistrarActivity.class);
+                intent = new Intent(MenuBioActivity.this, DegustacionesRegistrarActivity.class);
                 startActivity(intent);
                 break;
         }

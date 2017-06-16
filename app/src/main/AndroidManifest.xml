@@ -31,13 +31,16 @@
 
         <activity android:name=".features.usuarios.registrar.UsuarioRegistrarActivity" />
 
-        <activity android:name=".features.venta.registrar.VentaRegistrarActivity" />
-        <activity android:name=".features.venta.productos.ProductoSelectActivity" />
+        <activity android:name=".features.venta.VentaRegistrarActivity" />
+        <activity android:name=".features.necesidades.NecesidadesRegistrarActivity" />
+        <activity android:name=".features.degustaciones.DegustacionesRegistrarActivity" />
+
+        <activity android:name=".features.productos.ProductoSelectActivity" />
+
+
 
         <activity android:name=".features.porongos.GanaderosPorongosActivity" />
         <activity android:name=".features.porongos.PorongoFormActivity" />
-
-
         <activity android:name=".features.sic.GanaderosSicActivity" />
         <activity android:name=".features.sic.SicFormActivity" />
         <activity android:name=".features.insumos.InsumoListActivity" />

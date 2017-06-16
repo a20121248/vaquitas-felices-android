@@ -1,9 +1,11 @@
 package com.github.alvarosct.happycows.features.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.github.alvarosct.ascthelper.ui.activities.BaseActivity;
+import com.github.alvarosct.ascthelper.utils.dialogs.DialogCustom;
 import com.github.alvarosct.happycows.R;
 
 /**
@@ -41,6 +43,15 @@ public abstract class NavigationActivity extends BaseActivity {
     }
 
     protected void onBack() {
-        super.onBackPressed();
+        new DialogCustom(getContext(),
+                "¡Atención!", "¿Estás seguro que deseas salir?",
+                new DialogCustom.ButtonBehaviour("Si", new DialogCustom.IButton() {
+                    @Override
+                    public void onButtonClick() {
+                        startActivity(new Intent(getContext(), MenuBioActivity.class));
+                        finish();
+                    }
+                }), "No").show();
+
     }
 }

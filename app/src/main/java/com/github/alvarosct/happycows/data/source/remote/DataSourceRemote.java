@@ -2,18 +2,19 @@ package com.github.alvarosct.happycows.data.source.remote;
 
 import android.os.Handler;
 
+import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.models.Client;
+import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.Porongo;
+import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.Producto;
+import com.github.alvarosct.happycows.data.db.models.User;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
+import com.github.alvarosct.happycows.data.db.pojos.ProductoItem;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.DataSource;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
-import com.github.alvarosct.happycows.data.db.AppDatabase;
-import com.github.alvarosct.happycows.data.db.models.Ganadero;
-import com.github.alvarosct.happycows.data.db.models.Porongo;
-import com.github.alvarosct.happycows.data.db.models.Pregunta;
-import com.github.alvarosct.happycows.data.db.models.User;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -87,6 +88,28 @@ public class DataSourceRemote implements DataSource {
             @Override
             public void run() {
                 callback.onSuccess(true, "Se han registrado correctamente los materiales.");
+            }
+        }, 1000);
+    }
+
+    @Override
+    public void registerDegustaciones(List<ProductoItem> productoItemList, final BaseCallback<String> callback) {
+        //        TODO: REPLACE WITH WS
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                callback.onSuccess(true, "Se han registrado correctamente las degustaciones.");
+            }
+        }, 1000);
+    }
+
+    @Override
+    public void registerNecesidades(List<ProductoItem> productoItemList, final BaseCallback<String> callback) {
+//        TODO: REPLACE WITH WS
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                callback.onSuccess(true, "Se han registrado correctamente las necesidades.");
             }
         }, 1000);
     }

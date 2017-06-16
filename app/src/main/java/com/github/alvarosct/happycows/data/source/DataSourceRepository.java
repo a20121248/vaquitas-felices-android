@@ -7,6 +7,7 @@ import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
 import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
+import com.github.alvarosct.happycows.data.db.pojos.ProductoItem;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.source.callbacks.WrapFallback;
@@ -97,6 +98,17 @@ public class DataSourceRepository implements DataSource {
     @Override
     public void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<String> callback) {
         dataSourceRemote.registerMaterialesUsados(insumoItemList, callback);
+    }
+
+    @Override
+    public void registerDegustaciones(List<ProductoItem> productoItemList, BaseCallback<String> callback) {
+        dataSourceRemote.registerDegustaciones(productoItemList, callback);
+
+    }
+
+    @Override
+    public void registerNecesidades(List<ProductoItem> productoItemList, BaseCallback<String> callback) {
+        dataSourceRemote.registerNecesidades(productoItemList, callback);
 
     }
 

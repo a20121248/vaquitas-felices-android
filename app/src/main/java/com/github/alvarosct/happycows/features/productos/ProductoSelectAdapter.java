@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.features.venta.productos;
+package com.github.alvarosct.happycows.features.productos;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

@@ -51,6 +51,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:backgroundTint="@color/green"
-        android:text="Finalizar"
+        android:text="Registrar"
         android:textColor="@color/white" />
 </LinearLayout>
