@@ -5,13 +5,16 @@ import android.support.annotation.NonNull;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
+import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.source.callbacks.WrapFallback;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.User;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -98,9 +101,19 @@ public class DataSourceRepository implements DataSource {
     }
 
     @Override
-    public void registerClient(Client client, BaseCallback<String> callback) {
+    public void registerClient(Client client, BaseCallback<Client> callback) {
         dataSourceRemote.registerClient(client, callback);
 
+    }
+
+    @Override
+    public void listProductos(boolean loadTableFlg, BaseCallback<List<Producto>> callback) {
+        dataSourceRemote.listProductos(false, callback);
+    }
+
+    @Override
+    public void registerVenta(VentaFull ventaFull, BaseCallback<JsonObject> callback) {
+        dataSourceRemote.registerVenta(ventaFull, callback);
     }
 
 }

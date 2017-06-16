@@ -4,7 +4,9 @@ import android.os.Handler;
 
 import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
+import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.DataSource;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
@@ -12,6 +14,7 @@ import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.User;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -89,14 +92,17 @@ public class DataSourceRemote implements DataSource {
     }
 
     @Override
-    public void registerClient(Client client, final BaseCallback<String> callback) {
+    public void registerClient(Client client, final BaseCallback<Client> callback) {
+        RequestManager.getWebServices().registerClient(client).enqueue(callback);
+    }
 
-//        TODO: REPLACE WITH WS
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                callback.onSuccess(true, "Se han registrado correctamente el cliente.");
-            }
-        }, 1000);
+    @Override
+    public void listProductos(boolean loadTableFlg, final BaseCallback<List<Producto>> callback) {
+        RequestManager.getWebServices().listProductos().enqueue(callback);
+    }
+
+    @Override
+    public void registerVenta(VentaFull ventaFull, BaseCallback<JsonObject> callback) {
+        RequestManager.getWebServices().registerVenta(ventaFull).enqueue(callback);
     }
 }

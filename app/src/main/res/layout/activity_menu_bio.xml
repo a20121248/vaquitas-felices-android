@@ -9,7 +9,14 @@
         android:background="@color/bg_grey"
         android:orientation="vertical">
 
-        <LinearLayout
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:src="@drawable/logo_name" />
+
+        <FrameLayout
             android:id="@+id/bt_venta"
             android:layout_width="match_parent"
             android:layout_height="@dimen/menu_min_height"
@@ -19,24 +26,31 @@
             android:layout_marginTop="@dimen/margin_small"
             android:background="@drawable/rc_solid_white"
             android:elevation="@dimen/button_elevation"
-            android:orientation="horizontal"
             android:padding="@dimen/margin_default">
 
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="top|end"
+                android:tint="@color/green"
+                android:src="@drawable/ic_sell" />
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:gravity="bottom|end"
                 android:shadowColor="@color/black"
                 android:text="Registrar Venta"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 
-        </LinearLayout>
+        </FrameLayout>
 
-        <LinearLayout
+
+        <FrameLayout
             android:id="@+id/bt_materiales"
             android:layout_width="match_parent"
             android:layout_height="@dimen/menu_min_height"
@@ -46,25 +60,30 @@
             android:layout_marginTop="@dimen/margin_small"
             android:background="@drawable/rc_solid_white"
             android:elevation="@dimen/button_elevation"
-            android:orientation="horizontal"
             android:padding="@dimen/margin_default">
 
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="top|end"
+                android:tint="@color/green"
+                android:src="@drawable/ic_item_list" />
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:gravity="bottom|start"
                 android:shadowColor="@color/black"
-                android:text="Materiales usados"
+                android:text="Materiales Usados"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 
-        </LinearLayout>
+        </FrameLayout>
 
-
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/bt_new_user"
             android:layout_width="match_parent"
             android:layout_height="@dimen/menu_min_height"
@@ -74,24 +93,31 @@
             android:layout_marginTop="@dimen/margin_small"
             android:background="@drawable/rc_solid_white"
             android:elevation="@dimen/button_elevation"
-            android:orientation="horizontal"
             android:padding="@dimen/margin_default">
 
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="top|end"
+                android:tint="@color/green"
+                android:src="@drawable/ic_new_client" />
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:gravity="bottom|end"
                 android:shadowColor="@color/black"
                 android:text="Registrar Usuario"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 
-        </LinearLayout>
+        </FrameLayout>
 
-        <LinearLayout
+
+        <FrameLayout
             android:id="@+id/bt_necesidad"
             android:layout_width="match_parent"
             android:layout_height="@dimen/menu_min_height"
@@ -101,24 +127,31 @@
             android:layout_marginTop="@dimen/margin_small"
             android:background="@drawable/rc_solid_white"
             android:elevation="@dimen/button_elevation"
-            android:orientation="horizontal"
             android:padding="@dimen/margin_default">
 
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="top|end"
+                android:tint="@color/green"
+                android:src="@drawable/ic_products" />
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:gravity="bottom|start"
                 android:shadowColor="@color/black"
-                android:text="Necesidad de Productos"
+                android:text="Necesidad de\nProductos"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 
-        </LinearLayout>
+        </FrameLayout>
 
-        <LinearLayout
+
+        <FrameLayout
             android:id="@+id/bt_degustaciones"
             android:layout_width="match_parent"
             android:layout_height="@dimen/menu_min_height"
@@ -128,22 +161,27 @@
             android:layout_marginTop="@dimen/margin_small"
             android:background="@drawable/rc_solid_white"
             android:elevation="@dimen/button_elevation"
-            android:orientation="horizontal"
             android:padding="@dimen/margin_default">
 
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="top|end"
+                android:tint="@color/green"
+                android:src="@drawable/ic_item_list" />
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:gravity="bottom|end"
                 android:shadowColor="@color/black"
-                android:text="Registrar Degustaciones"
+                android:text="Registrar\nDegustaciones"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 
-        </LinearLayout>
-
+        </FrameLayout>
     </LinearLayout>
 </ScrollView>

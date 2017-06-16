@@ -22,6 +22,7 @@ import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.features.materiales.MaterialesRegistrarActivity;
 import com.github.alvarosct.happycows.features.syncDatabase.SyncDatabaseNavActivity;
 import com.github.alvarosct.happycows.features.usuarios.registrar.UsuarioRegistrarActivity;
+import com.github.alvarosct.happycows.features.venta.registrar.VentaRegistrarActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,7 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
 
     private static void setupDrawerItems() {
 
-        new DrawerItem(7, R.id.nav_ventas, 1, MaterialesRegistrarActivity.class);
+        new DrawerItem(7, R.id.nav_ventas, 1, VentaRegistrarActivity.class);
         new DrawerItem(14, R.id.nav_nuevo_usuario, 1, UsuarioRegistrarActivity.class);
         new DrawerItem(9, R.id.nav_materiales, 1, MaterialesRegistrarActivity.class);
         new DrawerItem(10, R.id.nav_necesidades, 1, MaterialesRegistrarActivity.class);

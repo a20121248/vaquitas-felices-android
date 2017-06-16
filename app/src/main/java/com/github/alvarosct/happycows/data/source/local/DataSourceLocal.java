@@ -2,7 +2,9 @@ package com.github.alvarosct.happycows.data.source.local;
 
 import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
+import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.DataSource;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.source.remote.ApiError;
@@ -12,6 +14,7 @@ import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.User;
 import com.github.alvarosct.happycows.utils.UtilMethodsCustom;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -93,7 +96,17 @@ public class DataSourceLocal implements DataSource {
     }
 
     @Override
-    public void registerClient(Client client, BaseCallback<String> callback) {
+    public void registerClient(Client client, BaseCallback<Client> callback) {
+
+    }
+
+    @Override
+    public void listProductos(boolean loadTableFlg, BaseCallback<List<Producto>> callback) {
+
+    }
+
+    @Override
+    public void registerVenta(VentaFull ventaFull, BaseCallback<JsonObject> callback) {
 
     }
 }

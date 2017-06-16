@@ -22,4 +22,7 @@ public class Urls {
 
 
     public static final String INSUMOS = "insumos";
+    public static final String PRODUCTOS = "products";
+    public static final String SELL = "sell";
+    public static final String CLIENTS = "clients";
 }

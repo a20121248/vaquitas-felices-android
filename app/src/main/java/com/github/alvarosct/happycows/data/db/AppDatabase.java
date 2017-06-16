@@ -12,6 +12,7 @@ import com.github.alvarosct.happycows.data.db.dao.InsumoDao;
 import com.github.alvarosct.happycows.data.db.dao.PorongoDao;
 import com.github.alvarosct.happycows.data.db.dao.PreguntaDao;
 import com.github.alvarosct.happycows.data.db.dao.PreguntaInsumoDao;
+import com.github.alvarosct.happycows.data.db.dao.ProductoDao;
 import com.github.alvarosct.happycows.data.db.dao.TableMasterDao;
 import com.github.alvarosct.happycows.data.db.dao.UserDao;
 import com.github.alvarosct.happycows.data.db.models.Encuesta;
@@ -20,6 +21,7 @@ import com.github.alvarosct.happycows.data.db.models.Insumo;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.PreguntaInsumo;
+import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.models.TableMaster;
 import com.github.alvarosct.happycows.data.db.models.User;
 
@@ -32,7 +34,9 @@ import java.lang.reflect.Method;
 @Database(entities = {
         TableMaster.class,
         Porongo.class, Encuesta.class, Ganadero.class,
-        Pregunta.class, PreguntaInsumo.class, Insumo.class, User.class}, version = 4)
+        Pregunta.class, PreguntaInsumo.class, Insumo.class, User.class,
+        Producto.class
+}, version = 5)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
@@ -61,6 +65,8 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract GanaderoDao ganaderoModel();
 
     public abstract PreguntaDao preguntaModel();
+
+    public abstract ProductoDao productoDao();
 
     public abstract UserDao userModel();
 

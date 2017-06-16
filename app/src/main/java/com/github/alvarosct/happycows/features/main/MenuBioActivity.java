@@ -8,6 +8,7 @@ import android.view.View;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.features.materiales.MaterialesRegistrarActivity;
 import com.github.alvarosct.happycows.features.usuarios.registrar.UsuarioRegistrarActivity;
+import com.github.alvarosct.happycows.features.venta.registrar.VentaRegistrarActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -27,7 +28,7 @@ public class MenuBioActivity extends AppCompatActivity {
         Intent intent;
         switch (view.getId()) {
             case R.id.bt_venta:
-                intent = new Intent(MenuBioActivity.this, MaterialesRegistrarActivity.class);
+                intent = new Intent(MenuBioActivity.this, VentaRegistrarActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_materiales:

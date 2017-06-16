@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textSize="@dimen/text_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S/."
+            android:textSize="@dimen/text_title" />
+
+        <EditText
+            android:id="@+id/et_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:layout_marginStart="@dimen/margin_small"
+            android:maxLength="8"
+            android:text="10.45"
+            android:textSize="@dimen/text_title" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_heading">
+
+        <Button
+            android:id="@+id/bt_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_xsmall"
+            android:minWidth="40dp"
+            android:text="-" />
+
+        <TextView
+            android:id="@+id/tv_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22"
+            android:textSize="@dimen/text_title" />
+
+        <TextView
+            android:id="@+id/tv_unidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_xsmall"
+            android:text="Kg"
+            android:textSize="@dimen/text_body" />
+
+        <Button
+            android:id="@+id/bt_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_xsmall"
+            android:minWidth="40dp"
+            android:text="+" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/line_width"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S/."
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_title" />
+
+        <TextView
+            android:id="@+id/tv_subtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:maxLength="8"
+            android:text="10.45"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_title" />
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

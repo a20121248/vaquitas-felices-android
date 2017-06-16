@@ -3,12 +3,15 @@ package com.github.alvarosct.happycows.data.source;
 
 import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
+import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.User;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -38,5 +41,9 @@ public interface DataSource {
 
     void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<String> callback);
 
-    void registerClient(Client client, BaseCallback<String> callback);
+    void registerClient(Client client, BaseCallback<Client> callback);
+
+    void listProductos(boolean loadTableFlg, BaseCallback<List<Producto>> callback);
+
+    void registerVenta(VentaFull ventaFull, BaseCallback<JsonObject> callback);
 }

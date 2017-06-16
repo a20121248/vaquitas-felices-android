@@ -1,50 +1,54 @@
 package com.github.alvarosct.happycows.data.db.models;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Android-Dev on 26/05/2017.
  */
 
 public class Client {
 
-    private int id;
-    private String nombre;
-    private String apPat;
-
-    private String apMat;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("lastname")
+    private String lastname;
+    @SerializedName("address")
+    private String address;
+    @SerializedName("dni")
     private String dni;
-    private String celular;
-    private String referencia;
+    @SerializedName("gender")
+    private String gender = "M";
+    @SerializedName("bioferia_id")
+    private int bioferiaId = 1;
+    @SerializedName("district")
+    private int district = 24;
+    @SerializedName("phone")
+    private String phone;
+    @SerializedName("reference")
+    private String reference;
 
-    public int getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public String getApPat() {
-        return apPat;
+    public String getAddress() {
+        return address;
     }
 
-    public void setApPat(String apPat) {
-        this.apPat = apPat;
-    }
-
-    public String getApMat() {
-        return apMat;
-    }
-
-    public void setApMat(String apMat) {
-        this.apMat = apMat;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getDni() {
@@ -55,19 +59,43 @@ public class Client {
         this.dni = dni;
     }
 
-    public String getCelular() {
-        return celular;
+    public String getGender() {
+        return gender;
     }
 
-    public void setCelular(String celular) {
-        this.celular = celular;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getReferencia() {
-        return referencia;
+    public int getBioferiaId() {
+        return bioferiaId;
     }
 
-    public void setReferencia(String referencia) {
-        this.referencia = referencia;
+    public void setBioferiaId(int bioferiaId) {
+        this.bioferiaId = bioferiaId;
+    }
+
+    public int getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(int district) {
+        this.district = district;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 }

@@ -8,25 +8,8 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_ventas"
-            android:icon="@drawable/ic_add"
+            android:icon="@drawable/ic_sell"
             android:title="Registrar Ventas" />
-    </group>
-
-    <group
-        android:id="@+id/group_2"
-        android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_materiales"
-            android:icon="@drawable/ic_add"
-            android:title="Materiales usados" />
-        <item
-            android:id="@+id/nav_necesidades"
-            android:icon="@drawable/ic_add"
-            android:title="Necesidades de productos" />
-        <item
-            android:id="@+id/nav_degustaciones"
-            android:icon="@drawable/ic_add"
-            android:title="Registrar degustaciones" />
     </group>
 
     <group
@@ -34,8 +17,25 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_nuevo_usuario"
-            android:icon="@drawable/ic_add"
+            android:icon="@drawable/ic_new_client"
             android:title="Nuevo usuario" />
+    </group>
+
+    <group
+        android:id="@+id/group_2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_materiales"
+            android:icon="@drawable/ic_item_list"
+            android:title="Materiales usados" />
+        <item
+            android:id="@+id/nav_necesidades"
+            android:icon="@drawable/ic_products"
+            android:title="Necesidades de productos" />
+        <item
+            android:id="@+id/nav_degustaciones"
+            android:icon="@drawable/ic_item_list"
+            android:title="Registrar degustaciones" />
     </group>
 
     <group

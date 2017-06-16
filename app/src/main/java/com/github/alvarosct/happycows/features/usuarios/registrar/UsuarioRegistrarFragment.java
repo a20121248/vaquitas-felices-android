@@ -26,16 +26,16 @@ public class UsuarioRegistrarFragment extends BaseFragment {
 
     @BindView(R.id.til_nombre)
     TextInputLayout tilNombre;
-    @BindView(R.id.til_appat)
-    TextInputLayout tilAppat;
-    @BindView(R.id.til_apmat)
-    TextInputLayout tilApmat;
+    @BindView(R.id.til_apellidos)
+    TextInputLayout tilLastname;
     @BindView(R.id.til_dni)
     TextInputLayout tilDni;
     @BindView(R.id.til_phone)
     TextInputLayout tilPhone;
     @BindView(R.id.til_ref)
     TextInputLayout tilRef;
+    @BindView(R.id.til_address)
+    TextInputLayout tilAddress;
 
     @Nullable
     @Override
@@ -53,18 +53,13 @@ public class UsuarioRegistrarFragment extends BaseFragment {
 
     private boolean validar(Client client) {
 
-        if (TextUtils.isEmpty(client.getNombre())) {
+        if (TextUtils.isEmpty(client.getName())) {
             UtilMethods.showToast("El nombre no puede estar vacío.");
             return false;
         }
 
-        if (TextUtils.isEmpty(client.getApPat())) {
-            UtilMethods.showToast("El apellido paterno no puede estar vacío.");
-            return false;
-        }
-
-        if (TextUtils.isEmpty(client.getApMat())) {
-            UtilMethods.showToast("El apellido materno no puede estar vacío.");
+        if (TextUtils.isEmpty(client.getLastname())) {
+            UtilMethods.showToast("El apellido no puede estar vacío.");
             return false;
         }
 
@@ -78,8 +73,18 @@ public class UsuarioRegistrarFragment extends BaseFragment {
             return false;
         }
 
-        if (TextUtils.isEmpty(client.getCelular())) {
-            UtilMethods.showToast("El teléfono materno no puede estar vacío.");
+        if (TextUtils.isEmpty(client.getPhone())) {
+            UtilMethods.showToast("El teléfono no puede estar vacío.");
+            return false;
+        }
+
+        if (client.getDni().length() != 8) {
+            UtilMethods.showToast("El teléfono debe tener 9 dígitos.");
+            return false;
+        }
+
+        if (TextUtils.isEmpty(client.getAddress())) {
+            UtilMethods.showToast("La dirección no puede estar vacía.");
             return false;
         }
 
@@ -91,22 +96,22 @@ public class UsuarioRegistrarFragment extends BaseFragment {
     public void onBtSendClicked() {
 
         Client client = new Client();
-        client.setNombre(tilNombre.getEditText().getText().toString().trim());
-        client.setApMat(tilApmat.getEditText().getText().toString().trim());
-        client.setApPat(tilAppat.getEditText().getText().toString().trim());
+        client.setName(tilNombre.getEditText().getText().toString().trim());
+        client.setLastname(tilLastname.getEditText().getText().toString().trim());
         client.setDni(tilDni.getEditText().getText().toString().trim());
-        client.setCelular(tilPhone.getEditText().getText().toString().trim());
-        client.setReferencia(tilRef.getEditText().getText().toString().trim());
+        client.setPhone(tilPhone.getEditText().getText().toString().trim());
+        client.setAddress(tilAddress.getEditText().getText().toString().trim());
+        client.setReference(tilRef.getEditText().getText().toString().trim());
 
         if (validar(client)) {
-            Injector.provideRepository().registerClient(client, new LoadingCallback<String>(
+            Injector.provideRepository().registerClient(client, new LoadingCallback<Client>(
                     getContext(), "Registrando cliente...") {
                 @Override
-                public void onSuccess(boolean fromRemote, String response) {
+                public void onSuccess(boolean fromRemote, Client response) {
                     super.onSuccess(fromRemote, response);
 
                     new DialogCustom(getContext(),
-                            "¡Éxito!", response,
+                            "¡Éxito!", "El cliente ha sido registrado.",
                             new DialogCustom.ButtonBehaviour("Ok", new DialogCustom.IButton() {
                                 @Override
                                 public void onButtonClick() {

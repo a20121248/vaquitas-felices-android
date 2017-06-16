@@ -1,10 +1,14 @@
 package com.github.alvarosct.happycows.data.source.remote;
 
+import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
+import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.models.User;
+import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -55,4 +59,13 @@ public interface WebServices {
     @GET(Urls.INSUMOS)
     Call<List<Insumo>> listInsumo();
 
+
+    @GET(Urls.PRODUCTOS)
+    Call<List<Producto>> listProductos();
+
+    @POST(Urls.SELL)
+    Call<JsonObject> registerVenta(@Body VentaFull ventaFull);
+
+    @POST(Urls.CLIENTS)
+    Call<Client> registerClient(@Body Client client);
 }

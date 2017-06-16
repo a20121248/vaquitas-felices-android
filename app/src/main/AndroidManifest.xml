@@ -31,6 +31,9 @@
 
         <activity android:name=".features.usuarios.registrar.UsuarioRegistrarActivity" />
 
+        <activity android:name=".features.venta.registrar.VentaRegistrarActivity" />
+        <activity android:name=".features.venta.productos.ProductoSelectActivity" />
+
         <activity android:name=".features.porongos.GanaderosPorongosActivity" />
         <activity android:name=".features.porongos.PorongoFormActivity" />
 
