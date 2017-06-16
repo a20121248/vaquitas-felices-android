@@ -44,7 +44,7 @@ public abstract class NavigationActivity extends BaseActivity {
 
     protected void onBack() {
         new DialogCustom(getContext(),
-                "¡Atención!", "¿Estás seguro que deseas salir?",
+                "¡Atención!", "¿Deseas volver al menu principal?",
                 new DialogCustom.ButtonBehaviour("Si", new DialogCustom.IButton() {
                     @Override
                     public void onButtonClick() {
