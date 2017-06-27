@@ -14,7 +14,7 @@ import com.google.gson.annotations.SerializedName;
 @Entity
 public class BaseModel {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     private int id;
 
     private boolean localChange;

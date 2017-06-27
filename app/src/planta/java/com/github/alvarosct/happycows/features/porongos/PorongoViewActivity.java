@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PorongoDisplayActivity extends AppCompatActivity {
+public class PorongoViewActivity extends AppCompatActivity {
 
     @BindView(R.id.et_ganadero)
     TextInputEditText etGanadero;

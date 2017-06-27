@@ -17,13 +17,8 @@ public class Porongo extends BaseModel {
     public static final String GOOD = "Bueno";
     public static final String BAD = "Malo";
 
-
-    //    @SerializedName("id_orden_prod")
-//    public String id_orden_prod;
-
-    @SerializedName("fecha_hora_ordeno")
-    private String fechaHoraOrdeno;
-
+    @SerializedName("fecha_hora_entrega")
+    private String fechaHoraEntrega;
 
     @SerializedName("id_ganadero")
     private int ganaderoId;
@@ -45,16 +40,16 @@ public class Porongo extends BaseModel {
     @SerializedName("acidez")
     private int acidez;
     @SerializedName("ph")
-    private double ph ;
+    private double ph;
     @SerializedName("densidad")
-    private int densidad ;
+    private int densidad;
 
     @SerializedName("limpieza")
-    private int limpieza ;
+    private int limpieza;
 
+    //    ONLY MOBILE
     @SerializedName("step")
     private int step = 0;
-
 
 
     public int getStep() {
@@ -145,14 +140,6 @@ public class Porongo extends BaseModel {
         this.limpieza = limpieza;
     }
 
-    public String getFechaHoraOrdeno() {
-        return fechaHoraOrdeno;
-    }
-
-    public void setFechaHoraOrdeno(String fechaHoraOrdeno) {
-        this.fechaHoraOrdeno = fechaHoraOrdeno;
-    }
-
     public int getDevolucion() {
         return devolucion;
     }
@@ -160,4 +147,13 @@ public class Porongo extends BaseModel {
     public void setDevolucion(int devolucion) {
         this.devolucion = devolucion;
     }
+
+    public String getFechaHoraEntrega() {
+        return fechaHoraEntrega;
+    }
+
+    public void setFechaHoraEntrega(String fechaHoraEntrega) {
+        this.fechaHoraEntrega = fechaHoraEntrega;
+    }
+
 }

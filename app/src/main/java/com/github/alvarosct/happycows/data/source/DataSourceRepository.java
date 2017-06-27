@@ -47,7 +47,7 @@ public class DataSourceRepository implements DataSource {
     @Override
     public void updatePorongo(final Porongo entity, final BaseCallback<Porongo> callback) {
 
-        entity.setFechaHoraOrdeno(UtilMethods.calendarToString());
+        entity.setFechaHoraEntrega(UtilMethods.calendarToString());
 
         dataSourceRemote.updatePorongo(entity, new WrapFallback<Porongo>(callback) {
             @Override
