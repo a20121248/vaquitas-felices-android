@@ -23,6 +23,20 @@ android {
             buildConfigField "String", "BASE_URL", "\"http://200.16.7.157/api/v1/\""
         }
     }
+
+    flavorDimensions "mode"
+    productFlavors {
+        bioferia {
+            dimension "mode"
+            applicationIdSuffix ".bioferia"
+            versionNameSuffix "-bioferia"
+        }
+        planta {
+            dimension "mode"
+            applicationIdSuffix ".planta"
+            versionNameSuffix "-planta"
+        }
+    }
 }
 
 dependencies {

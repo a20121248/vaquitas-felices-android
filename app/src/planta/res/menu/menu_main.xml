@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/group_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_porongos"
+            android:icon="@drawable/ic_sell"
+            android:title="Porongos" />
+    </group>
+
+    <group
+        android:id="@+id/group_3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_sic"
+            android:icon="@drawable/ic_new_client"
+            android:title="Pruebas SIC" />
+    </group>
+
+    <group
+        android:id="@+id/group_2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_qa"
+            android:icon="@drawable/ic_item_list"
+            android:title="Calidad" />
+
+    </group>
+
+    <group
+        android:id="@+id/group_4"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_sync"
+            android:icon="@drawable/ic_add"
+            android:title="Sincronizar" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_add"
+            android:title="Cerrar Sesión" />
+    </group>
+
+</menu>

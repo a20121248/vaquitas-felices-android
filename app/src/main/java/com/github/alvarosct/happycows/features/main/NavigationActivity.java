@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import com.github.alvarosct.ascthelper.ui.activities.BaseActivity;
 import com.github.alvarosct.ascthelper.utils.dialogs.DialogCustom;
 import com.github.alvarosct.happycows.R;
+import com.github.alvarosct.happycows.features.MainMenuActivity;
+import com.github.alvarosct.happycows.features.MenuHandler;
 
 /**
  * Created by Alvaro Santa Cruz on 27/02/2017.
@@ -48,7 +50,7 @@ public abstract class NavigationActivity extends BaseActivity {
                 new DialogCustom.ButtonBehaviour("Si", new DialogCustom.IButton() {
                     @Override
                     public void onButtonClick() {
-                        startActivity(new Intent(getContext(), MenuBioActivity.class));
+                        startActivity(new Intent(getContext(), MainMenuActivity.class));
                         finish();
                     }
                 }), "No").show();

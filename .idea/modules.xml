@@ -4,11 +4,8 @@
     <modules>
       <module fileurl="file://C:\Users\Android-Dev\Desktop\happycows-android\HappyCows.iml" filepath="C:\Users\Android-Dev\Desktop\happycows-android\HappyCows.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Android-Dev\Desktop\happycows-android\app\app.iml" filepath="C:\Users\Android-Dev\Desktop\happycows-android\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ascthelper/ascthelper.iml" filepath="$PROJECT_DIR$/ascthelper/ascthelper.iml" />
-      <module fileurl="file://C:\Users\Android-Dev\Desktop\happycows-android\ascthelper\ascthelper.iml" filepath="C:\Users\Android-Dev\Desktop\happycows-android\ascthelper\ascthelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/happycows-android.iml" filepath="$PROJECT_DIR$/happycows-android.iml" />
-      <module fileurl="file://C:\Users\Android-Dev\Desktop\happycows-android\happycows-android.iml" filepath="C:\Users\Android-Dev\Desktop\happycows-android\happycows-android.iml" />
     </modules>
   </component>
 </project>

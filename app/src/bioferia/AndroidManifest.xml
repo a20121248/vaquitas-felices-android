@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.alvarosct.happycows">
+
+    <application
+        >
+
+        <activity android:name=".features.MainMenuActivity" />
+
+        <activity android:name=".features.materiales.MaterialesRegistrarActivity" />
+        <activity android:name=".features.materiales.MaterialSelectActivity"
+            android:theme="@style/AppTheme_FullScreen" />
+
+        <activity android:name=".features.usuario.UsuarioRegistrarActivity" />
+
+        <activity android:name=".features.venta.VentaRegistrarActivity" />
+        <activity android:name=".features.necesidades.NecesidadesRegistrarActivity" />
+        <activity android:name=".features.degustaciones.DegustacionesRegistrarActivity" />
+
+        <activity android:name=".features.productos.ProductoSelectActivity" />
+
+    </application>
+
+</manifest>

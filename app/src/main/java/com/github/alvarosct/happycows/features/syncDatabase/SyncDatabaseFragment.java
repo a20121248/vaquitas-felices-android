@@ -1,6 +1,5 @@
 package com.github.alvarosct.happycows.features.syncDatabase;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,8 +8,8 @@ import android.view.ViewGroup;
 
 import com.github.alvarosct.ascthelper.ui.fragments.BaseFragment;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
+import com.github.alvarosct.happycows.FlavorMethods;
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.features.main.MenuBioActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -29,15 +28,7 @@ public class SyncDatabaseFragment extends BaseFragment {
     }
 
     private void openMainActivity() {
-
-        getParent().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Intent i = new Intent(getParent(), MenuBioActivity.class);
-                startActivity(i);
-                getParent().finish();
-            }
-        });
+        FlavorMethods.openMainActivity(getParent());
     }
 
     @OnClick(R.id.bt_sync)

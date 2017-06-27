@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".features.splash.SplashActivity"
+        <activity android:name=".features.SplashActivity"
             android:theme="@style/AppTheme_FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,28 +23,7 @@
         <activity android:name=".features.syncDatabase.SyncDatabaseActivity"/>
         <activity android:name=".features.syncDatabase.SyncDatabaseNavActivity"/>
         <activity android:name=".features.main.BlankActivity"/>
-        <activity android:name=".features.main.MenuBioActivity" />
 
-        <activity android:name=".features.materiales.MaterialesRegistrarActivity" />
-        <activity android:name=".features.materiales.MaterialSelectActivity"
-            android:theme="@style/AppTheme_FullScreen" />
-
-        <activity android:name=".features.usuarios.registrar.UsuarioRegistrarActivity" />
-
-        <activity android:name=".features.venta.VentaRegistrarActivity" />
-        <activity android:name=".features.necesidades.NecesidadesRegistrarActivity" />
-        <activity android:name=".features.degustaciones.DegustacionesRegistrarActivity" />
-
-        <activity android:name=".features.productos.ProductoSelectActivity" />
-
-
-
-        <activity android:name=".features.porongos.GanaderosPorongosActivity" />
-        <activity android:name=".features.porongos.PorongoFormActivity" />
-        <activity android:name=".features.sic.GanaderosSicActivity" />
-        <activity android:name=".features.sic.SicFormActivity" />
-        <activity android:name=".features.insumos.InsumoListActivity" />
-        <activity android:name=".features.insumos.InsumoQuestionFormActivity" />
     </application>
 
 </manifest>

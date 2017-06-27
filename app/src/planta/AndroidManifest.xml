@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.alvarosct.happycows">
+
+    <application>
+
+        <activity android:name=".features.MainMenuActivity" />
+
+        <activity android:name=".features.porongos.GanaderosPorongosActivity" />
+        <activity android:name=".features.porongos.PorongoFormActivity" />
+
+        <activity android:name=".features.sic.GanaderosSicActivity" />
+        <activity android:name=".features.sic.SicFormActivity" />
+
+        <activity android:name=".features.insumos.InsumoListActivity" />
+        <activity android:name=".features.insumos.InsumoQuestionFormActivity" />
+
+    </application>
+
+</manifest>
