@@ -7,6 +7,7 @@ import com.github.alvarosct.happycows.features.MainMenuActivity;
 import com.github.alvarosct.happycows.features.MenuHandler;
 import com.github.alvarosct.happycows.features.insumos.InsumoListActivity;
 import com.github.alvarosct.happycows.features.porongos.GanaderosPorongosActivity;
+import com.github.alvarosct.happycows.features.porongos.PorongoListActivity;
 import com.github.alvarosct.happycows.features.sic.GanaderosSicActivity;
 import com.github.alvarosct.happycows.features.syncDatabase.SyncDatabaseNavActivity;
 
@@ -30,7 +31,7 @@ public class FlavorMethods {
     public static void setupDrawerItems() {
 
         new MenuHandler.DrawerItem(7, R.id.nav_sic, 1, GanaderosSicActivity.class);
-        new MenuHandler.DrawerItem(14, R.id.nav_porongos, 1, GanaderosPorongosActivity.class);
+        new MenuHandler.DrawerItem(14, R.id.nav_porongos, 1, PorongoListActivity.class);
         new MenuHandler.DrawerItem(9, R.id.nav_qa, 1, InsumoListActivity.class);
 
         new MenuHandler.DrawerItem(1000, R.id.nav_sync, 1, SyncDatabaseNavActivity.class);

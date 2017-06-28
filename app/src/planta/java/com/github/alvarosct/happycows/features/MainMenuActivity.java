@@ -8,6 +8,7 @@ import android.view.View;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.features.insumos.InsumoListActivity;
 import com.github.alvarosct.happycows.features.porongos.GanaderosPorongosActivity;
+import com.github.alvarosct.happycows.features.porongos.PorongoListActivity;
 import com.github.alvarosct.happycows.features.sic.GanaderosSicActivity;
 
 import butterknife.ButterKnife;
@@ -23,7 +24,7 @@ public class MainMenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.bt_sic, R.id.bt_insumos, R.id.bt_qa})
+    @OnClick({R.id.bt_sic, R.id.bt_porongos, R.id.bt_qa})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -32,12 +33,12 @@ public class MainMenuActivity extends AppCompatActivity {
                 intent = new Intent(MainMenuActivity.this, GanaderosSicActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.bt_insumos:
-                intent = new Intent(MainMenuActivity.this, InsumoListActivity.class);
+            case R.id.bt_porongos:
+                intent = new Intent(MainMenuActivity.this, PorongoListActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_qa:
-                intent = new Intent(MainMenuActivity.this, GanaderosPorongosActivity.class);
+                intent = new Intent(MainMenuActivity.this, InsumoListActivity.class);
                 startActivity(intent);
                 break;
         }

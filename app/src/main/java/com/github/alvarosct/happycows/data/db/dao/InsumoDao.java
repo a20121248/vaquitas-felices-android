@@ -33,16 +33,16 @@ public interface InsumoDao extends BaseDao<Insumo> {
     @Query("SELECT * FROM Insumo")
     List<Insumo> getAll();
 
-    @Query("SELECT * FROM Insumo WHERE deletedAt = '' AND localChange = 1")
+    @Query("SELECT * FROM Insumo WHERE deletedAt IS NULL AND localChange = 1")
     List<Insumo> getLocallyChanged();
 
-    @Query("SELECT Count(*) FROM Insumo WHERE deletedAt = ''")
+    @Query("SELECT Count(*) FROM Insumo WHERE deletedAt IS NULL")
     int getCountAll();
 
-    @Query("SELECT Count(*) FROM Insumo WHERE deletedAt = '' AND localChange = 1")
+    @Query("SELECT Count(*) FROM Insumo WHERE deletedAt IS NULL AND localChange = 1")
     int getCountChanged();
 
-    @Query("SELECT * FROM Insumo WHERE id = :id AND deletedAt = ''")
+    @Query("SELECT * FROM Insumo WHERE id = :id AND deletedAt IS NULL")
     Insumo getById(int id);
 
     @Query("DELETE FROM Insumo WHERE id = :id")

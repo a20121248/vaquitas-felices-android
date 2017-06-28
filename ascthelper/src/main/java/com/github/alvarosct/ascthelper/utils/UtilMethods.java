@@ -62,6 +62,15 @@ public class UtilMethods {
         return calendar;
     }
 
+    public static float pxFromDp(Context context, float dp) {
+        return dp * context.getResources().getDisplayMetrics().density;
+    }
+
+    public static float pxFromSp(Context context, float sp) {
+        return sp * context.getResources().getDisplayMetrics().scaledDensity;
+    }
+
+
     public static int getVisibility(boolean flg) {
         return flg ? View.VISIBLE : View.GONE;
     }

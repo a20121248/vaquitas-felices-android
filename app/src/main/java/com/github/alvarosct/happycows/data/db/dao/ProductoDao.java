@@ -36,10 +36,10 @@ public interface ProductoDao extends BaseDao<Producto> {
     @Query("SELECT * FROM Producto WHERE localChange = 1")
     List<Producto> getLocallyChanged();
 
-    @Query("SELECT Count(*) FROM Producto WHERE deletedAt = ''")
+    @Query("SELECT Count(*) FROM Producto WHERE deletedAt IS NULL")
     int getCountAll();
 
-    @Query("SELECT Count(*) FROM Producto WHERE deletedAt = '' AND localChange = 1")
+    @Query("SELECT Count(*) FROM Producto WHERE deletedAt IS NULL AND localChange = 1")
     int getCountChanged();
 
     @Query("SELECT * FROM Producto WHERE id = :id")

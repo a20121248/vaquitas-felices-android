@@ -6,14 +6,17 @@
 
         <activity android:name=".features.MainMenuActivity" />
 
-        <activity android:name=".features.porongos.GanaderosPorongosActivity" />
-        <activity android:name=".features.porongos.PorongoFormActivity" />
+        <activity android:name=".features.porongos.PorongoListActivity" />
+        <activity android:name=".features.porongos.PorongoViewActivity" />
+        <activity android:name=".features.ganaderos.GanaderoSelectActivity" />
+        <activity android:name=".features.porongos.PorongoForm2Activity" />
 
         <activity android:name=".features.sic.GanaderosSicActivity" />
         <activity android:name=".features.sic.SicFormActivity" />
 
         <activity android:name=".features.insumos.InsumoListActivity" />
         <activity android:name=".features.insumos.InsumoQuestionFormActivity" />
+
 
     </application>
 

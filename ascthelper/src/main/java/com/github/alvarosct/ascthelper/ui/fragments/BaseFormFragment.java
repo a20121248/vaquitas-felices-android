@@ -107,7 +107,7 @@ public abstract class BaseFormFragment<T extends IBaseModel, F extends BaseFormM
         getToolbar().getMenu().clear();
 
         if (getAction().equals(Constants.ACTION_SHOW)) {
-            getToolbar().setTitle("Detalle - " + getIdentifier());
+            setToolbarTitle("Detalle - " + getIdentifier());
             getToolbar().inflateMenu(R.menu.menu_show);
             getToolbar().setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
                 @Override
@@ -118,7 +118,7 @@ public abstract class BaseFormFragment<T extends IBaseModel, F extends BaseFormM
                 }
             });
         } else if (getAction().equals(Constants.ACTION_EDIT)) {
-            getToolbar().setTitle("Editar - " + getIdentifier());
+            setToolbarTitle("Editar - " + getIdentifier());
             getToolbar().inflateMenu(R.menu.menu_register);
             getToolbar().setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
                 @Override
@@ -129,7 +129,7 @@ public abstract class BaseFormFragment<T extends IBaseModel, F extends BaseFormM
                 }
             });
         } else if (getAction().equals(Constants.ACTION_CREATE)) {
-            getToolbar().setTitle("Nuevo");
+            setToolbarTitle("Nuevo");
             getToolbar().inflateMenu(R.menu.menu_register);
             getToolbar().setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
                 @Override
@@ -163,6 +163,5 @@ public abstract class BaseFormFragment<T extends IBaseModel, F extends BaseFormM
     public F getFormsManager() {
         return formsManager;
     }
-
 
 }

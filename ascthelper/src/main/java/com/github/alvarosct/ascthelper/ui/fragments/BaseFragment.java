@@ -19,6 +19,8 @@ public class BaseFragment extends Fragment {
     private Toolbar toolbar;
     private boolean twoPaneFlg;
 
+    private String title = "";
+
     public BaseFragment() {
 
     }
@@ -36,16 +38,21 @@ public class BaseFragment extends Fragment {
     }
 
     public void setupVariables() {
-        toolbar = parent.getToolbar(getArguments() != null &&
-                getArguments().getBoolean(Constants.EXTRA_TOOLBAR_PRIMARY));
+        toolbar = parent.getToolbar(true);
+//        toolbar = parent.getToolbar(getArguments() != null &&
+//                getArguments().getBoolean(Constants.EXTRA_TOOLBAR_PRIMARY));
     }
 
     public void setupView(View view) {
 
     }
 
-    public void onCreateMenu(Menu menu) {
+    public void setTitle(String title){
+        this.title = title;
+    }
 
+    public void onCreateMenu(Menu menu) {
+        getToolbar().setTitle(title);
     }
 
     @Override
@@ -66,6 +73,10 @@ public class BaseFragment extends Fragment {
 
     public Toolbar getToolbar() {
         return toolbar;
+    }
+
+    public void setToolbarTitle(String title) {
+        getToolbar().setTitle(title);
     }
 
     public String getAction() {

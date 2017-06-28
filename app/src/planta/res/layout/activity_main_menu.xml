@@ -51,7 +51,7 @@
 
 
         <FrameLayout
-            android:id="@+id/bt_insumos"
+            android:id="@+id/bt_porongos"
             android:layout_width="match_parent"
             android:layout_height="@dimen/menu_min_height"
             android:layout_marginBottom="@dimen/margin_small"
@@ -77,7 +77,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:shadowColor="@color/black"
-                android:text="Insumos"
+                android:text="Porongos"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 
@@ -110,7 +110,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:shadowColor="@color/black"
-                android:text="Calidad"
+                android:text="Insumos"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 

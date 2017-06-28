@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.features.porongos;
+package com.github.alvarosct.happycows.features.ganaderos;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,17 +16,20 @@ import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.ascthelper.utils.SimpleDividerItemDecoration;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.pojos.PorongoItem;
+import com.github.alvarosct.happycows.features.porongos.PorongoAdapter;
+import com.github.alvarosct.happycows.features.porongos.PorongoViewActivity;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import java.util.List;
 
-public class PorongoListFragment extends BaseFragment implements IAdapterDetail {
+public class GanaderoSelectFragment extends BaseFragment implements IAdapterDetail {
 
     protected SuperRecyclerView rvData;
-    protected PorongoAdapter adapter;
+    protected GanaderoAdapter adapter;
 
-    public PorongoListFragment() {
+    public GanaderoSelectFragment() {
         // Required empty public constructor
     }
 
@@ -34,7 +37,7 @@ public class PorongoListFragment extends BaseFragment implements IAdapterDetail 
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        setTitle("Ingresos de leche");
+        setTitle("Selecciona el ganadero");
     }
 
     @Nullable
@@ -44,12 +47,8 @@ public class PorongoListFragment extends BaseFragment implements IAdapterDetail 
 
         rvData = (SuperRecyclerView) view.findViewById(R.id.rv_data);
         View fab_add = view.findViewById(R.id.fab_add);
-        fab_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openNewView();
-            }
-        });
+//        TODO: Refactor
+        fab_add.setVisibility(View.GONE);
 
         listEntities();
         return view;
@@ -67,37 +66,20 @@ public class PorongoListFragment extends BaseFragment implements IAdapterDetail 
 
     }
 
-    public void openNewView() {
-        Intent intent = new Intent(getContext(), PorongoForm2Activity.class);
-        intent.putExtra(Constants.BUNDLE_ENTITY_ID, -1);
-        startActivityForResult(intent, Constants.INTENT_FORM);
-    }
-
     @Override
     public void openDetail(int id) {
-        Intent intent = new Intent(getContext(), PorongoViewActivity.class);
+        Intent intent = new Intent();
         intent.putExtra(Constants.BUNDLE_ENTITY_ID, id);
-        startActivityForResult(intent, Constants.INTENT_FORM);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK && requestCode == Constants.INTENT_FORM) {
-            listEntities();
-        }
+        getParent().setResult(Activity.RESULT_OK, intent);
+        getParent().finish();
     }
 
 //    PRESENTER METHODS
 
     //    Edit for a NEW Form
     public void listEntities() {
-//        TODO: Call WS FIRST
-        UtilMethods.calendarToString(Constants.BD_DATE_FORMAT);
-
-        List<PorongoItem> entityList = AppDatabase.getInstance().porongoModel()
-                .listPorongosToday(UtilMethods.calendarToString(Constants.BD_DATE_FORMAT));
-        adapter = new PorongoAdapter(entityList, this);
+        List<Ganadero> entityList = AppDatabase.getInstance().ganaderoModel().getAll();
+        adapter = new GanaderoAdapter(entityList, this);
         rvData.setAdapter(adapter);
     }
 }

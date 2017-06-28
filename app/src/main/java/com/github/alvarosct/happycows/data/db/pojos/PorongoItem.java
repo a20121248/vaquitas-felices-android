@@ -16,6 +16,9 @@ public class PorongoItem extends BaseModel {
     private String nombres;
     @ColumnInfo(name = "peso")
     private int peso;
+
+    @ColumnInfo(name = "devolucion")
+    private int devolucion;
     @ColumnInfo(name = "fechaHoraEntrega")
     private String fechaHoraEntrega;
 
@@ -41,5 +44,13 @@ public class PorongoItem extends BaseModel {
 
     public void setFechaHoraEntrega(String fechaHoraEntrega) {
         this.fechaHoraEntrega = fechaHoraEntrega;
+    }
+
+    public int getDevolucion() {
+        return devolucion;
+    }
+
+    public void setDevolucion(int devolucion) {
+        this.devolucion = devolucion;
     }
 }

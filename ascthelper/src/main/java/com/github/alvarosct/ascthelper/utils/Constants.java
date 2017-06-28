@@ -54,6 +54,7 @@ public class Constants {
 
 
     public static final int INTENT_FORM = 222;
+    public static final int INTENT_SELECT_GANADERO = 123;
 
 //    Only APP
     public static final int INTENT_SYNC_ACTIVITY = 333;

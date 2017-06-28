@@ -30,19 +30,19 @@ public interface UserDao extends BaseDao<User> {
     @Delete
     void delete(User entity);
 
-    @Query("SELECT * FROM User WHERE deletedAt = ''")
+    @Query("SELECT * FROM User WHERE deletedAt IS NULL")
     List<User> getAll();
 
-    @Query("SELECT * FROM User WHERE deletedAt = '' AND localChange = 1")
+    @Query("SELECT * FROM User WHERE deletedAt IS NULL AND localChange = 1")
     List<User> getLocallyChanged();
 
-    @Query("SELECT Count(*) FROM User WHERE deletedAt = ''")
+    @Query("SELECT Count(*) FROM User WHERE deletedAt IS NULL")
     int getCountAll();
 
-    @Query("SELECT Count(*) FROM User WHERE deletedAt = '' AND localChange = 1")
+    @Query("SELECT Count(*) FROM User WHERE deletedAt IS NULL AND localChange = 1")
     int getCountChanged();
 
-    @Query("SELECT * FROM User WHERE id = :id AND deletedAt = ''")
+    @Query("SELECT * FROM User WHERE id = :id AND deletedAt IS NULL")
     User getById(int id);
 
     @Query("DELETE FROM User WHERE id = :id")
@@ -53,6 +53,6 @@ public interface UserDao extends BaseDao<User> {
 //    Custom Queries
 //    --------------
 
-    @Query("SELECT * FROM User WHERE username = :username AND password = :password AND deletedAt = '' LIMIT 1")
+    @Query("SELECT * FROM User WHERE username = :username AND password = :password AND deletedAt IS NULL LIMIT 1")
     User validateUser(String username, String password);
 }
