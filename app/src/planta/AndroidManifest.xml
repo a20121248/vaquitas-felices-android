@@ -10,6 +10,7 @@
         <activity android:name=".features.porongos.PorongoViewActivity" />
         <activity android:name=".features.ganaderos.GanaderoSelectActivity" />
         <activity android:name=".features.porongos.PorongoFormActivity" />
+        <activity android:name=".features.porongos.PorongoFormDirectActivity" />
 
         <activity android:name=".features.sic.GanaderosSicActivity" />
         <activity android:name=".features.sic.SicFormActivity" />

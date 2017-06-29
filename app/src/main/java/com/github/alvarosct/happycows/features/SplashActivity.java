@@ -41,7 +41,7 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(new Intent(SplashActivity.this, SyncDatabaseActivity.class));
         } else {
 //            TODO: Send to LOGIN Activity
-//            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
         }
         finish();
     }

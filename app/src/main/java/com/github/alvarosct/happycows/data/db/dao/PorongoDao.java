@@ -56,10 +56,10 @@ public interface PorongoDao extends BaseDao<Porongo> {
 //    --------------
 
 
-    @Query("SELECT P.id, G.nombres , P.peso , P.devolucion , P.fechaHoraEntrega " +
+    @Query("SELECT G.nombres , P.* " +
             "FROM Porongo P INNER JOIN Ganadero G on G.id = P.ganaderoId " +
             "WHERE P.deletedAt IS NULL AND substr(P.fechaHoraEntrega,0,11) = :today")
-    List<PorongoItem> listPorongosToday(String today);
+    List<PorongoFullItem> listPorongosToday(String today);
 
 
     @Query("SELECT  G.nombres , P.* " +

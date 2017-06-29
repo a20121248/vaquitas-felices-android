@@ -52,7 +52,4 @@ public interface UserDao extends BaseDao<User> {
 //    --------------
 //    Custom Queries
 //    --------------
-
-    @Query("SELECT * FROM User WHERE username = :username AND password = :password AND deletedAt IS NULL LIMIT 1")
-    User validateUser(String username, String password);
 }

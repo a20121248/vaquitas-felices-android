@@ -77,7 +77,7 @@ public class PorongoViewFragment extends BaseFragment {
     @Override
     public void setupView(View view) {
 
-        int layout = entity.getPorongo().getDevolucion() != 0 ?
+        int layout = entity.getPorongo().getAccepted() == 0 ?
                 R.id.ly_failure : R.id.ly_success;
         view.findViewById(layout).setVisibility(View.VISIBLE);
 
@@ -92,12 +92,13 @@ public class PorongoViewFragment extends BaseFragment {
         tvColor.setText(entity.getPorongo().getColor());
         tvOlor.setText(entity.getPorongo().getOlor());
 
-        tvAcidez.setText(String.valueOf(entity.getPorongo().getAcidez()));
-        tvAlcohol.setText(String.valueOf(entity.getPorongo().getAlcohol()));
-        tvDensidad.setText(String.valueOf(entity.getPorongo().getDensidad()));
-        tvBrix.setText(String.valueOf(entity.getPorongo().getBrix()));
-        tvPh.setText(String.valueOf(entity.getPorongo().getPh()));
-        tvLimpieza.setText(String.valueOf(entity.getPorongo().getLimpieza()));
+        tvAlcohol.setText(UtilMethods.parseNumber(entity.getPorongo().getAlcohol()));
+
+        tvAcidez.setText(UtilMethods.parseNumber(entity.getPorongo().getAcidez()));
+        tvDensidad.setText(UtilMethods.parseNumber(entity.getPorongo().getDensidad()));
+        tvBrix.setText(UtilMethods.parseNumber(entity.getPorongo().getBrix()));
+        tvPh.setText(UtilMethods.parseNumber(entity.getPorongo().getPh()));
+        tvLimpieza.setText(UtilMethods.parseNumber(entity.getPorongo().getLimpieza()));
 
     }
 

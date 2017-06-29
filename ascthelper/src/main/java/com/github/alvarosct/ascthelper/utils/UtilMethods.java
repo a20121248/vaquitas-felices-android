@@ -40,6 +40,18 @@ public class UtilMethods {
         toast.show();
     }
 
+    public static String parseNumber(int value){
+        return value == 0? "-" : String.valueOf(value);
+    }
+
+    public static String parseNumber(double value){
+        return value == 0? "-" : String.valueOf(value);
+    }
+
+    public static String parseNumber(float value){
+        return value == 0? "-" : String.valueOf(value);
+    }
+
     public static void notYet() {
         showToast("Proximamente...");
     }

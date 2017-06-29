@@ -45,16 +45,32 @@ public class Porongo extends BaseModel {
     private int limpieza;
 
     //    ONLY MOBILE
-    @SerializedName("step")
-    private int step = 0;
+    @SerializedName("accepted")
+    private int accepted;
 
 
-    public int getStep() {
-        return step;
+    public int getAccepted() {
+        return accepted;
     }
 
-    public void setStep(int step) {
-        this.step = step;
+    public void setAccepted(int dummy) {
+        accepted = dummy;
+        if (color.equals("Blanco") && olor.equals("Bueno")) {
+            accepted = 1;
+        } else {
+
+            if (alcohol > MIN_ALCOHOL && alcohol < MAX_ALCOHOL) {
+                accepted = 1;
+            } else {
+//                TODO: Cambiar Validacion
+                if (limpieza == 1) {
+                    accepted = 1;
+                } else {
+                    accepted = 0;
+                }
+            }
+
+        }
     }
 
     public int getGanaderoId() {

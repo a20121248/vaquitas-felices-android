@@ -58,15 +58,10 @@ public class DataSourceRepository implements DataSource {
     }
 
     @Override
-    public void loginUser(final String username, final String password, final BaseCallback<User> callback) {
-        dataSourceLocal.loginUser(username, password, callback);
+    public void loginUser(final String username, final String password, final int type, final BaseCallback<User> callback) {
+//        dataSourceLocal.loginUser(username, password, type, callback);
 
-//        dataSourceRemote.loginUser(username, password, new WrapFallback<User>(callback) {
-//            @Override
-//            public void onLocalDB() {
-//                dataSourceLocal.loginUser(username, password, callback);
-//            }
-//        });
+        dataSourceRemote.loginUser(username, password, type, callback);
 
     }
 

@@ -20,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".features.LoginActivity"/>
         <activity android:name=".features.syncDatabase.SyncDatabaseActivity"/>
         <activity android:name=".features.syncDatabase.SyncDatabaseNavActivity"/>
         <activity android:name=".features.main.BlankActivity"/>

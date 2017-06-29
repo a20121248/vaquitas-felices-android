@@ -37,17 +37,13 @@ public class DataSourceRemote implements DataSource {
 
     @Override
     public void updatePorongo(Porongo entity, BaseCallback<Porongo> callback) {
-        if (entity.isLocalCreate() || entity.idNull()) {
-            RequestManager.getWebServices().createPorongo(entity).enqueue(callback);
-        } else {
-            RequestManager.getWebServices().updatePorongo(entity.getId(), entity).enqueue(callback);
-        }
+        RequestManager.getWebServices().createPorongo(entity).enqueue(callback);
     }
 
 
     @Override
-    public void loginUser(String username, String password, BaseCallback<User> callback) {
-//        RequestManager.getWebServices().login(username, password).enqueue(callback);
+    public void loginUser(String username, String password, int type, BaseCallback<User> callback) {
+        RequestManager.getWebServices().loginEmpleados(username, password, type).enqueue(callback);
     }
 
     @Override

@@ -7,6 +7,7 @@ package com.github.alvarosct.happycows.data.source.remote;
 public class Urls {
 
     public static final String LOGIN = "login";
+    public static final String LOGIN_EMPLEADOS = "login_empleados";
 
     static final String PATH_ID = "ID";
     static final String EXTRA_PATH_ID = "/{" + PATH_ID + "}";

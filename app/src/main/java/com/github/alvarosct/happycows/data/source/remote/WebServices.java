@@ -34,6 +34,13 @@ public interface WebServices {
             @Field("username") String username,
             @Field("password") String password);
 
+    @FormUrlEncoded
+    @POST(Urls.LOGIN_EMPLEADOS)
+    Call<User> loginEmpleados(
+            @Field("email") String username,
+            @Field("password") String password,
+            @Field("tipo_usuario") int userType);
+
     @POST(Urls.PORONGOS)
     Call<Porongo> createPorongo(@Body Porongo genotypic);
 

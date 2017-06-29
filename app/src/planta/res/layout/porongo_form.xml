@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ly_ganadero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_default">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ganadero"
+                    android:textSize="@dimen/text_subheading" />
+
+                <TextView
+                    android:id="@+id/tv_ganadero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seleccionar"
+                    android:textSize="@dimen/text_subheading"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/bg_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_default">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Peso"
+                    android:textSize="@dimen/text_subheading" />
+
+                <EditText
+                    android:id="@+id/et_peso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
+                    android:maxLength="8"
+                    android:minWidth="100dp"
+                    android:paddingEnd="@dimen/margin_small"
+                    android:paddingStart="@dimen/margin_small"
+                    android:singleLine="true"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:minWidth="@dimen/suffix_width"
+                    android:text="Kg"
+                    android:textSize="@dimen/text_body" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/bg_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_default">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Color"
+                    android:textSize="@dimen/text_subheading" />
+
+                <Button
+                    android:id="@+id/bt_white"
+                    android:layout_width="@dimen/color_size"
+                    android:layout_height="@dimen/color_size"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:background="@drawable/selector_white"
+                    android:tag="Blanco" />
+
+                <Button
+                    android:id="@+id/bt_yellow"
+                    android:layout_width="@dimen/color_size"
+                    android:layout_height="@dimen/color_size"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:background="@drawable/selector_yellow"
+                    android:tag="Amarillo" />
+
+                <Button
+                    android:id="@+id/bt_red"
+                    android:layout_width="@dimen/color_size"
+                    android:layout_height="@dimen/color_size"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:background="@drawable/selector_red"
+                    android:tag="Rojo" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/bg_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_default">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Olor"
+                    android:textSize="@dimen/text_subheading" />
+
+                <Button
+                    android:id="@+id/bt_good"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/color_size"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:background="@drawable/selector_white"
+                    android:tag="Bueno"
+                    android:text="Bueno" />
+
+                <Button
+                    android:id="@+id/bt_bad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/color_size"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:background="@drawable/selector_red"
+                    android:tag="Malo"
+                    android:text="Malo"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/bg_grey" />
+
+            <LinearLayout
+                android:id="@+id/ly_calidad_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_default">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Porcentaje de Alcohol"
+                        android:textSize="@dimen/text_subheading" />
+
+                    <EditText
+                        android:id="@+id/et_alcohol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="numberDecimal"
+                        android:maxLength="8"
+                        android:minWidth="100dp"
+                        android:paddingEnd="@dimen/margin_small"
+                        android:paddingStart="@dimen/margin_small"
+                        android:singleLine="true"
+                        android:text="0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:minWidth="@dimen/suffix_width"
+                        android:text="%"
+                        android:textSize="@dimen/text_body" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/bg_grey" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_calidad_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_default">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Nivel de acidez"
+                        android:textSize="@dimen/text_subheading" />
+
+                    <EditText
+                        android:id="@+id/et_acidez"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="numberDecimal"
+                        android:maxLength="8"
+                        android:minWidth="100dp"
+                        android:paddingEnd="@dimen/margin_small"
+                        android:paddingStart="@dimen/margin_small"
+                        android:singleLine="true"
+                        android:text="0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:minWidth="@dimen/suffix_width"
+                        android:text=""
+                        android:textSize="@dimen/text_body" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/bg_grey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_default">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Densidad"
+                        android:textSize="@dimen/text_subheading" />
+
+                    <EditText
+                        android:id="@+id/et_densidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="numberDecimal"
+                        android:maxLength="8"
+                        android:minWidth="100dp"
+                        android:paddingEnd="@dimen/margin_small"
+                        android:paddingStart="@dimen/margin_small"
+                        android:singleLine="true"
+                        android:text="0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:minWidth="@dimen/suffix_width"
+                        android:text=""
+                        android:textSize="@dimen/text_body" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/bg_grey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_default">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Grado Brix"
+                        android:textSize="@dimen/text_subheading" />
+
+                    <EditText
+                        android:id="@+id/et_brix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="numberDecimal"
+                        android:maxLength="8"
+                        android:minWidth="100dp"
+                        android:paddingEnd="@dimen/margin_small"
+                        android:paddingStart="@dimen/margin_small"
+                        android:singleLine="true"
+                        android:text="0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:minWidth="@dimen/suffix_width"
+                        android:text=""
+                        android:textSize="@dimen/text_body" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/bg_grey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_default">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Valor del PH"
+                        android:textSize="@dimen/text_subheading" />
+
+                    <EditText
+                        android:id="@+id/et_ph"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:minWidth="100dp"
+                        android:paddingEnd="@dimen/margin_small"
+                        android:paddingStart="@dimen/margin_small"
+                        android:singleLine="true"
+                        android:text="0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:minWidth="@dimen/suffix_width"
+                        android:text=""
+                        android:textSize="@dimen/text_body" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/bg_grey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_default">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Grado de limpieza"
+                        android:textSize="@dimen/text_subheading" />
+
+                    <EditText
+                        android:id="@+id/et_limpieza"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:minWidth="100dp"
+                        android:paddingEnd="@dimen/margin_small"
+                        android:paddingStart="@dimen/margin_small"
+                        android:singleLine="true"
+                        android:text="0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:minWidth="@dimen/suffix_width"
+                        android:text=""
+                        android:textSize="@dimen/text_body" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/bg_grey" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bt_register"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:padding="@dimen/margin_default"
+        android:layout_height="wrap_content"
+        android:text="Registrar" />
+
+</LinearLayout>

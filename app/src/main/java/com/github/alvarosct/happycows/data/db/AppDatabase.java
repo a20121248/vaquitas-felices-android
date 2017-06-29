@@ -36,7 +36,7 @@ import java.lang.reflect.Method;
         Porongo.class, Encuesta.class, Ganadero.class,
         Pregunta.class, PreguntaInsumo.class, Insumo.class, User.class,
         Producto.class
-}, version = 5)
+}, version = 6)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;

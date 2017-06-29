@@ -16,6 +16,7 @@ import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.ascthelper.utils.SimpleDividerItemDecoration;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.pojos.PorongoFullItem;
 import com.github.alvarosct.happycows.data.db.pojos.PorongoItem;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
@@ -95,7 +96,7 @@ public class PorongoListFragment extends BaseFragment implements IAdapterDetail 
 //        TODO: Call WS FIRST
         UtilMethods.calendarToString(Constants.BD_DATE_FORMAT);
 
-        List<PorongoItem> entityList = AppDatabase.getInstance().porongoModel()
+        List<PorongoFullItem> entityList = AppDatabase.getInstance().porongoModel()
                 .listPorongosToday(UtilMethods.calendarToString(Constants.BD_DATE_FORMAT));
         adapter = new PorongoAdapter(entityList, this);
         rvData.setAdapter(adapter);

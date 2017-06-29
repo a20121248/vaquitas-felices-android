@@ -13,6 +13,7 @@ import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.App;
 import com.github.alvarosct.happycows.R;
+import com.github.alvarosct.happycows.data.db.pojos.PorongoFullItem;
 import com.github.alvarosct.happycows.data.db.pojos.PorongoItem;
 
 import java.util.List;
@@ -22,10 +23,10 @@ import java.util.List;
  */
 
 public class PorongoAdapter extends RecyclerView.Adapter<PorongoAdapter.ViewHolder> {
-    protected List<PorongoItem> objList;
+    protected List<PorongoFullItem> objList;
     protected IAdapterDetail iAdapterDetail;
 
-    public PorongoAdapter(List<PorongoItem> objList, IAdapterDetail iAdapterDetail) {
+    public PorongoAdapter(List<PorongoFullItem> objList, IAdapterDetail iAdapterDetail) {
         this.objList = objList;
         this.iAdapterDetail = iAdapterDetail;
     }
@@ -39,17 +40,17 @@ public class PorongoAdapter extends RecyclerView.Adapter<PorongoAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final PorongoItem obj = objList.get(position);
+        final PorongoFullItem obj = objList.get(position);
 
         holder.tv_heading.setText(obj.getNombres());
         holder.tv_subheading.setText(UtilMethods.calendarStringToString(
-                obj.getFechaHoraEntrega(),
+                obj.getPorongo().getFechaHoraEntrega(),
                 Constants.BD_DATETIME_FORMAT,
                 Constants.DATETIME_FORMAT
         ));
-        holder.tv_peso.setText(String.valueOf(obj.getPeso()));
+        holder.tv_peso.setText(String.valueOf(obj.getPorongo().getPeso()));
 
-        if (obj.getDevolucion() != 0){
+        if (obj.getPorongo().getAccepted() == 0){
             holder.iv_icon.setImageResource(R.drawable.ic_clear);
             holder.iv_icon.setColorFilter(ContextCompat.getColor(App.getContext(),R.color.red));
         } else {
@@ -62,7 +63,7 @@ public class PorongoAdapter extends RecyclerView.Adapter<PorongoAdapter.ViewHold
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                iAdapterDetail.openDetail(obj.getId());
+                iAdapterDetail.openDetail(obj.getPorongo().getId());
             }
         });
     }

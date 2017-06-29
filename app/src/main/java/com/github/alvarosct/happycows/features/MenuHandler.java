@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.features.main;
+package com.github.alvarosct.happycows.features;
 
 
 import android.app.Activity;
@@ -18,14 +18,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.github.alvarosct.ascthelper.utils.Constants;
+import com.github.alvarosct.happycows.FlavorMethods;
+import com.github.alvarosct.happycows.PreferenceManager;
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.features.MainMenuActivity;
-import com.github.alvarosct.happycows.features.degustaciones.DegustacionesRegistrarActivity;
-import com.github.alvarosct.happycows.features.materiales.MaterialesRegistrarActivity;
-import com.github.alvarosct.happycows.features.necesidades.NecesidadesRegistrarActivity;
-import com.github.alvarosct.happycows.features.syncDatabase.SyncDatabaseNavActivity;
-import com.github.alvarosct.happycows.features.usuario.UsuarioRegistrarActivity;
-import com.github.alvarosct.happycows.features.venta.VentaRegistrarActivity;
+import com.github.alvarosct.happycows.data.db.models.User;
+import com.github.alvarosct.happycows.features.main.BlankActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,19 +46,7 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
     }
 
     static {
-        setupDrawerItems();
-    }
-
-    private static void setupDrawerItems() {
-
-        new DrawerItem(7, R.id.nav_ventas, 1, VentaRegistrarActivity.class);
-        new DrawerItem(14, R.id.nav_nuevo_usuario, 1, UsuarioRegistrarActivity.class);
-        new DrawerItem(9, R.id.nav_materiales, 1, MaterialesRegistrarActivity.class);
-        new DrawerItem(10, R.id.nav_necesidades, 1, NecesidadesRegistrarActivity.class);
-        new DrawerItem(11, R.id.nav_degustaciones, 1, DegustacionesRegistrarActivity.class);
-
-        new DrawerItem(1000, R.id.nav_sync, 1, SyncDatabaseNavActivity.class);
-//        new DrawerItem(1001, R.id.nav_bio, 4, BiochemicalActivity.class);
+        FlavorMethods.setupDrawerItems();
     }
 
     private MenuHandler(Activity activity) {
@@ -94,7 +79,8 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
 
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
-    private TextView tvResourceName;
+    private TextView tvName;
+    private TextView tvEmail;
     private Activity activity;
 
     public View getView(final Activity activity, @LayoutRes int layoutId) {
@@ -108,13 +94,19 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
         fl_holder = (FrameLayout) navLayout.findViewById(R.id.fl_holder);
 
         View headerView = inflater.inflate(R.layout.nav_header_main, null);
-        tvResourceName = (TextView) headerView.findViewById(R.id.tv_resource_name);
+        tvName = (TextView) headerView.findViewById(R.id.tv_name);
+        tvEmail = (TextView) headerView.findViewById(R.id.tv_email);
+
+        User user = PreferenceManager.getInstance(activity).getUserInfo();
+
+        tvName.setText(user.getNombres() + " " + user.getApellidos());
+        tvEmail.setText(user.getNombreUsuario());
         View holder = headerView.findViewById(R.id.holder);
         holder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.startActivity(new Intent(activity, MainMenuActivity.class));
-                activity.getParent().finish();
+                activity.finish();
             }
         });
 
@@ -142,7 +134,7 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
     }
 
 
-    static class DrawerItem {
+    public static class DrawerItem {
         private int id;
         private int menuId;
         private int resourceId;

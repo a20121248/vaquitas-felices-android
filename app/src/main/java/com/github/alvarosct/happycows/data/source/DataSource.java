@@ -24,7 +24,7 @@ public interface DataSource {
 
     void updatePorongo(Porongo entity, BaseCallback<Porongo> callback);
 
-    void loginUser(String username, String password, BaseCallback<User> callback);
+    void loginUser(String username, String password, int type, BaseCallback<User> callback);
 
     void listPorongo(boolean loadTableFlg, BaseCallback<List<Porongo>> callback);
 

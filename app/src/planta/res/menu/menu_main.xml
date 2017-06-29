@@ -9,25 +9,29 @@
         <item
             android:id="@+id/nav_porongos"
             android:icon="@drawable/ic_sell"
-            android:title="Porongos" />
+            android:title="Ingresos de leche" />
+        <item
+            android:id="@+id/nav_nuevo_porongo"
+            android:icon="@drawable/ic_sell"
+            android:title="Registrar porongos" />
     </group>
 
     <group
         android:id="@+id/group_3"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_sic"
+            android:id="@+id/nav_insumos"
             android:icon="@drawable/ic_new_client"
-            android:title="Pruebas SIC" />
+            android:title="Insumos" />
     </group>
 
     <group
         android:id="@+id/group_2"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_qa"
+            android:id="@+id/nav_produccion"
             android:icon="@drawable/ic_item_list"
-            android:title="Calidad" />
+            android:title="Produccion" />
 
     </group>
 

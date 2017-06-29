@@ -51,19 +51,22 @@ public class DataSourceLocal implements DataSource {
     }
 
     @Override
-    public void loginUser(String username, String password, BaseCallback<User> callback) {
+    public void loginUser(String username, String password, int type, BaseCallback<User> callback) {
 
 //        TODO: Change depending on the used encryption
 //        String hashedPass = UtilMethods.md5("ab513c75f48d82bcd30aa48e478d2e6e" + password);
 //        User user = AppDatabase.getInstance().userModel().validateUser(username, hashedPass);
 
-        User user = AppDatabase.getInstance().userModel().validateUser(username, password);
-
-        if (user != null) {
-            callback.onSuccess(false, user);
-        } else {
-            callback.onError(0, new ApiError("Usuario no encontrado en base de datos local"));
-        }
+//        User user = new User();
+//        user.setNames("Alvaro");
+//        user.setSurnames("Santa Cruz");
+//
+//        if (username.equals("losseeders.noestanmal@pucp.pe") &&
+//                password.equals("dba1234")) {
+//            callback.onSuccess(false, user);
+//        } else {
+//            callback.onError(0, new ApiError("Usuario no válido"));
+//        }
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,14 @@ import android.widget.TextView;
 import com.github.alvarosct.ascthelper.ui.fragments.BaseFragment;
 import com.github.alvarosct.ascthelper.utils.BaseFormManager;
 import com.github.alvarosct.ascthelper.utils.Constants;
+import com.github.alvarosct.ascthelper.utils.UtilMethods;
+import com.github.alvarosct.ascthelper.utils.dialogs.DialogCustom;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
+import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
 import com.github.alvarosct.happycows.features.ganaderos.GanaderoSelectActivity;
+import com.github.alvarosct.happycows.utils.Injector;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -71,8 +76,6 @@ public class PorongoFormFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         setTitle("Registrar Ingreso");
         setHasOptionsMenu(true);
-
-        onViewClickedGanadero();
     }
 
     @Nullable
@@ -86,7 +89,7 @@ public class PorongoFormFragment extends BaseFragment {
     @Override
     public void setupVariables() {
         super.setupVariables();
-        int id = getArguments().getInt(Constants.BUNDLE_ENTITY_ID);
+        int id = getArguments().getInt(Constants.BUNDLE_ENTITY_ID, -1);
         entity = (id == -1) ? new Porongo() :
                 AppDatabase.getInstance().porongoModel().getById(id);
     }
@@ -103,30 +106,52 @@ public class PorongoFormFragment extends BaseFragment {
 
     }
 
+    private boolean flagCalidad2;
+    private boolean flagCalidad3;
+
     private void enableCalidad2() {
-        if (selectedColor == null || selectedOlor == null) return;
 
-        if (selectedColor.getId() == R.id.bt_white &&
-                selectedOlor.getId() == R.id.bt_good) {
-
-            lyCalidad2.setVisibility(View.GONE);
-            lyCalidad3.setVisibility(View.GONE);
-        } else {
-            lyCalidad2.setVisibility(View.VISIBLE);
-            enableCalidad3();
+        if (selectedColor == null || selectedOlor == null) {
+            flagCalidad2 = false;
+            return;
         }
+
+        flagCalidad2 = (selectedColor.getId() != R.id.bt_white) ||
+                (selectedOlor.getId() != R.id.bt_good);
+
+        updateViewPanels();
 
     }
 
     private void enableCalidad3() {
 
-        if (entity.getAlcohol() > Porongo.MIN_ALCOHOL && entity.getAlcohol() < Porongo.MAX_ALCOHOL) {
-            lyCalidad3.setVisibility(View.GONE);
+        flagCalidad3 = entity.getAlcohol() < Porongo.MIN_ALCOHOL || entity.getAlcohol() > Porongo.MAX_ALCOHOL;
+        updateViewPanels();
+    }
+
+    private void updateViewPanels() {
+        if (flagCalidad2) {
+            lyCalidad2.setVisibility(View.VISIBLE);
+            if (flagCalidad3) {
+                lyCalidad3.setVisibility(View.VISIBLE);
+            } else {
+                lyCalidad3.setVisibility(View.GONE);
+            }
         } else {
-            lyCalidad3.setVisibility(View.VISIBLE);
+            lyCalidad2.setVisibility(View.GONE);
+            lyCalidad3.setVisibility(View.GONE);
         }
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+//        Open the Ganadero Selection
+        onViewClickedGanadero();
+
+
+    }
 
     @Override
     public void setupView(View view) {
@@ -142,15 +167,28 @@ public class PorongoFormFragment extends BaseFragment {
                 new BaseFormManager.IEditText() {
                     @Override
                     public void setValue(String value) {
-                        entity.setPeso(Double.parseDouble(value));
+                        double number = Double.parseDouble(value);
+                        if (number > 20) {
+                            etPeso.setText("");
+                            etPeso.append("20");
+                        } else {
+                            entity.setPeso(number);
+                        }
                     }
                 });
+
         baseFormManager.setupEditTextNumber(etAlcohol, String.valueOf(entity.getAlcohol()),
                 new BaseFormManager.IEditText() {
                     @Override
                     public void setValue(String value) {
-                        entity.setAlcohol(Double.parseDouble(value));
-                        enableCalidad3();
+                        double number = Double.parseDouble(value);
+                        if (number > 100) {
+                            etPeso.setText("");
+                            etPeso.append("100");
+                        } else {
+                            entity.setAlcohol(number);
+                            enableCalidad3();
+                        }
                     }
                 });
 
@@ -193,13 +231,6 @@ public class PorongoFormFragment extends BaseFragment {
                         entity.setLimpieza(Integer.parseInt(value));
                     }
                 });
-
-//        tvAcidez.setText(String.valueOf(entity.getPorongo().getAcidez()));
-//        tvAlcohol.setText(String.valueOf(entity.getPorongo().getAlcohol()));
-//        tvDensidad.setText(String.valueOf(entity.getPorongo().getDensidad()));
-//        tvBrix.setText(String.valueOf(entity.getPorongo().getBrix()));
-//        tvPh.setText(String.valueOf(entity.getPorongo().getPh()));
-//        tvLimpieza.setText(String.valueOf(entity.getPorongo().getLimpieza()));
 
     }
 
@@ -250,5 +281,80 @@ public class PorongoFormFragment extends BaseFragment {
         entity.setOlor(String.valueOf(button.getTag()));
 
         enableCalidad2();
+    }
+
+    private boolean validate() {
+
+        if (entity.getGanaderoId() == -1) {
+            UtilMethods.showToast("Seleccione un ganadero");
+            return false;
+        }
+
+        if (entity.getPeso() == 0) {
+            UtilMethods.showToast("Ingrese el peso de la leche");
+            return false;
+        }
+
+        if (flagCalidad2) {
+            if (entity.getAlcohol() == 0) {
+                UtilMethods.showToast("Ingrese el porcentaje de alcohol");
+                return false;
+            }
+
+            if (flagCalidad3) {
+
+                if (entity.getAcidez() == 0) {
+                    UtilMethods.showToast("Ingrese el nivel de acidez");
+                    return false;
+                }
+
+                if (entity.getDensidad() == 0) {
+                    UtilMethods.showToast("Ingrese la densidad");
+                    return false;
+                }
+
+                if (entity.getBrix() == 0) {
+                    UtilMethods.showToast("Ingrese el grado Brix");
+                    return false;
+                }
+
+                if (entity.getPh() == 0) {
+                    UtilMethods.showToast("Ingrese el valor de PH");
+                    return false;
+                }
+
+                if (entity.getLimpieza() == 0) {
+                    UtilMethods.showToast("Ingrese el grado de limpieza");
+                    return false;
+                }
+            }
+
+        }
+
+        return true;
+    }
+
+    @OnClick(R.id.bt_register)
+    public void onViewClickedRegister() {
+
+        if (!validate()) return;
+        Injector.provideRepository().updatePorongo(entity,
+                new LoadingCallback<Porongo>(getContext(), "Registrando...") {
+                    @Override
+                    public void onSuccess(boolean fromRemote, Porongo response) {
+                        super.onSuccess(fromRemote, response);
+                        AppDatabase.getInstance().porongoModel().insert(response);
+
+                        new DialogCustom(getContext(),
+                                "¡Éxito!", "El registro se realizó correctamente.",
+                                new DialogCustom.ButtonBehaviour("Ok", new DialogCustom.IButton() {
+                                    @Override
+                                    public void onButtonClick() {
+                                        getParent().setResult(Activity.RESULT_OK);
+                                        getParent().finish();
+                                    }
+                                })).show();
+                    }
+                });
     }
 }

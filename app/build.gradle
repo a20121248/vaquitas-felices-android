@@ -30,11 +30,13 @@ android {
             dimension "mode"
             applicationIdSuffix ".bioferia"
             versionNameSuffix "-bioferia"
+            buildConfigField "int", "USER_TYPE", "7"
         }
         planta {
             dimension "mode"
             applicationIdSuffix ".planta"
             versionNameSuffix "-planta"
+            buildConfigField "int", "USER_TYPE", "8"
         }
     }
 }
