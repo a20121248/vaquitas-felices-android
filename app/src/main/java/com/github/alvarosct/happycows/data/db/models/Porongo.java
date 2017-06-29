@@ -11,11 +11,8 @@ import com.google.gson.annotations.SerializedName;
 @Entity
 public class Porongo extends BaseModel {
 
-    public static final String RED = "Roja";
-    public static final String WHITE = "Blanca";
-    public static final String YELLOW = "Amarillla";
-    public static final String GOOD = "Bueno";
-    public static final String BAD = "Malo";
+    public static final double MIN_ALCOHOL = 60;
+    public static final double MAX_ALCOHOL = 90;
 
     @SerializedName("fecha_hora_entrega")
     private String fechaHoraEntrega;

@@ -20,11 +20,7 @@ import android.widget.TextView;
 import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.happycows.FlavorMethods;
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.features.insumos.InsumoListActivity;
 import com.github.alvarosct.happycows.features.main.BlankActivity;
-import com.github.alvarosct.happycows.features.porongos.GanaderosPorongosActivity;
-import com.github.alvarosct.happycows.features.sic.GanaderosSicActivity;
-import com.github.alvarosct.happycows.features.syncDatabase.SyncDatabaseNavActivity;
 
 import java.util.ArrayList;
 import java.util.List;

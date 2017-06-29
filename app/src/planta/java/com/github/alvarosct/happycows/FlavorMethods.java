@@ -6,7 +6,6 @@ import android.content.Intent;
 import com.github.alvarosct.happycows.features.MainMenuActivity;
 import com.github.alvarosct.happycows.features.MenuHandler;
 import com.github.alvarosct.happycows.features.insumos.InsumoListActivity;
-import com.github.alvarosct.happycows.features.porongos.GanaderosPorongosActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoListActivity;
 import com.github.alvarosct.happycows.features.sic.GanaderosSicActivity;
 import com.github.alvarosct.happycows.features.syncDatabase.SyncDatabaseNavActivity;

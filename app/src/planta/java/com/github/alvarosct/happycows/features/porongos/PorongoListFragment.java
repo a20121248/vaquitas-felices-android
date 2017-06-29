@@ -68,7 +68,7 @@ public class PorongoListFragment extends BaseFragment implements IAdapterDetail 
     }
 
     public void openNewView() {
-        Intent intent = new Intent(getContext(), PorongoForm2Activity.class);
+        Intent intent = new Intent(getContext(), PorongoFormActivity.class);
         intent.putExtra(Constants.BUNDLE_ENTITY_ID, -1);
         startActivityForResult(intent, Constants.INTENT_FORM);
     }

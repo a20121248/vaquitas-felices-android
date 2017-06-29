@@ -3,12 +3,15 @@ package com.github.alvarosct.ascthelper.utils;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.text.Editable;
+import android.text.InputType;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.github.alvarosct.ascthelper.IBaseModel;
 
@@ -43,7 +46,7 @@ public class BaseFormManager {
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar currentDate = UtilMethods.stringToCalendar(editText.getText().toString(), Constants.BD_DATE_FORMAT);
+                Calendar currentDate = UtilMethods.stringToCalendar(editText.getText().toString(), Constants.DATE_FORMAT);
                 int year = currentDate.get(Calendar.YEAR);
                 int monthOfYear = currentDate.get(Calendar.MONTH);
                 int dayOfMonth = currentDate.get(Calendar.DAY_OF_MONTH);
@@ -63,6 +66,37 @@ public class BaseFormManager {
         });
         editText.setText(UtilMethods.calendarStringToString(value, Constants.BD_DATE_FORMAT, Constants.DATE_FORMAT));
     }
+
+    public void setupEditTextNumber(EditText editText, String value, final IEditText iEditText) {
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (TextUtils.isEmpty(editable.toString())){
+                    iEditText.setValue("0");
+                } else {
+                    iEditText.setValue(editable.toString());
+                }
+            }
+        });
+
+        if (Double.parseDouble(value) == 0){
+            editText.setText("");
+        } else {
+            editText.setText(value);
+        }
+    }
+
+
 
     public void setupEditText(EditText editText, String value, final IEditText iEditText) {
         editText.addTextChangedListener(new TextWatcher() {
@@ -84,28 +118,47 @@ public class BaseFormManager {
         editText.setText(value);
     }
 
-    protected void setupSpinner(Spinner spinner, List<IBaseModel> recordList, int valueId, final ISpinner iSpinner) {
-
-        final SpinnerModelAdapter<IBaseModel> adapter = new SpinnerModelAdapter<>(context,
-                android.R.layout.simple_spinner_item, recordList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    public void setupLayoutEditText(EditText editText, String value, final IEditText iEditText) {
+        editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                IBaseModel sr = adapter.getItem(i);
-                if (sr != null) {
-                    iSpinner.setValueId(sr.getModelId());
-                }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                iEditText.setValue(editable.toString());
             }
         });
-        spinner.setSelection(adapter.getPosById(valueId));
+        editText.setText(value);
     }
+
+    public void setupEditTextNumber(EditText editText, int value, final IEditText iEditText) {
+        editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                iEditText.setValue(editable.toString());
+            }
+        });
+        editText.setText("" + value);
+    }
+
 
     public interface ISpinner {
         void setValueId(int id);
@@ -113,6 +166,10 @@ public class BaseFormManager {
 
     public interface IEditText {
         void setValue(String value);
+    }
+
+    public interface IValidate {
+        void validate(String value);
     }
     //endregion
 }

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="width_default">150dp</dimen>
+    <dimen name="color_size">40dp</dimen>
+    <dimen name="suffix_width">25dp</dimen>
 </resources>

@@ -7,7 +7,6 @@ import android.view.View;
 
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.features.insumos.InsumoListActivity;
-import com.github.alvarosct.happycows.features.porongos.GanaderosPorongosActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoListActivity;
 import com.github.alvarosct.happycows.features.sic.GanaderosSicActivity;
 
