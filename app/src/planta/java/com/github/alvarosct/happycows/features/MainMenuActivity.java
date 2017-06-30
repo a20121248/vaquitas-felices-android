@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.features.insumos.InsumoListActivity;
+import com.github.alvarosct.happycows.features.insumos.compras.CompraListActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoFormActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoFormDirectActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoListActivity;
@@ -25,7 +26,7 @@ public class MainMenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.bt_new_porongo, R.id.bt_porongos, R.id.bt_qa})
+    @OnClick({R.id.bt_new_porongo, R.id.bt_porongos, R.id.bt_calidad_insumos, R.id.bt_produccion})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -38,7 +39,11 @@ public class MainMenuActivity extends AppCompatActivity {
                 intent = new Intent(MainMenuActivity.this, PorongoFormDirectActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.bt_qa:
+            case R.id.bt_calidad_insumos:
+                intent = new Intent(MainMenuActivity.this, CompraListActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.bt_produccion:
                 intent = new Intent(MainMenuActivity.this, InsumoListActivity.class);
                 startActivity(intent);
                 break;

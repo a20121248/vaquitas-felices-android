@@ -59,6 +59,11 @@ public class App extends Application {
         List<TableMaster> tables = new ArrayList<>();
         tables.add(new TableMaster("Ganadero"));
         tables.add(new TableMaster("Porongo"));
+        tables.add(new TableMaster("Insumo"));
+        tables.add(new TableMaster("ParametroCalidad"));
+        tables.add(new TableMaster("Proveedor"));
+        tables.add(new TableMaster("Compra"));
+        tables.add(new TableMaster("DetalleCompra"));
 
 //        tables.add(new TableMaster("User"));
 //        tables.add(new TableMaster("Pregunta"));

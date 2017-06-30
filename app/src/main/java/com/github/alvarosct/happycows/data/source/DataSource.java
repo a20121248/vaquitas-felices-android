@@ -2,16 +2,19 @@ package com.github.alvarosct.happycows.data.source;
 
 
 import com.github.alvarosct.happycows.data.db.models.Client;
-import com.github.alvarosct.happycows.data.db.models.Insumo;
-import com.github.alvarosct.happycows.data.db.models.Producto;
-import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
-import com.github.alvarosct.happycows.data.db.pojos.ProductoItem;
-import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
-import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
+import com.github.alvarosct.happycows.data.db.models.Compra;
+import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
+import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.ParametroCalidad;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
+import com.github.alvarosct.happycows.data.db.models.Producto;
+import com.github.alvarosct.happycows.data.db.models.Proveedor;
 import com.github.alvarosct.happycows.data.db.models.User;
+import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
+import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
+import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -35,8 +38,13 @@ public interface DataSource {
     void listPregunta(boolean loadTableFlg, BaseCallback<List<Pregunta>> callback);
 
 
+    void listCompra(boolean loadTableFlg, BaseCallback<List<Compra>> callback);
 
+    void listDetalleCompra(boolean loadTableFlg, BaseCallback<List<DetalleCompra>> callback);
 
+    void listParametroCalidad(boolean loadTableFlg, BaseCallback<List<ParametroCalidad>> callback);
+
+    void listProveedor(boolean loadTableFlg, BaseCallback<List<Proveedor>> callback);
 
     void listInsumo(boolean loadTableFlg, BaseCallback<List<Insumo>> callback);
 

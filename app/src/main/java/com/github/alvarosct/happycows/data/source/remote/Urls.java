@@ -13,6 +13,7 @@ public class Urls {
     static final String EXTRA_PATH_ID = "/{" + PATH_ID + "}";
 
     public static final String PORONGOS = "porongos";
+    public static final String DETALLE_CALIDAD = "detalle_calidad";
     public static final String GANADEROS = "ranchers";
     public static final String PREGUNTAS = "preguntas";
 
@@ -21,6 +22,10 @@ public class Urls {
     public static final String ID = "id";
 
 
+    public static final String COMPRA = "compras";
+    public static final String DETALLE_COMPRA = "detalle_compra";
+    public static final String PARAMETRO_CALIDAD = "parametros_calidad";
+    public static final String PROVEEDOR = "proveedores";
 
     public static final String INSUMOS = "insumos";
     public static final String PRODUCTOS = "products";

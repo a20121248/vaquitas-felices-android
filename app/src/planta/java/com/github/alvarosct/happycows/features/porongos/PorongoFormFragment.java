@@ -351,7 +351,7 @@ public class PorongoFormFragment extends BaseFragment {
                                     @Override
                                     public void onButtonClick() {
                                         getParent().setResult(Activity.RESULT_OK);
-                                        getParent().finish();
+                                        getParent().closeActivity();
                                     }
                                 })).show();
                     }

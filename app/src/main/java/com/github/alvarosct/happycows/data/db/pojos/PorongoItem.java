@@ -9,7 +9,7 @@ import com.github.alvarosct.happycows.data.db.models.BaseModel;
  * Created by Android-Dev on 26/05/2017.
  */
 
-@Entity
+@Entity(primaryKeys = {"id"})
 public class PorongoItem extends BaseModel {
 
     @ColumnInfo(name = "nombres")

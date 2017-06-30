@@ -40,6 +40,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         twoPaneFlg = false;
     }
 
+
+    public void closeActivity(){
+        finish();
+    }
+
     protected boolean isTwoPaneView() {
         return twoPaneFlg;
     }

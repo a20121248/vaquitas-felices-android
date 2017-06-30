@@ -18,6 +18,7 @@ public class Constants {
     public static final String BUNDLE_ACTION = "Action";
     public static final String BUNDLE_ENTITY = "Entity";
     public static final String BUNDLE_ENTITY_ID = "EntityId";
+    public static final String BUNLDE_COMPRA_ID = "CompraId";
     public static final String BUNDLE_ITEM_ID = "ItemId";
     public static final String BUNDLE_RESOURCE_ID = "ResourceId";
     public static final String BUNDLE_SECOND_PANEL = "SecondPanel";

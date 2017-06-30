@@ -1,14 +1,18 @@
 package com.github.alvarosct.happycows.data.source.remote;
 
 import com.github.alvarosct.happycows.data.db.models.Client;
+import com.github.alvarosct.happycows.data.db.models.Compra;
+import com.github.alvarosct.happycows.data.db.models.DetalleCalidad;
+import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.ParametroCalidad;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.Producto;
+import com.github.alvarosct.happycows.data.db.models.Proveedor;
 import com.github.alvarosct.happycows.data.db.models.User;
 import com.github.alvarosct.happycows.data.db.models.Venta;
-import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItemWrapper;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.google.gson.JsonObject;
@@ -21,7 +25,6 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -52,8 +55,28 @@ public interface WebServices {
     Call<Porongo> devolverPorongo(@Path(Urls.PATH_ID) int id,
                                   @Field("devolver") int devolver);
 
+    @FormUrlEncoded
+    @POST(Urls.DETALLE_CALIDAD)
+    Call<DetalleCalidad> updateDetalleCalidad(
+            @Field("id_param_calidad") int idParamCalidad,
+            @Field("id_compra") int idCompra,
+            @Field("id_insumo") int idInsumo,
+            @Field("cumple") int cumple);
+
     @GET(Urls.USERS)
     Call<List<User>> listUser(@Query("update") String updated);
+
+    @GET(Urls.COMPRA)
+    Call<List<Compra>> listCompra(@Query("update") String updated);
+
+    @GET(Urls.DETALLE_COMPRA)
+    Call<List<DetalleCompra>> listDetalleCompra(@Query("update") String updated);
+
+    @GET(Urls.PARAMETRO_CALIDAD)
+    Call<List<ParametroCalidad>> listParametroCalidad(@Query("update") String updated);
+
+    @GET(Urls.PROVEEDOR)
+    Call<List<Proveedor>> listProveedor(@Query("update") String updated);
 
     @GET(Urls.PORONGOS)
     Call<List<Porongo>> listPorongo(@Query("update") String updated);

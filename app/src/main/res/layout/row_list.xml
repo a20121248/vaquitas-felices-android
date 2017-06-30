@@ -13,6 +13,7 @@
         android:id="@+id/iv_cloud"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:visibility="gone"
         android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"

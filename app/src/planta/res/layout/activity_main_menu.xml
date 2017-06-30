@@ -82,17 +82,14 @@
 
         </FrameLayout>
 
-
-
         <FrameLayout
-            android:id="@+id/bt_qa"
+            android:id="@+id/bt_calidad_insumos"
             android:layout_width="match_parent"
             android:layout_height="@dimen/menu_min_height"
             android:layout_marginBottom="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_default"
             android:layout_marginStart="@dimen/margin_default"
             android:layout_marginTop="@dimen/margin_small"
-            android:visibility="gone"
             android:background="@drawable/rc_solid_white"
             android:elevation="@dimen/button_elevation"
             android:padding="@dimen/margin_default">
@@ -101,7 +98,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="top|end"
-                android:src="@drawable/ic_new_client"
+                android:src="@drawable/ic_sell"
                 android:tint="@color/green" />
 
             <TextView
@@ -112,7 +109,40 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:shadowColor="@color/black"
-                android:text="Insumos"
+                android:text="Calidad de Insumos"
+                android:textAllCaps="false"
+                android:textSize="24sp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/bt_produccion"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_min_height"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@drawable/rc_solid_white"
+            android:elevation="@dimen/button_elevation"
+            android:padding="@dimen/margin_default">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="top|end"
+                android:src="@drawable/ic_sell"
+                android:tint="@color/green" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:shadowColor="@color/black"
+                android:text="Producción"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 

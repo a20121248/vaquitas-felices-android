@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Android-Dev on 26/05/2017.
  */
 
-@Entity
+@Entity(primaryKeys = {"id"})
 public class Producto extends BaseModel {
 
     @SerializedName("id_tipo_producto")

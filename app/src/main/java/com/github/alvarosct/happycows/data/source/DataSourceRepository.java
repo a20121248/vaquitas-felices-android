@@ -4,17 +4,20 @@ import android.support.annotation.NonNull;
 
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.data.db.models.Client;
+import com.github.alvarosct.happycows.data.db.models.Compra;
+import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
+import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.ParametroCalidad;
+import com.github.alvarosct.happycows.data.db.models.Porongo;
+import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.Producto;
+import com.github.alvarosct.happycows.data.db.models.Proveedor;
+import com.github.alvarosct.happycows.data.db.models.User;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
-import com.github.alvarosct.happycows.data.db.pojos.ProductoItem;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
 import com.github.alvarosct.happycows.data.source.callbacks.WrapFallback;
-import com.github.alvarosct.happycows.data.db.models.Ganadero;
-import com.github.alvarosct.happycows.data.db.models.Porongo;
-import com.github.alvarosct.happycows.data.db.models.Pregunta;
-import com.github.alvarosct.happycows.data.db.models.User;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -83,6 +86,26 @@ public class DataSourceRepository implements DataSource {
     @Override
     public void listPregunta(boolean loadTableFlg, BaseCallback<List<Pregunta>> callback) {
         (loadTableFlg ? dataSourceRemote : dataSourceLocal).listPregunta(loadTableFlg, callback);
+    }
+
+    @Override
+    public void listCompra(boolean loadTableFlg, BaseCallback<List<Compra>> callback) {
+        (loadTableFlg ? dataSourceRemote : dataSourceLocal).listCompra(loadTableFlg, callback);
+    }
+
+    @Override
+    public void listDetalleCompra(boolean loadTableFlg, BaseCallback<List<DetalleCompra>> callback) {
+        (loadTableFlg ? dataSourceRemote : dataSourceLocal).listDetalleCompra(loadTableFlg, callback);
+    }
+
+    @Override
+    public void listParametroCalidad(boolean loadTableFlg, BaseCallback<List<ParametroCalidad>> callback) {
+        (loadTableFlg ? dataSourceRemote : dataSourceLocal).listParametroCalidad(loadTableFlg, callback);
+    }
+
+    @Override
+    public void listProveedor(boolean loadTableFlg, BaseCallback<List<Proveedor>> callback) {
+        (loadTableFlg ? dataSourceRemote : dataSourceLocal).listProveedor(loadTableFlg, callback);
     }
 
     @Override

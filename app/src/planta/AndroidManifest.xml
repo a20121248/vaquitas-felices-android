@@ -12,6 +12,11 @@
         <activity android:name=".features.porongos.PorongoFormActivity" />
         <activity android:name=".features.porongos.PorongoFormDirectActivity" />
 
+
+        <activity android:name=".features.insumos.compras.CompraListActivity" />
+        <activity android:name=".features.insumos.compras.detalle.DetalleCompraListActivity" />
+        <activity android:name=".features.insumos.compras.calidad.ParametrosListActivity" />
+
         <activity android:name=".features.sic.GanaderosSicActivity" />
         <activity android:name=".features.sic.SicFormActivity" />
 

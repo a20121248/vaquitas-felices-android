@@ -33,8 +33,8 @@ public class FlavorMethods {
 
         new MenuHandler.DrawerItem(11, R.id.nav_porongos, 1, PorongoListActivity.class);
         new MenuHandler.DrawerItem(12, R.id.nav_nuevo_porongo, 1, PorongoFormDirectActivity.class);
-//        new MenuHandler.DrawerItem(13, R.id.nav_insumos, 1, PorongoListActivity.class);
-//        new MenuHandler.DrawerItem(14, R.id.nav_produccion, 1, PorongoListActivity.class);
+//        new MenuHandler.DrawerItem(13, R.id.nav_insumos, 1, DetalleCompraListActivity.class);
+//        new MenuHandler.DrawerItem(14, R.id.nav_produccion, 1, DetalleCompraListActivity.class);
 
         new MenuHandler.DrawerItem(1000, R.id.nav_sync, 1, SyncDatabaseNavActivity.class);
 //        new DrawerItem(1001, R.id.nav_bio, 4, BiochemicalActivity.class);

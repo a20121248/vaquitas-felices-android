@@ -6,7 +6,7 @@ import android.arch.persistence.room.Entity;
  * Created by Android-Dev on 26/05/2017.
  */
 
-@Entity
+@Entity(primaryKeys = {"id"})
 public class Encuesta extends BaseModel{
 
     private int ganaderoId;

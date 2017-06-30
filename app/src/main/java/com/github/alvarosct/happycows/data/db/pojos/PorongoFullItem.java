@@ -10,7 +10,7 @@ import com.github.alvarosct.happycows.data.db.models.Porongo;
  * Created by Android-Dev on 26/05/2017.
  */
 
-@Entity
+@Entity(primaryKeys = {"id"})
 public class PorongoFullItem {
 
     private String nombres;

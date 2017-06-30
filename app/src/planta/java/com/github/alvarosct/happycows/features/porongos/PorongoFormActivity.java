@@ -1,11 +1,9 @@
 package com.github.alvarosct.happycows.features.porongos;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 
 import com.github.alvarosct.ascthelper.utils.dialogs.DialogCustom;
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.features.MainMenuActivity;
 import com.github.alvarosct.happycows.features.main.NoNavigationActivity;
 
 public class PorongoFormActivity extends NoNavigationActivity {
