@@ -17,7 +17,7 @@ public class PreferenceManager {
     private final SharedPreferences mPreferences;
 
     private PreferenceManager(Context context) {
-        mPreferences = context.getSharedPreferences(Constants.PREFERENCES_NAME, Context.MODE_PRIVATE);
+        mPreferences = context.getSharedPreferences(BuildConfig.PREF_NAME, Context.MODE_PRIVATE);
     }
 
     public static PreferenceManager getInstance(Context context) {

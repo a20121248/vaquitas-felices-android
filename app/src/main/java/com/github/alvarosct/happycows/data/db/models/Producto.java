@@ -33,6 +33,8 @@ public class Producto extends BaseModel {
     private int stock;
     @SerializedName("materia_prima")
     private int materiaPrima;
+    @SerializedName("lote_id")
+    private int loteId;
 
     public int getIdTipoProducto() {
         return idTipoProducto;
@@ -120,5 +122,13 @@ public class Producto extends BaseModel {
 
     public void setMateriaPrima(int materiaPrima) {
         this.materiaPrima = materiaPrima;
+    }
+
+    public int getLoteId() {
+        return loteId;
+    }
+
+    public void setLoteId(int loteId) {
+        this.loteId = loteId;
     }
 }

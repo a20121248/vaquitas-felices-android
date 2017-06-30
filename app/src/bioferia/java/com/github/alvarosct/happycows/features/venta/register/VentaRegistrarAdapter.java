@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.features.venta;
+package com.github.alvarosct.happycows.features.venta.register;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -24,10 +24,17 @@ import java.util.List;
 public class VentaRegistrarAdapter extends RecyclerView.Adapter<VentaRegistrarAdapter.ViewHolder> {
     protected List<ProductoItem> objList;
     private Context context;
+    private ITotalize iTotalize;
 
-    public VentaRegistrarAdapter(Context context, List<ProductoItem> objList) {
+    interface ITotalize {
+        void onTotalChanged(double total);
+    }
+
+    public VentaRegistrarAdapter(Context context, List<ProductoItem> objList, ITotalize iTotalize) {
         this.objList = objList;
+        this.iTotalize = iTotalize;
         this.context = context;
+        calculateTotal();
     }
 
     @Override
@@ -78,6 +85,7 @@ public class VentaRegistrarAdapter extends RecyclerView.Adapter<VentaRegistrarAd
 
         ProductoItem productoItem = new ProductoItem(entity.getId(), entity.getNombre(), entity.getPrecioVenta());
         productoItem.addCantidad(1);
+        productoItem.setLoteId(entity.getLoteId());
         objList.add(productoItem);
         notifyDataSetChanged();
     }
@@ -85,15 +93,24 @@ public class VentaRegistrarAdapter extends RecyclerView.Adapter<VentaRegistrarAd
     public void removeRow(ProductoItem obj) {
         objList.remove(obj);
         notifyDataSetChanged();
+        calculateTotal();
     }
 
     public List<ProductoItem> getObjList() {
         return objList;
     }
 
+    private void calculateTotal(){
+        double total = 0;
+        for (ProductoItem productoItem : objList) {
+            total += productoItem.getCostoTotal();
+        }
+        iTotalize.onTotalChanged(total);
+    }
+
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_heading, tv_value, tv_unidad, tv_subtotal;
+        private TextView tv_heading, tv_value;
         private View holder;
         private View bt_plus, bt_minus;
         private EditText et_price;
@@ -104,8 +121,6 @@ public class VentaRegistrarAdapter extends RecyclerView.Adapter<VentaRegistrarAd
             holder = v.findViewById(R.id.holder);
             tv_heading = (TextView) v.findViewById(R.id.tv_heading);
             tv_value = (TextView) v.findViewById(R.id.tv_value);
-            tv_unidad = (TextView) v.findViewById(R.id.tv_unidad);
-            tv_subtotal = (TextView) v.findViewById(R.id.tv_subtotal);
             bt_plus = v.findViewById(R.id.bt_plus);
             bt_minus = v.findViewById(R.id.bt_minus);
             et_price = (EditText) v.findViewById(R.id.et_price);
@@ -117,9 +132,8 @@ public class VentaRegistrarAdapter extends RecyclerView.Adapter<VentaRegistrarAd
 
             tv_heading.setText(obj.getNombres());
             tv_value.setText(obj.getCantidadString());
-            tv_unidad.setText(obj.getUnidad());
             et_price.setText(String.valueOf(obj.getCostoUnit()));
-            updateSubtotal();
+            calculateTotal();
 
             et_price.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -136,7 +150,7 @@ public class VentaRegistrarAdapter extends RecyclerView.Adapter<VentaRegistrarAd
                 public void afterTextChanged(Editable editable) {
                     obj.setCostoUnit(editable.toString().isEmpty() ? 0 :
                             Double.parseDouble(editable.toString()));
-                    updateSubtotal();
+                    calculateTotal();
                 }
             });
 
@@ -145,7 +159,7 @@ public class VentaRegistrarAdapter extends RecyclerView.Adapter<VentaRegistrarAd
                 public void onClick(View v) {
                     obj.addCantidad(-1);
                     tv_value.setText(obj.getCantidadString());
-                    updateSubtotal();
+                    calculateTotal();
                 }
             });
             bt_plus.setOnClickListener(new View.OnClickListener() {
@@ -153,13 +167,9 @@ public class VentaRegistrarAdapter extends RecyclerView.Adapter<VentaRegistrarAd
                 public void onClick(View v) {
                     obj.addCantidad(1);
                     tv_value.setText(obj.getCantidadString());
-                    updateSubtotal();
+                    calculateTotal();
                 }
             });
-        }
-
-        private void updateSubtotal(){
-            tv_subtotal.setText(String.valueOf(obj.getCostoTotal()));
         }
 
 

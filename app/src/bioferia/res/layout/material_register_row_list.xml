@@ -51,14 +51,6 @@
             android:text="22"
             android:textSize="@dimen/text_title" />
 
-        <TextView
-            android:id="@+id/tv_unidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_xsmall"
-            android:text="Kg"
-            android:textSize="@dimen/text_body" />
-
         <Button
             android:id="@+id/bt_plus"
             android:layout_width="wrap_content"

@@ -90,7 +90,7 @@ public class NecesidadesRegistrarAdapter extends RecyclerView.Adapter<Necesidade
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_heading, tv_value, tv_unidad;
+        private TextView tv_heading, tv_value;
         private View holder;
         private View bt_plus, bt_minus;
         private ProductoItem obj;
@@ -100,7 +100,6 @@ public class NecesidadesRegistrarAdapter extends RecyclerView.Adapter<Necesidade
             holder = v.findViewById(R.id.holder);
             tv_heading = (TextView) v.findViewById(R.id.tv_heading);
             tv_value = (TextView) v.findViewById(R.id.tv_value);
-            tv_unidad = (TextView) v.findViewById(R.id.tv_unidad);
             bt_plus = v.findViewById(R.id.bt_plus);
             bt_minus = v.findViewById(R.id.bt_minus);
 
@@ -111,7 +110,6 @@ public class NecesidadesRegistrarAdapter extends RecyclerView.Adapter<Necesidade
 
             tv_heading.setText(obj.getNombres());
             tv_value.setText(obj.getCantidadString());
-            tv_unidad.setText(obj.getUnidad());
 
             bt_minus.setOnClickListener(new View.OnClickListener() {
                 @Override

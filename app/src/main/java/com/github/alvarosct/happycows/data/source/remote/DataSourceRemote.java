@@ -11,6 +11,7 @@ import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.models.User;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
+import com.github.alvarosct.happycows.data.db.pojos.InsumoItemWrapper;
 import com.github.alvarosct.happycows.data.db.pojos.ProductoItem;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.DataSource;
@@ -77,37 +78,21 @@ public class DataSourceRemote implements DataSource {
     }
 
     @Override
-    public void registerMaterialesUsados(List<InsumoItem> insumoItemList, final BaseCallback<String> callback) {
-
-//        TODO: REPLACE WITH WS
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                callback.onSuccess(true, "Se han registrado correctamente los materiales.");
-            }
-        }, 1000);
+    public void registerMaterialesUsados(List<InsumoItem> insumoItemList, final BaseCallback<JsonObject> callback) {
+        RequestManager.getWebServices().registerMaterialesUsados(new InsumoItemWrapper(insumoItemList)).enqueue(callback);
     }
 
     @Override
-    public void registerDegustaciones(List<ProductoItem> productoItemList, final BaseCallback<String> callback) {
-        //        TODO: REPLACE WITH WS
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                callback.onSuccess(true, "Se han registrado correctamente las degustaciones.");
-            }
-        }, 1000);
+    public void registerDegustaciones(VentaFull ventaFull, final BaseCallback<JsonObject> callback) {
+        RequestManager.getWebServices().registerDegustaciones(ventaFull).
+                enqueue(callback);
+
     }
 
     @Override
-    public void registerNecesidades(List<ProductoItem> productoItemList, final BaseCallback<String> callback) {
-//        TODO: REPLACE WITH WS
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                callback.onSuccess(true, "Se han registrado correctamente las necesidades.");
-            }
-        }, 1000);
+    public void registerNecesidades(VentaFull ventaFull, final BaseCallback<JsonObject> callback) {
+        RequestManager.getWebServices().registerNecesidades(ventaFull).
+                enqueue(callback);
     }
 
     @Override

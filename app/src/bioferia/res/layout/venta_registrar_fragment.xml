@@ -25,17 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:drawablePadding="@dimen/margin_xsmall"
+            android:drawableStart="@drawable/ic_qr"
             android:backgroundTint="@color/green"
-            android:text="QR"
-            android:textColor="@color/white" />
-
-        <Button
-            android:id="@+id/bt_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:backgroundTint="@color/green"
-            android:text="Agregar"
+            android:text="Escanear"
             android:textColor="@color/white" />
     </LinearLayout>
 
@@ -44,6 +37,55 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_width"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/green"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_title" />
+
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S/."
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_title" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:maxLength="8"
+            android:text="10.45"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_title" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/bt_done"

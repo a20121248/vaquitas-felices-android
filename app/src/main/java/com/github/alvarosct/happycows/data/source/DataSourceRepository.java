@@ -91,19 +91,19 @@ public class DataSourceRepository implements DataSource {
     }
 
     @Override
-    public void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<String> callback) {
+    public void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<JsonObject> callback) {
         dataSourceRemote.registerMaterialesUsados(insumoItemList, callback);
     }
 
     @Override
-    public void registerDegustaciones(List<ProductoItem> productoItemList, BaseCallback<String> callback) {
-        dataSourceRemote.registerDegustaciones(productoItemList, callback);
+    public void registerDegustaciones(VentaFull ventaFull, BaseCallback<JsonObject> callback) {
+        dataSourceRemote.registerDegustaciones(ventaFull, callback);
 
     }
 
     @Override
-    public void registerNecesidades(List<ProductoItem> productoItemList, BaseCallback<String> callback) {
-        dataSourceRemote.registerNecesidades(productoItemList, callback);
+    public void registerNecesidades(VentaFull ventaFull, BaseCallback<JsonObject> callback) {
+        dataSourceRemote.registerNecesidades(ventaFull, callback);
 
     }
 

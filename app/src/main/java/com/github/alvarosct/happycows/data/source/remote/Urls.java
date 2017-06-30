@@ -24,6 +24,10 @@ public class Urls {
 
     public static final String INSUMOS = "insumos";
     public static final String PRODUCTOS = "products";
+    public static final String VENTAS = "current_sells";
     public static final String SELL = "sell";
-    public static final String CLIENTS = "clients";
+    public static final String MATERIALES_USADOS = INSUMOS + "/materiales_usados";
+    public static final String NECESIDADES = "needs";
+    public static final String DEGUSTACIONES = "degustaciones";
+    public static final String CLIENTS = "clients_person";
 }

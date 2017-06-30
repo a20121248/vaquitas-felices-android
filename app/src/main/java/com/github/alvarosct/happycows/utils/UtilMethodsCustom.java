@@ -1,5 +1,9 @@
 package com.github.alvarosct.happycows.utils;
 
+import android.text.TextUtils;
+
+import com.google.android.gms.vision.barcode.Barcode;
+
 import java.util.Calendar;
 
 /**
@@ -17,10 +21,35 @@ public class UtilMethodsCustom {
         int second = now.get(Calendar.SECOND);
 
         int yyy = year % 1000;
-        int ddddd = hourDay * 3600 + minute *60 + second;
+        int ddddd = hourDay * 3600 + minute * 60 + second;
 
-        String stringId = String.format("%03d%03d%05d", yyy, dayYear, ddddd );
+        String stringId = String.format("%03d%03d%05d", yyy, dayYear, ddddd);
         return Integer.parseInt(stringId);
+    }
+
+    public static String getProductFromBarcode(String barcode) {
+
+        String lookupString = "id_producto=";
+        int productIndex = barcode.indexOf(lookupString);
+        productIndex += lookupString.length();
+
+        String newString = barcode.substring(productIndex);
+        return newString;
+
+    }
+
+    public static String getLoteFromBarcode(String barcode) {
+
+        String lookupString = "lote=";
+        int productIndex = barcode.indexOf(lookupString);
+        productIndex += lookupString.length();
+
+        String newString = barcode.substring(productIndex);
+        int endIndex = newString.indexOf("&");
+
+        newString = newString.substring(0,endIndex);
+        return newString;
+
     }
 
 //    public static void sleep(int millis){

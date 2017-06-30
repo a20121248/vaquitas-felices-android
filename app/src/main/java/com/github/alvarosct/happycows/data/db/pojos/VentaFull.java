@@ -16,14 +16,15 @@ public class VentaFull extends BaseModel {
     @SerializedName("client_id")
     private int clientId;
     @SerializedName("seller_id")
-    private int vendedorId = 1;
+    private int vendedorId;
 
     @SerializedName("productos")
     List<ProductoItem> productoItemList;
 
-    public VentaFull(int bioferiaId, int clientId) {
+    public VentaFull(int bioferiaId, int clientId, int vendedorId) {
         this.bioferiaId = bioferiaId;
         this.clientId = clientId;
+        this.vendedorId = vendedorId;
     }
 
     public int getBioferiaId() {

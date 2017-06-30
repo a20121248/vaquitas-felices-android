@@ -2,22 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.alvarosct.happycows">
 
-    <application
-        >
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application>
 
         <activity android:name=".features.MainMenuActivity" />
 
         <activity android:name=".features.materiales.MaterialesRegistrarActivity" />
-        <activity android:name=".features.materiales.MaterialSelectActivity"
+        <activity
+            android:name=".features.materiales.MaterialSelectActivity"
             android:theme="@style/AppTheme_FullScreen" />
 
         <activity android:name=".features.usuario.UsuarioRegistrarActivity" />
 
-        <activity android:name=".features.venta.VentaRegistrarActivity" />
+        <activity android:name=".features.venta.list.VentasListActivity" />
+        <activity android:name=".features.venta.register.VentaRegistrarActivity" />
         <activity android:name=".features.necesidades.NecesidadesRegistrarActivity" />
         <activity android:name=".features.degustaciones.DegustacionesRegistrarActivity" />
 
         <activity android:name=".features.productos.ProductoSelectActivity" />
+        <activity android:name=".utils.qr.BarcodeCaptureActivity" />
 
     </application>
 

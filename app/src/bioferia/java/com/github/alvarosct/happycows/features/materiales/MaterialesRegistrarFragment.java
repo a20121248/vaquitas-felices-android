@@ -22,6 +22,7 @@ import com.github.alvarosct.happycows.features.MainMenuActivity;
 import com.github.alvarosct.happycows.utils.Constants;
 import com.github.alvarosct.happycows.utils.Injector;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
@@ -99,14 +100,14 @@ public class MaterialesRegistrarFragment extends BaseFragment {
     @OnClick(R.id.bt_send)
     public void onBtSendClicked() {
         if (validar()) {
-            Injector.provideRepository().registerMaterialesUsados(adapter.getObjList(), new LoadingCallback<String>(
+            Injector.provideRepository().registerMaterialesUsados(adapter.getObjList(), new LoadingCallback<JsonObject>(
                     getContext(), "Registrando materiales...") {
                 @Override
-                public void onSuccess(boolean fromRemote, String response) {
+                public void onSuccess(boolean fromRemote, JsonObject response) {
                     super.onSuccess(fromRemote, response);
 
                     new DialogCustom(getContext(),
-                            "¡Éxito!", response,
+                            "¡Éxito!", "Se han registrado correctamente los materiales.",
                             new DialogCustom.ButtonBehaviour("Ok", new DialogCustom.IButton() {
                                 @Override
                                 public void onButtonClick() {

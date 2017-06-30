@@ -40,11 +40,11 @@ public interface DataSource {
 
     void listInsumo(boolean loadTableFlg, BaseCallback<List<Insumo>> callback);
 
-    void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<String> callback);
+    void registerMaterialesUsados(List<InsumoItem> insumoItemList, BaseCallback<JsonObject> callback);
 
-    void registerDegustaciones(List<ProductoItem> productoItemList, BaseCallback<String> callback);
+    void registerDegustaciones(VentaFull ventaFull, BaseCallback<JsonObject> callback);
 
-    void registerNecesidades(List<ProductoItem> productoItemList, BaseCallback<String> callback);
+    void registerNecesidades(VentaFull ventaFull, BaseCallback<JsonObject> callback);
 
     void registerClient(Client client, BaseCallback<Client> callback);
 

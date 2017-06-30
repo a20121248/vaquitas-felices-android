@@ -53,7 +53,7 @@ public class UsuarioRegistrarFragment extends BaseFragment {
 
     private boolean validar(Client client) {
 
-        if (TextUtils.isEmpty(client.getName())) {
+        if (TextUtils.isEmpty(client.getFirstname())) {
             UtilMethods.showToast("El nombre no puede estar vacío.");
             return false;
         }
@@ -96,12 +96,11 @@ public class UsuarioRegistrarFragment extends BaseFragment {
     public void onBtSendClicked() {
 
         Client client = new Client();
-        client.setName(tilNombre.getEditText().getText().toString().trim());
+        client.setFirstname(tilNombre.getEditText().getText().toString().trim());
         client.setLastname(tilLastname.getEditText().getText().toString().trim());
         client.setDni(tilDni.getEditText().getText().toString().trim());
         client.setPhone(tilPhone.getEditText().getText().toString().trim());
         client.setAddress(tilAddress.getEditText().getText().toString().trim());
-        client.setReference(tilRef.getEditText().getText().toString().trim());
 
         if (validar(client)) {
             Injector.provideRepository().registerClient(client, new LoadingCallback<Client>(

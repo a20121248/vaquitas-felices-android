@@ -3,12 +3,14 @@ package com.github.alvarosct.happycows;
 import android.app.Application;
 import android.content.Context;
 
+import com.crashlytics.android.Crashlytics;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.DatabaseInitializer;
 import com.github.alvarosct.happycows.data.db.models.TableMaster;
 import com.github.alvarosct.happycows.utils.Constants;
 
+import io.fabric.sdk.android.Fabric;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +28,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         App.context = getApplicationContext();
         AppDatabase.getInstance(this);
 

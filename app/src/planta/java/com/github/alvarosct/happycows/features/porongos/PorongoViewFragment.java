@@ -5,17 +5,22 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.github.alvarosct.ascthelper.ui.fragments.BaseFragment;
 import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.pojos.PorongoFullItem;
+import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
+import com.github.alvarosct.happycows.data.source.remote.RequestManager;
 import com.github.alvarosct.happycows.utils.CustomTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class PorongoViewFragment extends BaseFragment {
@@ -47,6 +52,8 @@ public class PorongoViewFragment extends BaseFragment {
 
     Unbinder unbinder;
     protected PorongoFullItem entity;
+    @BindView(R.id.bt_devolver)
+    Button btDevolver;
 
     public PorongoViewFragment() {
         // Required empty public constructor
@@ -100,11 +107,36 @@ public class PorongoViewFragment extends BaseFragment {
         tvPh.setText(UtilMethods.parseNumber(entity.getPorongo().getPh()));
         tvLimpieza.setText(UtilMethods.parseNumber(entity.getPorongo().getLimpieza()));
 
+        updateButtons();
+
+    }
+
+    private void updateButtons() {
+        btDevolver.setVisibility(
+                UtilMethods.getVisibility(entity.getPorongo().getDevolucion() == 0));
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @OnClick(R.id.bt_devolver)
+    public void onBtDevolverClicked() {
+        RequestManager.getWebServices().devolverPorongo(entity.getPorongo().getId(), 1)
+                .enqueue(new LoadingCallback<Porongo>(getContext(), "Registrando devolución...") {
+                    @Override
+                    public void onSuccess(boolean fromRemote, Porongo response) {
+                        super.onSuccess(fromRemote, response);
+                        AppDatabase.getInstance().porongoModel().insert(response);
+                        entity.setPorongo(response);
+                        updateButtons();
+                    }
+                });
+    }
+
+    @OnClick(R.id.bt_ganado)
+    public void onBtGanadoClicked() {
     }
 }

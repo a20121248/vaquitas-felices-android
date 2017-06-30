@@ -75,14 +75,6 @@
             android:text="22"
             android:textSize="@dimen/text_title" />
 
-        <TextView
-            android:id="@+id/tv_unidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_xsmall"
-            android:text="Kg"
-            android:textSize="@dimen/text_body" />
-
         <Button
             android:id="@+id/bt_plus"
             android:layout_width="wrap_content"
@@ -91,48 +83,5 @@
             android:minWidth="40dp"
             android:text="+" />
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/frameLayout2"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/line_width"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/green"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="S/."
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_title" />
-
-        <TextView
-            android:id="@+id/tv_subtotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small"
-            android:maxLength="8"
-            android:text="10.45"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_title" />
-
-    </LinearLayout>
-
 
 </android.support.constraint.ConstraintLayout>

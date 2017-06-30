@@ -12,8 +12,6 @@ import com.google.gson.annotations.SerializedName;
 @Entity
 public class InsumoItem extends BaseModel {
 
-    @SerializedName("id")
-    private int id;
     @SerializedName("nombres")
     private String nombres;
     @SerializedName("cantidad")
@@ -22,20 +20,10 @@ public class InsumoItem extends BaseModel {
     private String unidad;
 
     public InsumoItem(int id, String nombres) {
-        this.id = id;
+        setId(id);
         this.nombres = nombres;
         this.cantidad = 0;
         this.unidad = "Kg";
-    }
-
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombres() {

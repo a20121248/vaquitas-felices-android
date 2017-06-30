@@ -8,31 +8,37 @@ import com.google.gson.annotations.SerializedName;
 
 public class Client {
 
-    @SerializedName("name")
-    private String name;
+    @SerializedName("firstname")
+    private String firstname;
     @SerializedName("lastname")
     private String lastname;
     @SerializedName("address")
     private String address;
-    @SerializedName("dni")
-    private String dni;
-    @SerializedName("gender")
-    private String gender = "M";
-    @SerializedName("bioferia_id")
-    private int bioferiaId = 1;
     @SerializedName("district")
-    private int district = 24;
+    private String district;
+    @SerializedName("gender")
+    private String gender;
+    @SerializedName("email")
+    private String email;
     @SerializedName("phone")
     private String phone;
-    @SerializedName("reference")
-    private String reference;
+    @SerializedName("birthday")
+    private String birthday;
+    @SerializedName("password")
+    private String password;
+    @SerializedName("dni")
+    private String dni;
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getFullname() {
+        return firstname + " " + lastname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getLastname() {
@@ -51,12 +57,12 @@ public class Client {
         this.address = address;
     }
 
-    public String getDni() {
-        return dni;
+    public String getDistrict() {
+        return district;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     public String getGender() {
@@ -67,20 +73,12 @@ public class Client {
         this.gender = gender;
     }
 
-    public int getBioferiaId() {
-        return bioferiaId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setBioferiaId(int bioferiaId) {
-        this.bioferiaId = bioferiaId;
-    }
-
-    public int getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(int district) {
-        this.district = district;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhone() {
@@ -91,11 +89,27 @@ public class Client {
         this.phone = phone;
     }
 
-    public String getReference() {
-        return reference;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 }

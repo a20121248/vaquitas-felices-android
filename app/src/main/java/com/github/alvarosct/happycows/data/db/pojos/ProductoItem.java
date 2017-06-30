@@ -23,6 +23,9 @@ public class ProductoItem extends BaseModel {
     @SerializedName("unidad")
     private String unidad;
 
+    @SerializedName("lote_id")
+    private int loteId = 1;
+
     public ProductoItem(int id, String nombres, double precio) {
         setId(id);
         this.nombres = nombres;
@@ -83,5 +86,13 @@ public class ProductoItem extends BaseModel {
 
     public void setCostoTotal(double costoTotal) {
         this.costoTotal = costoTotal;
+    }
+
+    public int getLoteId() {
+        return loteId;
+    }
+
+    public void setLoteId(int loteId) {
+        this.loteId = loteId;
     }
 }

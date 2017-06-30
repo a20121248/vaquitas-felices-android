@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.features.venta;
+package com.github.alvarosct.happycows.features.venta.register;
 
 import android.support.v4.app.Fragment;
 

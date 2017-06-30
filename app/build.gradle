@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 
 android {
 
@@ -31,12 +46,14 @@ android {
             applicationIdSuffix ".bioferia"
             versionNameSuffix "-bioferia"
             buildConfigField "int", "USER_TYPE", "7"
+            buildConfigField "String", "PREF_NAME", "\"vaquitas_bioferia\""
         }
         planta {
             dimension "mode"
             applicationIdSuffix ".planta"
             versionNameSuffix "-planta"
             buildConfigField "int", "USER_TYPE", "8"
+            buildConfigField "String", "PREF_NAME", "\"vaquitas_planta\""
         }
     }
 }
@@ -60,10 +77,8 @@ dependencies {
     compile "android.arch.persistence.room:runtime:1.0.0-alpha1"
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha1"
 
-//    TODO: Replace for VISION API
 //    QR Lib
-    compile 'com.journeyapps:zxing-android-embedded:3.4.0'
-    compile 'com.google.zxing:core:3.2.0'
+    compile 'com.google.android.gms:play-services-vision:9.4.0+'
 
 //    ButterKnife
     compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
@@ -75,4 +90,7 @@ dependencies {
     compile "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
     compile "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
     compile 'com.android.support:support-v4:25.3.1'
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
 }

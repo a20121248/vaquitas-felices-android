@@ -13,19 +13,22 @@ import android.view.ViewGroup;
 import com.github.alvarosct.ascthelper.ui.fragments.BaseFragment;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.ascthelper.utils.dialogs.DialogCustom;
+import com.github.alvarosct.happycows.PreferenceManager;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.pojos.ProductoItem;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
+import com.github.alvarosct.happycows.data.source.remote.RequestManager;
 import com.github.alvarosct.happycows.features.MainMenuActivity;
 import com.github.alvarosct.happycows.features.productos.ProductoSelectActivity;
 import com.github.alvarosct.happycows.utils.Constants;
 import com.github.alvarosct.happycows.utils.Injector;
+import com.github.alvarosct.happycows.utils.UtilMethodsCustom;
+import com.github.alvarosct.happycows.utils.qr.BarcodeCaptureActivity;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.gson.JsonObject;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,43 +78,37 @@ public class DegustacionesRegistrarFragment extends BaseFragment {
         });
     }
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if (result != null) {
-            if (result.getContents() != null) {
-                int productoId = Integer.parseInt(result.getContents().trim());
 
-                Producto producto = AppDatabase.getInstance().productoDao().getById(productoId);
-                adapter.appendRow(producto);
+        if (resultCode != Activity.RESULT_OK) return;
+
+        if (requestCode == Constants.INTENT_QR_READ) {
+            if (data != null) {
+                Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
+
+                String productId = UtilMethodsCustom.getProductFromBarcode(barcode.displayValue);
+//                    TODO: Procesar QR CODE
+                int productoId = Integer.parseInt(productId);
+
+                Producto producto = AppDatabase.getInstance().productoDao().getProductoFinal(productoId);
+                String loteId = UtilMethodsCustom.getLoteFromBarcode(barcode.displayValue);
+
+                if (producto != null) {
+                    producto.setLoteId(Integer.parseInt(loteId));
+                    adapter.appendRow(producto);
+                    return;
+                }
             }
-        } else if (resultCode == Activity.RESULT_OK && requestCode == Constants.INTENT_SELECT_MATERIAL) {
-            String qrString = data.getStringExtra(Constants.RESULT_QR_CODE);
-
-//            TODO: Procesar QR CODE
-            int productoId = Integer.parseInt(qrString.trim());
-
-            Producto producto = AppDatabase.getInstance().productoDao().getById(productoId);
-            adapter.appendRow(producto);
+            UtilMethods.showToast("No es un producto válido");
         }
     }
 
-
-    @OnClick(R.id.bt_add)
-    public void onBtAddClicked() {
-        Intent intent = new Intent(getContext(), ProductoSelectActivity.class);
-        startActivityForResult(intent, Constants.INTENT_SELECT_MATERIAL);
-    }
-
     @OnClick(R.id.bt_scan)
-    public void onBtScanClicked() {
-        IntentIntegrator integrator = IntentIntegrator.forSupportFragment(DegustacionesRegistrarFragment.this);
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-        integrator.setPrompt("Escanee el producto");
-//        integrator.setCameraId(0);  // Use a specific camera of the device
-        integrator.setBeepEnabled(false);
-        integrator.setBarcodeImageEnabled(false);
-        integrator.initiateScan();
+    public void onBtAddClicked() {
+        Intent intent = new Intent(getContext(), BarcodeCaptureActivity.class);
+        startActivityForResult(intent, Constants.INTENT_QR_READ);
     }
 
     private boolean validar() {
@@ -138,10 +135,11 @@ public class DegustacionesRegistrarFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (validar()) {
 
-            VentaFull ventaFull = new VentaFull(1, 1);
+            VentaFull ventaFull = new VentaFull(1, 1,
+                    PreferenceManager.getInstance(getContext()).getUserInfo().getId());
             ventaFull.setProductoItemList(adapter.getObjList());
 
-            Injector.provideRepository().registerVenta(ventaFull, new LoadingCallback<JsonObject>(
+            Injector.provideRepository().registerDegustaciones(ventaFull, new LoadingCallback<JsonObject>(
                     getContext(), "Registrando Degustaciones...") {
                 @Override
                 public void onSuccess(boolean fromRemote, JsonObject response) {

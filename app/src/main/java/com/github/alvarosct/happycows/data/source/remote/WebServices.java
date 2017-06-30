@@ -7,6 +7,9 @@ import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
 import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.models.User;
+import com.github.alvarosct.happycows.data.db.models.Venta;
+import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
+import com.github.alvarosct.happycows.data.db.pojos.InsumoItemWrapper;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.google.gson.JsonObject;
 
@@ -44,9 +47,10 @@ public interface WebServices {
     @POST(Urls.PORONGOS)
     Call<Porongo> createPorongo(@Body Porongo genotypic);
 
-    @PUT(Urls.PORONGOS + Urls.EXTRA_PATH_ID)
-    Call<Porongo> updatePorongo(@Path(Urls.PATH_ID) int id,
-                                    @Body Porongo genotypic);
+    @FormUrlEncoded
+    @POST(Urls.PORONGOS + Urls.EXTRA_PATH_ID)
+    Call<Porongo> devolverPorongo(@Path(Urls.PATH_ID) int id,
+                                  @Field("devolver") int devolver);
 
     @GET(Urls.USERS)
     Call<List<User>> listUser(@Query("update") String updated);
@@ -61,8 +65,6 @@ public interface WebServices {
     Call<List<Pregunta>> listPregunta(@Query("update") String updated);
 
 
-
-
     @GET(Urls.INSUMOS)
     Call<List<Insumo>> listInsumo();
 
@@ -70,8 +72,21 @@ public interface WebServices {
     @GET(Urls.PRODUCTOS)
     Call<List<Producto>> listProductos();
 
+
+    @GET(Urls.VENTAS)
+    Call<List<Venta>> listVentas();
+
     @POST(Urls.SELL)
     Call<JsonObject> registerVenta(@Body VentaFull ventaFull);
+
+    @POST(Urls.MATERIALES_USADOS)
+    Call<JsonObject> registerMaterialesUsados(@Body InsumoItemWrapper body);
+
+    @POST(Urls.DEGUSTACIONES)
+    Call<JsonObject> registerDegustaciones(@Body VentaFull ventaFull);
+
+    @POST(Urls.NECESIDADES)
+    Call<JsonObject> registerNecesidades(@Body VentaFull ventaFull);
 
     @POST(Urls.CLIENTS)
     Call<Client> registerClient(@Body Client client);

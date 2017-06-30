@@ -10,7 +10,7 @@ import com.github.alvarosct.happycows.features.degustaciones.DegustacionesRegist
 import com.github.alvarosct.happycows.features.materiales.MaterialesRegistrarActivity;
 import com.github.alvarosct.happycows.features.necesidades.NecesidadesRegistrarActivity;
 import com.github.alvarosct.happycows.features.usuario.UsuarioRegistrarActivity;
-import com.github.alvarosct.happycows.features.venta.VentaRegistrarActivity;
+import com.github.alvarosct.happycows.features.venta.register.VentaRegistrarActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

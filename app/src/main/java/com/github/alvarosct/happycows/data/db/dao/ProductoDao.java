@@ -47,4 +47,11 @@ public interface ProductoDao extends BaseDao<Producto> {
 
     @Query("DELETE FROM Producto WHERE id = :id")
     void deleteById(int id);
+
+
+
+
+
+    @Query("SELECT * FROM Producto WHERE id = :id AND precioVenta != 0 AND deletedAt IS NULL")
+    Producto getProductoFinal(int id);
 }
