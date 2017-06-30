@@ -139,7 +139,7 @@ public class DataSourceLocal implements DataSource {
     }
 
     @Override
-    public void listProductos(boolean loadTableFlg, BaseCallback<List<Producto>> callback) {
+    public void listProducto(boolean loadTableFlg, BaseCallback<List<Producto>> callback) {
 
     }
 

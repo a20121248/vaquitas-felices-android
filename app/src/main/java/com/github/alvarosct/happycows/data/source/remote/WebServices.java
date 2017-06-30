@@ -5,10 +5,14 @@ import com.github.alvarosct.happycows.data.db.models.Compra;
 import com.github.alvarosct.happycows.data.db.models.DetalleCalidad;
 import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
+import com.github.alvarosct.happycows.data.db.models.Ingrediente;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.OrdenProduccion;
 import com.github.alvarosct.happycows.data.db.models.ParametroCalidad;
+import com.github.alvarosct.happycows.data.db.models.Paso;
 import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.models.Pregunta;
+import com.github.alvarosct.happycows.data.db.models.Proceso;
 import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.models.Proveedor;
 import com.github.alvarosct.happycows.data.db.models.User;
@@ -33,6 +37,28 @@ import retrofit2.http.Query;
  */
 
 public interface WebServices {
+
+
+    @GET(Urls.ORDEN_PRODUCCION)
+    Call<List<OrdenProduccion>> listOrdenProduccion();
+
+    @POST(Urls.ORDEN_PRODUCCION_FINALIZAR)
+    Call<JsonObject> finalizarOrdenProduccion(@Path(Urls.PATH_ID) int id);
+
+    @GET(Urls.PROCESOS)
+    Call<List<Proceso>> listProcesosOrden(@Query("id_producto") int idProducto);
+
+    @GET(Urls.PASOS)
+    Call<List<Paso>> listPasosOrden(@Query("id_producto") int idProducto,
+                               @Query("id_proceso") int idProceso);
+
+    @GET(Urls.INSUMOS_ORDEN)
+    Call<List<Insumo>> listInsumosOrden(@Query("id_producto") int idProducto);
+
+    @GET(Urls.INGREDIENTES)
+    Call<List<Ingrediente>> listIngredientesOrden(@Query("id_producto") int idProducto,
+                               @Query("id_insumo") int idProceso);
+
 
     @FormUrlEncoded
     @POST(Urls.LOGIN)
@@ -93,7 +119,7 @@ public interface WebServices {
 
 
     @GET(Urls.PRODUCTOS)
-    Call<List<Producto>> listProductos();
+    Call<List<Producto>> listProducto();
 
 
     @GET(Urls.VENTAS)

@@ -1,7 +1,5 @@
 package com.github.alvarosct.happycows.data.source.remote;
 
-import android.os.Handler;
-
 import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Compra;
@@ -16,7 +14,6 @@ import com.github.alvarosct.happycows.data.db.models.Proveedor;
 import com.github.alvarosct.happycows.data.db.models.User;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItem;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItemWrapper;
-import com.github.alvarosct.happycows.data.db.pojos.ProductoItem;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.DataSource;
 import com.github.alvarosct.happycows.data.source.callbacks.BaseCallback;
@@ -129,8 +126,8 @@ public class DataSourceRemote implements DataSource {
     }
 
     @Override
-    public void listProductos(boolean loadTableFlg, final BaseCallback<List<Producto>> callback) {
-        RequestManager.getWebServices().listProductos().enqueue(callback);
+    public void listProducto(boolean loadTableFlg, final BaseCallback<List<Producto>> callback) {
+        RequestManager.getWebServices().listProducto().enqueue(callback);
     }
 
     @Override

@@ -137,8 +137,8 @@ public class DataSourceRepository implements DataSource {
     }
 
     @Override
-    public void listProductos(boolean loadTableFlg, BaseCallback<List<Producto>> callback) {
-        dataSourceRemote.listProductos(false, callback);
+    public void listProducto(boolean loadTableFlg, BaseCallback<List<Producto>> callback) {
+        dataSourceRemote.listProducto(false, callback);
     }
 
     @Override

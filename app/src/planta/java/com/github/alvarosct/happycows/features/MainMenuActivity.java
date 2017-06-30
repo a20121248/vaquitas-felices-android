@@ -11,6 +11,7 @@ import com.github.alvarosct.happycows.features.insumos.compras.CompraListActivit
 import com.github.alvarosct.happycows.features.porongos.PorongoFormActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoFormDirectActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoListActivity;
+import com.github.alvarosct.happycows.features.produccion.OrdenProduccionListActivity;
 import com.github.alvarosct.happycows.features.sic.GanaderosSicActivity;
 
 import butterknife.ButterKnife;
@@ -44,7 +45,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.bt_produccion:
-                intent = new Intent(MainMenuActivity.this, InsumoListActivity.class);
+                intent = new Intent(MainMenuActivity.this, OrdenProduccionListActivity.class);
                 startActivity(intent);
                 break;
         }

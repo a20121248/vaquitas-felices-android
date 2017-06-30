@@ -6,9 +6,11 @@ import android.content.Intent;
 import com.github.alvarosct.happycows.features.MainMenuActivity;
 import com.github.alvarosct.happycows.features.MenuHandler;
 import com.github.alvarosct.happycows.features.insumos.InsumoListActivity;
+import com.github.alvarosct.happycows.features.insumos.compras.CompraListActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoFormActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoFormDirectActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoListActivity;
+import com.github.alvarosct.happycows.features.produccion.OrdenProduccionListActivity;
 import com.github.alvarosct.happycows.features.sic.GanaderosSicActivity;
 import com.github.alvarosct.happycows.features.syncDatabase.SyncDatabaseNavActivity;
 
@@ -33,8 +35,8 @@ public class FlavorMethods {
 
         new MenuHandler.DrawerItem(11, R.id.nav_porongos, 1, PorongoListActivity.class);
         new MenuHandler.DrawerItem(12, R.id.nav_nuevo_porongo, 1, PorongoFormDirectActivity.class);
-//        new MenuHandler.DrawerItem(13, R.id.nav_insumos, 1, DetalleCompraListActivity.class);
-//        new MenuHandler.DrawerItem(14, R.id.nav_produccion, 1, DetalleCompraListActivity.class);
+        new MenuHandler.DrawerItem(13, R.id.nav_insumos, 1, CompraListActivity.class);
+        new MenuHandler.DrawerItem(14, R.id.nav_produccion, 1, OrdenProduccionListActivity.class);
 
         new MenuHandler.DrawerItem(1000, R.id.nav_sync, 1, SyncDatabaseNavActivity.class);
 //        new DrawerItem(1001, R.id.nav_bio, 4, BiochemicalActivity.class);

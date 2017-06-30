@@ -56,7 +56,7 @@ public interface DataSource {
 
     void registerClient(Client client, BaseCallback<Client> callback);
 
-    void listProductos(boolean loadTableFlg, BaseCallback<List<Producto>> callback);
+    void listProducto(boolean loadTableFlg, BaseCallback<List<Producto>> callback);
 
     void registerVenta(VentaFull ventaFull, BaseCallback<JsonObject> callback);
 }

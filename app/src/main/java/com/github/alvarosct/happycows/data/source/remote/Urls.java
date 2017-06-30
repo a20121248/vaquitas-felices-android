@@ -35,4 +35,18 @@ public class Urls {
     public static final String NECESIDADES = "needs";
     public static final String DEGUSTACIONES = "degustaciones";
     public static final String CLIENTS = "clients_person";
+
+
+
+    public static final String ORDEN_PRODUCCION = "orden_produccion";
+    public static final String ORDEN_PRODUCCION_FINALIZAR = "orden_produccion/{" + PATH_ID + "}/edit";
+
+    public static final String PROCESOS = "procesos";
+    public static final String PASOS = "pasos";
+    public static final String ELABORACION_PASOS = "products";
+
+    public static final String INSUMOS_ORDEN = "insumos";
+    public static final String INGREDIENTES = "orden_produccion/insumos";
+    public static final String ELABORACION_INGREDIENTES = "products";
+
 }
