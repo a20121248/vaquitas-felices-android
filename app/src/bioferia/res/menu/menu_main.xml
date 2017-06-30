@@ -10,6 +10,10 @@
             android:id="@+id/nav_ventas"
             android:icon="@drawable/ic_sell"
             android:title="Registrar Ventas" />
+ <item
+            android:id="@+id/nav_ventas_list"
+            android:icon="@drawable/ic_sell"
+            android:title="Listar Ventas" />
     </group>
 
     <group

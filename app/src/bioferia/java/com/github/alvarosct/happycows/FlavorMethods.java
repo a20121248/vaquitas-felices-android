@@ -10,6 +10,7 @@ import com.github.alvarosct.happycows.features.materiales.MaterialesRegistrarAct
 import com.github.alvarosct.happycows.features.necesidades.NecesidadesRegistrarActivity;
 import com.github.alvarosct.happycows.features.syncDatabase.SyncDatabaseNavActivity;
 import com.github.alvarosct.happycows.features.usuario.UsuarioRegistrarActivity;
+import com.github.alvarosct.happycows.features.venta.list.VentasListActivity;
 import com.github.alvarosct.happycows.features.venta.register.VentaRegistrarActivity;
 
 /**
@@ -34,6 +35,7 @@ public class FlavorMethods {
     public static void setupDrawerItems() {
 
         new MenuHandler.DrawerItem(7, R.id.nav_ventas, 1, VentaRegistrarActivity.class);
+        new MenuHandler.DrawerItem(8, R.id.nav_ventas_list, 1, VentasListActivity.class);
         new MenuHandler.DrawerItem(14, R.id.nav_nuevo_usuario, 1, UsuarioRegistrarActivity.class);
         new MenuHandler.DrawerItem(9, R.id.nav_materiales, 1, MaterialesRegistrarActivity.class);
         new MenuHandler.DrawerItem(10, R.id.nav_necesidades, 1, NecesidadesRegistrarActivity.class);

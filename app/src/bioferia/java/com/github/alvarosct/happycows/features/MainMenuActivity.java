@@ -10,6 +10,7 @@ import com.github.alvarosct.happycows.features.degustaciones.DegustacionesRegist
 import com.github.alvarosct.happycows.features.materiales.MaterialesRegistrarActivity;
 import com.github.alvarosct.happycows.features.necesidades.NecesidadesRegistrarActivity;
 import com.github.alvarosct.happycows.features.usuario.UsuarioRegistrarActivity;
+import com.github.alvarosct.happycows.features.venta.list.VentasListActivity;
 import com.github.alvarosct.happycows.features.venta.register.VentaRegistrarActivity;
 
 import butterknife.ButterKnife;
@@ -25,12 +26,16 @@ public class MainMenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.bt_venta, R.id.bt_materiales, R.id.bt_new_user, R.id.bt_necesidad, R.id.bt_degustaciones})
+    @OnClick({R.id.bt_venta, R.id.bt_materiales, R.id.bt_list_venta, R.id.bt_new_user, R.id.bt_necesidad, R.id.bt_degustaciones})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
             case R.id.bt_venta:
                 intent = new Intent(MainMenuActivity.this, VentaRegistrarActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.bt_list_venta:
+                intent = new Intent(MainMenuActivity.this, VentasListActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_materiales:

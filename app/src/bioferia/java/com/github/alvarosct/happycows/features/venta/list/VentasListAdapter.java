@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.alvarosct.happycows.R;
+import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Venta;
 import com.github.alvarosct.happycows.utils.IDetail;
 
@@ -36,9 +37,15 @@ public class VentasListAdapter extends RecyclerView.Adapter<VentasListAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Venta obj = objList.get(position);
 
+        if (obj.getClienteEmp() == null){
+            Client client = new Client();
+            client.setFirstname("Cliente");
+            client.setLastname("Anonimo");
+            obj.setClienteEmp(client);
+        }
         holder.tv_heading.setText(obj.getClienteEmp().getFullname());
         holder.tv_subheading.setText(obj.getFecha());
-        holder.tv_total.setText(obj.getMontoTotal());
+        holder.tv_total.setText(String.valueOf(obj.getMontoTotal()));
 
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
