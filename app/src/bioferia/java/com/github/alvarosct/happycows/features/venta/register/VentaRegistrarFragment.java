@@ -21,6 +21,7 @@ import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.pojos.ProductoItem;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
+import com.github.alvarosct.happycows.data.source.remote.ApiError;
 import com.github.alvarosct.happycows.features.MainMenuActivity;
 import com.github.alvarosct.happycows.utils.Constants;
 import com.github.alvarosct.happycows.utils.Injector;
@@ -78,12 +79,12 @@ public class VentaRegistrarFragment extends BaseFragment {
     }
 
     private void listarProductos() {
-        Injector.provideRepository().listProductos(true, new LoadingCallback<List<Producto>>(
+        Injector.provideRepository().listProducto(true, new LoadingCallback<List<Producto>>(
                 getContext(), "Obteniendo Productos...") {
             @Override
             public void onSuccess(boolean fromRemote, List<Producto> response) {
                 super.onSuccess(fromRemote, response);
-                AppDatabase.getInstance().productoDao().insertAll(response);
+                AppDatabase.getInstance().productoModel().insertAll(response);
             }
         });
     }
@@ -101,7 +102,7 @@ public class VentaRegistrarFragment extends BaseFragment {
 //                    TODO: Procesar QR CODE
                 int productoId = Integer.parseInt(productId);
 
-                Producto producto = AppDatabase.getInstance().productoDao().getProductoFinal(productoId);
+                Producto producto = AppDatabase.getInstance().productoModel().getProductoFinal(productoId);
                 String loteId = UtilMethodsCustom.getLoteFromBarcode(barcode.displayValue);
 
                 if (producto != null) {
@@ -163,6 +164,11 @@ public class VentaRegistrarFragment extends BaseFragment {
                                     getParent().finish();
                                 }
                             })).show();
+                }
+
+                @Override
+                public void onError(int statusCode, ApiError apiError) {
+                    super.onError(statusCode, apiError);
                 }
             });
         }

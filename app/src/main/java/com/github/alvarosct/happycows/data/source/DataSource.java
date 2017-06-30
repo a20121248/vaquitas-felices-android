@@ -3,6 +3,7 @@ package com.github.alvarosct.happycows.data.source;
 
 import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Compra;
+import com.github.alvarosct.happycows.data.db.models.DetalleCalidad;
 import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
@@ -43,6 +44,8 @@ public interface DataSource {
     void listDetalleCompra(boolean loadTableFlg, BaseCallback<List<DetalleCompra>> callback);
 
     void listParametroCalidad(boolean loadTableFlg, BaseCallback<List<ParametroCalidad>> callback);
+
+    void listDetalleCalidad(boolean loadTableFlg, BaseCallback<List<DetalleCalidad>> callback);
 
     void listProveedor(boolean loadTableFlg, BaseCallback<List<Proveedor>> callback);
 

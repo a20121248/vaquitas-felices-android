@@ -3,6 +3,7 @@ package com.github.alvarosct.happycows.data.source.remote;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Compra;
+import com.github.alvarosct.happycows.data.db.models.DetalleCalidad;
 import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
@@ -89,6 +90,12 @@ public class DataSourceRemote implements DataSource {
     public void listParametroCalidad(boolean loadTableFlg, BaseCallback<List<ParametroCalidad>> callback) {
         String updated = AppDatabase.getInstance().tableMasterModel().getLastSyncForTable("ParametroCalidad");
         RequestManager.getWebServices().listParametroCalidad(updated).enqueue(callback);
+    }
+
+    @Override
+    public void listDetalleCalidad(boolean loadTableFlg, BaseCallback<List<DetalleCalidad>> callback) {
+        String updated = AppDatabase.getInstance().tableMasterModel().getLastSyncForTable("DetalleCalidad");
+        RequestManager.getWebServices().listDetalleCalidad(updated).enqueue(callback);
     }
 
     @Override

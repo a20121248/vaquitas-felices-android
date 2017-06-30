@@ -68,12 +68,12 @@ public class DegustacionesRegistrarFragment extends BaseFragment {
     }
 
     private void listarProductos() {
-        Injector.provideRepository().listProductos(true, new LoadingCallback<List<Producto>>(
+        Injector.provideRepository().listProducto(true, new LoadingCallback<List<Producto>>(
                 getContext(), "Obteniendo Productos...") {
             @Override
             public void onSuccess(boolean fromRemote, List<Producto> response) {
                 super.onSuccess(fromRemote, response);
-                AppDatabase.getInstance().productoDao().insertAll(response);
+                AppDatabase.getInstance().productoModel().insertAll(response);
             }
         });
     }
@@ -92,7 +92,7 @@ public class DegustacionesRegistrarFragment extends BaseFragment {
 //                    TODO: Procesar QR CODE
                 int productoId = Integer.parseInt(productId);
 
-                Producto producto = AppDatabase.getInstance().productoDao().getProductoFinal(productoId);
+                Producto producto = AppDatabase.getInstance().productoModel().getProductoFinal(productoId);
                 String loteId = UtilMethodsCustom.getLoteFromBarcode(barcode.displayValue);
 
                 if (producto != null) {

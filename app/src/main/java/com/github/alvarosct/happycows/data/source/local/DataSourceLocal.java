@@ -3,6 +3,7 @@ package com.github.alvarosct.happycows.data.source.local;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Compra;
+import com.github.alvarosct.happycows.data.db.models.DetalleCalidad;
 import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
@@ -105,6 +106,11 @@ public class DataSourceLocal implements DataSource {
 
     @Override
     public void listParametroCalidad(boolean loadTableFlg, BaseCallback<List<ParametroCalidad>> callback) {
+
+    }
+
+    @Override
+    public void listDetalleCalidad(boolean loadTableFlg, BaseCallback<List<DetalleCalidad>> callback) {
 
     }
 

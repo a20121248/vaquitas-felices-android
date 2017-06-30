@@ -101,6 +101,9 @@ public interface WebServices {
     @GET(Urls.PARAMETRO_CALIDAD)
     Call<List<ParametroCalidad>> listParametroCalidad(@Query("update") String updated);
 
+    @GET(Urls.DETALLE_CALIDAD)
+    Call<List<DetalleCalidad>> listDetalleCalidad(@Query("update") String updated);
+
     @GET(Urls.PROVEEDOR)
     Call<List<Proveedor>> listProveedor(@Query("update") String updated);
 

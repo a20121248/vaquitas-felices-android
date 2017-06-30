@@ -47,7 +47,7 @@ public class ProductoSelectFragment extends BaseFragment implements IDetail<Prod
 
 
         ProductoSelectAdapter adapter = new ProductoSelectAdapter(
-                this, AppDatabase.getInstance().productoDao().getAll());
+                this, AppDatabase.getInstance().productoModel().getAll());
         rvData.setAdapter(adapter);
     }
 

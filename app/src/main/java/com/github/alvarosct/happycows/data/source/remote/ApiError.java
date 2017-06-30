@@ -1,5 +1,8 @@
 package com.github.alvarosct.happycows.data.source.remote;
 
+import android.text.TextUtils;
+
+import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -20,11 +23,18 @@ public class ApiError {
     @SerializedName("message")
     private String message;
 
-    @SerializedName("reasons")
+    @SerializedName("messages")
     private List<String> reasons;
 
     public String getMessage() {
-        return message;
+        if (!TextUtils.isEmpty(message)){
+            return message;
+        } else {
+            if (reasons!= null & reasons.size() != 0){
+                return reasons.get(0);
+            }
+        }
+        return "Ha ocurrido un error";
     }
 
     public List<String> getReasons() {
