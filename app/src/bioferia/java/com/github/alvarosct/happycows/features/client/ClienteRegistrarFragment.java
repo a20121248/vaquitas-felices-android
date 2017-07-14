@@ -93,12 +93,18 @@ public class ClienteRegistrarFragment extends BaseFragment {
 
 
         List<District> genderList = new ArrayList<>();
-        genderList.add(new District(0, "Hombre"));
-        genderList.add(new District(1, "Mujer"));
-        formManager.baseSetupSpinner(spGenero, true, new ArrayList<>(genderList), 0,
+        genderList.add(new District(1, "Hombre"));
+        genderList.add(new District(2, "Mujer"));
+        formManager.baseSetupSpinner(spGenero, true, new ArrayList<>(genderList), 1,
                 id -> {
-                    String gender = id == 0 ? "M" : "F";
-                    client.setGenero(gender);
+                    if (id != 0) {
+                        String[] g = {"M", "F"};
+                        String gender = g[id - 1];
+                        client.setGenero(gender);
+                    } else {
+                        client.setGenero("M");
+                    }
+
                 });
 
         formManager.setupMandatoryEditText(etEmail, "",

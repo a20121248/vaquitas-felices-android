@@ -235,7 +235,7 @@ public class FormManager extends BaseFormManager {
                                   @Nullable IUbigeo iUbigeo) {
 
 //        Add Default option
-//        recordList.add(0, new SpinnerModel());
+        recordList.add(0, new SpinnerModel());
 
 //        Set default error
         customSpinner.setError(MANDATORY_FIELD_MESSAGE);

@@ -135,8 +135,4 @@ public class PorongoViewFragment extends BaseFragment {
                     }
                 });
     }
-
-    @OnClick(R.id.bt_ganado)
-    public void onBtGanadoClicked() {
-    }
 }

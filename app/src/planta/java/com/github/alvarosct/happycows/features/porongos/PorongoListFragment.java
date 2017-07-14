@@ -16,8 +16,11 @@ import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.ascthelper.utils.SimpleDividerItemDecoration;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.models.Porongo;
 import com.github.alvarosct.happycows.data.db.pojos.PorongoFullItem;
-import com.github.alvarosct.happycows.data.db.pojos.PorongoItem;
+import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
+import com.github.alvarosct.happycows.data.source.remote.ApiError;
+import com.github.alvarosct.happycows.utils.Injector;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import java.util.List;
@@ -93,12 +96,30 @@ public class PorongoListFragment extends BaseFragment implements IAdapterDetail 
 
     //    Edit for a NEW Form
     public void listEntities() {
-//        TODO: Call WS FIRST
+        Injector.provideRepository().listPorongo(true,
+                new LoadingCallback<List<Porongo>>(getContext(), "Obteniendo Ingresos de leche") {
+                    @Override
+                    public void onSuccess(boolean fromRemote, List<Porongo> response) {
+                        super.onSuccess(fromRemote, response);
+                        AppDatabase.getInstance().porongoModel().insertAll(response);
+                        listLocal();
+                    }
+
+                    @Override
+                    public void onError(int statusCode, ApiError apiError) {
+                        super.onError(statusCode, apiError);
+                        listLocal();
+                    }
+                });
+    }
+
+    public void listLocal() {
         UtilMethods.calendarToString(Constants.BD_DATE_FORMAT);
 
         List<PorongoFullItem> entityList = AppDatabase.getInstance().porongoModel()
                 .listPorongosToday(UtilMethods.calendarToString(Constants.BD_DATE_FORMAT));
         adapter = new PorongoAdapter(entityList, this);
         rvData.setAdapter(adapter);
+
     }
 }

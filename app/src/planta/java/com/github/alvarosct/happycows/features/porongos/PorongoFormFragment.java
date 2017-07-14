@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -168,9 +169,9 @@ public class PorongoFormFragment extends BaseFragment {
                     @Override
                     public void setValue(String value) {
                         double number = Double.parseDouble(value);
-                        if (number > 20) {
+                        if (number > 30) {
                             etPeso.setText("");
-                            etPeso.append("20");
+                            etPeso.append("30");
                         } else {
                             entity.setPeso(number);
                         }
@@ -183,8 +184,8 @@ public class PorongoFormFragment extends BaseFragment {
                     public void setValue(String value) {
                         double number = Double.parseDouble(value);
                         if (number > 100) {
-                            etPeso.setText("");
-                            etPeso.append("100");
+                            etAlcohol.setText("");
+                            etAlcohol.append("100");
                         } else {
                             entity.setAlcohol(number);
                             enableCalidad3();
@@ -192,14 +193,22 @@ public class PorongoFormFragment extends BaseFragment {
                     }
                 });
 
+        etAcidez.setInputType(InputType.TYPE_CLASS_NUMBER);
         baseFormManager.setupEditTextNumber(etAcidez, String.valueOf(entity.getAcidez()),
                 new BaseFormManager.IEditText() {
                     @Override
                     public void setValue(String value) {
-                        entity.setAcidez(Integer.parseInt(value));
+                        int number = Integer.parseInt(value);
+                        if (number > 10) {
+                            etAcidez.setText("");
+                            etAcidez.append("10");
+                        } else {
+                            entity.setAcidez(number);
+                        }
                     }
                 });
 
+        etDensidad.setInputType(InputType.TYPE_CLASS_NUMBER);
         baseFormManager.setupEditTextNumber(etDensidad, String.valueOf(entity.getDensidad()),
                 new BaseFormManager.IEditText() {
                     @Override
@@ -212,23 +221,43 @@ public class PorongoFormFragment extends BaseFragment {
                 new BaseFormManager.IEditText() {
                     @Override
                     public void setValue(String value) {
-                        entity.setBrix(Double.parseDouble(value));
+                        double number = Double.parseDouble(value);
+                        if (number > 93) {
+                            etBrix.setText("");
+                            etBrix.append("93");
+                        } else {
+                            entity.setBrix(number);
+                        }
                     }
                 });
 
-        baseFormManager.setupEditTextNumber(etPh, String.valueOf(entity.getPh()),
+        etPh.setInputType(InputType.TYPE_CLASS_NUMBER);
+        baseFormManager.setupEditTextNumber(etPh, String.valueOf((int) entity.getPh()),
                 new BaseFormManager.IEditText() {
                     @Override
                     public void setValue(String value) {
-                        entity.setPh(Double.parseDouble(value));
+                        int number = Integer.parseInt(value);
+                        if (number > 14) {
+                            etPh.setText("");
+                            etPh.append("14");
+                        } else {
+                            entity.setPh(number);
+                        }
                     }
                 });
 
+        etLimpieza.setInputType(InputType.TYPE_CLASS_NUMBER);
         baseFormManager.setupEditTextNumber(etLimpieza, String.valueOf(entity.getLimpieza()),
                 new BaseFormManager.IEditText() {
                     @Override
                     public void setValue(String value) {
-                        entity.setLimpieza(Integer.parseInt(value));
+                        int number = Integer.parseInt(value);
+                        if (number > 3) {
+                            etLimpieza.setText("");
+                            etLimpieza.append("3");
+                        } else {
+                            entity.setLimpieza(number);
+                        }
                     }
                 });
 
@@ -324,7 +353,7 @@ public class PorongoFormFragment extends BaseFragment {
                 }
 
                 if (entity.getLimpieza() == 0) {
-                    UtilMethods.showToast("Ingrese el grado de limpieza");
+                    UtilMethods.showToast("Ingrese un grado de limpieza válido");
                     return false;
                 }
             }

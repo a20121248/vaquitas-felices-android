@@ -214,21 +214,12 @@
 
         <Button
             android:id="@+id/bt_devolver"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:padding="@dimen/margin_default"
-            android:text="Devolver" />
-
-        <Button
-            android:id="@+id/bt_ganado"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_default"
-            android:text="@string/bt_registrar_ganado" />
+            android:text="Devolver Porongo" />
 
 </LinearLayout>
 

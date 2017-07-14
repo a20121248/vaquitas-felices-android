@@ -51,12 +51,25 @@
                 android:orientation="horizontal"
                 android:padding="@dimen/margin_default">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Peso"
-                    android:textSize="@dimen/text_subheading" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Peso"
+                        android:textSize="@dimen/text_subheading" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 - 20 Kg"
+                        android:textSize="@dimen/text_caption" />
+                </LinearLayout>
+
 
                 <EditText
                     android:id="@+id/et_peso"
@@ -184,12 +197,26 @@
                     android:orientation="horizontal"
                     android:padding="@dimen/margin_default">
 
-                    <TextView
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Porcentaje de Alcohol"
-                        android:textSize="@dimen/text_subheading" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Porcentaje de Alcohol"
+                            android:textSize="@dimen/text_subheading" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 - 100 %"
+                            android:textSize="@dimen/text_caption" />
+                    </LinearLayout>
+
 
                     <EditText
                         android:id="@+id/et_alcohol"
@@ -235,12 +262,25 @@
                     android:orientation="horizontal"
                     android:padding="@dimen/margin_default">
 
-                    <TextView
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Nivel de acidez"
-                        android:textSize="@dimen/text_subheading" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nivel de acidez"
+                            android:textSize="@dimen/text_subheading" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 - 10"
+                            android:textSize="@dimen/text_caption" />
+                    </LinearLayout>
 
                     <EditText
                         android:id="@+id/et_acidez"
@@ -319,12 +359,25 @@
                     android:orientation="horizontal"
                     android:padding="@dimen/margin_default">
 
-                    <TextView
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Grado Brix"
-                        android:textSize="@dimen/text_subheading" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Grado Brix"
+                            android:textSize="@dimen/text_subheading" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 - 93º"
+                            android:textSize="@dimen/text_caption" />
+                    </LinearLayout>
 
                     <EditText
                         android:id="@+id/et_brix"
@@ -361,12 +414,25 @@
                     android:orientation="horizontal"
                     android:padding="@dimen/margin_default">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Valor del PH"
-                        android:textSize="@dimen/text_subheading" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Valor de PH"
+                            android:textSize="@dimen/text_subheading" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 - 14"
+                            android:textSize="@dimen/text_caption" />
+                    </LinearLayout>
+
 
                     <EditText
                         android:id="@+id/et_ph"
@@ -403,12 +469,24 @@
                     android:orientation="horizontal"
                     android:padding="@dimen/margin_default">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Grado de limpieza"
-                        android:textSize="@dimen/text_subheading" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Grado de limpieza"
+                            android:textSize="@dimen/text_subheading" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1 - 3"
+                            android:textSize="@dimen/text_caption" />
+                    </LinearLayout>
 
                     <EditText
                         android:id="@+id/et_limpieza"
@@ -447,8 +525,8 @@
         android:id="@+id/bt_register"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
-        android:padding="@dimen/margin_default"
         android:layout_height="wrap_content"
+        android:padding="@dimen/margin_default"
         android:text="Registrar" />
 
 </LinearLayout>
