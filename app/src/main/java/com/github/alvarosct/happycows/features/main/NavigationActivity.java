@@ -20,7 +20,7 @@ public abstract class NavigationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        MenuHandler menuHandler = MenuHandler.getInstance(this);
+        MenuHandler menuHandler = MenuHandler.getInstance();
         setContentView(menuHandler.getView(this, getLayout()));
 
         tbPrimary = (Toolbar) findViewById(R.id.tb_primary);
@@ -39,7 +39,7 @@ public abstract class NavigationActivity extends BaseActivity {
 
     @Override
     public final void onBackPressed() {
-        if (!MenuHandler.getInstance(this).onBackPressed()) {
+        if (!MenuHandler.getInstance().onBackPressed()) {
             onBack();
         }
     }

@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.alvarosct.ascthelper.ui.fragments.BaseFragment;
 import com.github.alvarosct.ascthelper.utils.SimpleDividerItemDecoration;
@@ -20,18 +21,25 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class VentasListFragment extends BaseFragment implements IDetail<Venta> {
 
 
     @BindView(R.id.rv_data)
     RecyclerView rvData;
+    @BindView(R.id.tv_number)
+    TextView tvNumber;
+    @BindView(R.id.tv_total)
+    TextView tvTotal;
+    Unbinder unbinder;
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.ventas_listar_fragment, container, false);
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -58,6 +66,13 @@ public class VentasListFragment extends BaseFragment implements IDetail<Venta> {
             public void onSuccess(boolean fromRemote, List<Venta> response) {
                 super.onSuccess(fromRemote, response);
 
+                float totalAmount = 0;
+                for (Venta venta : response) {
+                    totalAmount += venta.getMontoTotal();
+                }
+
+                tvNumber.setText(String.valueOf(response.size()));
+                tvTotal.setText("S/. " + String.valueOf(totalAmount));
 
                 VentasListAdapter adapter = new VentasListAdapter(
                         VentasListFragment.this, response);
@@ -69,5 +84,11 @@ public class VentasListFragment extends BaseFragment implements IDetail<Venta> {
     @Override
     public void openDetail(Venta obj) {
 //        TODO: Open Detail
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }

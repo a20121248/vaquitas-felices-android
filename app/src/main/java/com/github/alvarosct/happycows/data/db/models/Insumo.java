@@ -29,6 +29,8 @@ public class Insumo extends BaseModel {
     private String medidaTiempoVida;
     @SerializedName("tiempo_vida")
     private int tiempoVida;
+    @SerializedName("es_utilitario")
+    private int esUtilitario;
 
     public String getNombres() {
         return nombres;
@@ -100,5 +102,13 @@ public class Insumo extends BaseModel {
 
     public void setTiempoVida(int tiempoVida) {
         this.tiempoVida = tiempoVida;
+    }
+
+    public int getEsUtilitario() {
+        return esUtilitario;
+    }
+
+    public void setEsUtilitario(int esUtilitario) {
+        this.esUtilitario = esUtilitario;
     }
 }

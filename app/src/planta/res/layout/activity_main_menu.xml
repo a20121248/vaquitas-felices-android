@@ -43,7 +43,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:shadowColor="@color/black"
-                android:text="Ingresos de leche"
+                android:text="@string/menu_list_porongo"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 
@@ -76,7 +76,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:shadowColor="@color/black"
-                android:text="Registrar Ingreso"
+                android:text="@string/menu_reg_porongo"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 
@@ -109,7 +109,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:shadowColor="@color/black"
-                android:text="Calidad de Insumos"
+                android:text="@string/menu_insumos"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 
@@ -142,7 +142,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:shadowColor="@color/black"
-                android:text="Producción"
+                android:text="@string/menu_produccion"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
 

@@ -38,9 +38,9 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
     private View navLayout;
     private FrameLayout fl_holder;
 
-    public static MenuHandler getInstance(Activity activity) {
+    public static MenuHandler getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new MenuHandler(activity);
+            INSTANCE = new MenuHandler();
         }
         return INSTANCE;
     }
@@ -49,7 +49,7 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
         FlavorMethods.setupDrawerItems();
     }
 
-    private MenuHandler(Activity activity) {
+    private MenuHandler() {
 
     }
 
@@ -149,7 +149,7 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
         }
     }
 
-    private Intent pickIntent(int resourceId, int menuId) {
+    public Intent pickIntent(Activity activity, int resourceId, int menuId) {
 
         for (DrawerItem drawerItem : listSections) {
             if (drawerItem.id == 1000 && drawerItem.menuId == menuId) {
@@ -199,7 +199,7 @@ public class MenuHandler implements NavigationView.OnNavigationItemSelectedListe
 //            return true;
 //        }
 
-        Intent intent = pickIntent(1, menuItemId);
+        Intent intent = pickIntent(activity, 1, menuItemId);
         if (intent != null) {
             activity.startActivity(intent);
             activity.overridePendingTransition(R.anim.fade_in_2, R.anim.fade_out_2);

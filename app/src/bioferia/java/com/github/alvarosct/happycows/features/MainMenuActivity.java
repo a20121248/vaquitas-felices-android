@@ -29,6 +29,7 @@ public class MainMenuActivity extends AppCompatActivity {
     @OnClick({R.id.bt_venta, R.id.bt_materiales, R.id.bt_list_venta, R.id.bt_new_user, R.id.bt_necesidad, R.id.bt_degustaciones})
     public void onViewClicked(View view) {
         Intent intent;
+//        MenuHandler.getInstance().pickIntent(MainMenuActivity.this, 1, )
         switch (view.getId()) {
             case R.id.bt_venta:
                 intent = new Intent(MainMenuActivity.this, VentaRegistrarActivity.class);

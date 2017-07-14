@@ -148,8 +148,9 @@ public class VentaRegistrarAdapter extends RecyclerView.Adapter<VentaRegistrarAd
 
                 @Override
                 public void afterTextChanged(Editable editable) {
-                    obj.setCostoUnit(editable.toString().isEmpty() ? 0 :
-                            Double.parseDouble(editable.toString()));
+                    String value = editable.toString().trim();
+                    obj.setCostoUnit((value.isEmpty() || value.equals(".")) ? 0 :
+                            Double.parseDouble(value));
                     calculateTotal();
                 }
             });

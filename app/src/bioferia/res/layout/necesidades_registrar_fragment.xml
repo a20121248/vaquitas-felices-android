@@ -28,7 +28,7 @@
             android:drawablePadding="@dimen/margin_xsmall"
             android:drawableStart="@drawable/ic_qr"
             android:backgroundTint="@color/green"
-            android:text="Escanear"
+            android:text="Listar"
             android:textColor="@color/white" />
     </LinearLayout>
 

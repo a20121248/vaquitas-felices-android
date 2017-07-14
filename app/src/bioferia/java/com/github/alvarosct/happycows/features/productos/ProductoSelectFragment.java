@@ -17,6 +17,7 @@ import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.utils.Constants;
 import com.github.alvarosct.happycows.utils.IDetail;
+import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,14 +48,14 @@ public class ProductoSelectFragment extends BaseFragment implements IDetail<Prod
 
 
         ProductoSelectAdapter adapter = new ProductoSelectAdapter(
-                this, AppDatabase.getInstance().productoModel().getAll());
+                this, AppDatabase.getInstance().productoModel().getProductosFinal());
         rvData.setAdapter(adapter);
     }
 
     @Override
     public void openDetail(Producto obj) {
         Intent intent = new Intent();
-        intent.putExtra(Constants.RESULT_QR_CODE, "" + obj.getId());
+        intent.putExtra(Constants.RESULT_PRODUCTO, new Gson().toJson(obj, Producto.class));
         getParent().setResult(Activity.RESULT_OK, intent);
         getParent().finish();
     }

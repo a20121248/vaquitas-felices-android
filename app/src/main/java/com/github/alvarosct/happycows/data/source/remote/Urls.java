@@ -45,7 +45,7 @@ public class Urls {
     public static final String PASOS = "pasos";
     public static final String ELABORACION_PASOS = "products";
 
-    public static final String INSUMOS_ORDEN = "insumos";
+    public static final String INSUMOS_ORDEN = "orden_produccion/insumos";
     public static final String INGREDIENTES = "orden_produccion/insumos";
     public static final String ELABORACION_INGREDIENTES = "products";
 

@@ -38,7 +38,7 @@ public class InsumoListActivity extends AppCompatActivity implements IAdapterDet
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvData.setLayoutManager(layoutManager);
 
-        List<Insumo> list = AppDatabase.getInstance(this).insumoModel().getAll();
+        List<Insumo> list = AppDatabase.getInstance(this).insumoModel().listAllUtils();
         InsumosAdapter adapter = new InsumosAdapter(this, list);
         rvData.setAdapter(adapter);
     }

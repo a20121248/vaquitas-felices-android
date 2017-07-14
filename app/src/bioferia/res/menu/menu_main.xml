@@ -9,37 +9,37 @@
         <item
             android:id="@+id/nav_ventas"
             android:icon="@drawable/ic_sell"
-            android:title="Registrar Ventas" />
+            android:title="Registrar Venta"/>
  <item
             android:id="@+id/nav_ventas_list"
             android:icon="@drawable/ic_sell"
-            android:title="Listar Ventas" />
+            android:title="Listar Venta"/>
     </group>
 
     <group
         android:id="@+id/group_3"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_nuevo_usuario"
-            android:icon="@drawable/ic_new_client"
-            android:title="Nuevo usuario" />
+            android:id="@+id/nav_materiales"
+            android:icon="@drawable/ic_item_list"
+            android:title="Registrar Cliente"/>
     </group>
 
     <group
         android:id="@+id/group_2"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_materiales"
-            android:icon="@drawable/ic_item_list"
-            android:title="Materiales usados" />
+            android:id="@+id/nav_nuevo_usuario"
+            android:icon="@drawable/ic_new_client"
+            android:title="Materiales Usados"/>
         <item
             android:id="@+id/nav_necesidades"
             android:icon="@drawable/ic_products"
-            android:title="Necesidades de productos" />
+            android:title="Necesidad de\nProductos"/>
         <item
             android:id="@+id/nav_degustaciones"
             android:icon="@drawable/ic_item_list"
-            android:title="Registrar degustaciones" />
+            android:title="Registrar\nDegustaciones"/>
     </group>
 
     <group

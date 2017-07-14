@@ -22,7 +22,7 @@ public class Venta extends BaseModel {
     @SerializedName("id_cliente_emp")
     private String idClienteEmp;
     @SerializedName("monto_total")
-    private int montoTotal;
+    private float montoTotal;
     @SerializedName("cliente_emp")
     private Client clienteEmp;
 
@@ -66,11 +66,11 @@ public class Venta extends BaseModel {
         this.idClienteEmp = idClienteEmp;
     }
 
-    public int getMontoTotal() {
+    public float getMontoTotal() {
         return montoTotal;
     }
 
-    public void setMontoTotal(int montoTotal) {
+    public void setMontoTotal(float montoTotal) {
         this.montoTotal = montoTotal;
     }
 

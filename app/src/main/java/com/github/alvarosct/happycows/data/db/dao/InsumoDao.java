@@ -47,4 +47,12 @@ public interface InsumoDao extends BaseDao<Insumo> {
 
     @Query("DELETE FROM Insumo WHERE id = :id")
     void deleteById(int id);
+
+
+
+
+    @Query("SELECT * FROM Insumo " +
+            "WHERE esUtilitario = 1 AND deletedAt IS NULL ")
+    List<Insumo> listAllUtils();
+
 }

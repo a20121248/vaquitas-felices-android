@@ -13,7 +13,7 @@
         <item
             android:id="@+id/nav_nuevo_porongo"
             android:icon="@drawable/ic_sell"
-            android:title="Registrar porongos" />
+            android:title="Registrar ingresos de leche" />
     </group>
 
     <group
@@ -22,7 +22,7 @@
         <item
             android:id="@+id/nav_insumos"
             android:icon="@drawable/ic_new_client"
-            android:title="Insumos" />
+            android:title="Calidad de Insumos" />
     </group>
 
     <group
@@ -31,7 +31,7 @@
         <item
             android:id="@+id/nav_produccion"
             android:icon="@drawable/ic_item_list"
-            android:title="Produccion" />
+            android:title="Producción" />
 
     </group>
 

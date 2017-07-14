@@ -27,6 +27,7 @@ import com.github.alvarosct.happycows.utils.Injector;
 import com.github.alvarosct.happycows.utils.UtilMethodsCustom;
 import com.github.alvarosct.happycows.utils.qr.BarcodeCaptureActivity;
 import com.google.android.gms.vision.barcode.Barcode;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -82,22 +83,12 @@ public class NecesidadesRegistrarFragment extends BaseFragment {
 
         if (resultCode != Activity.RESULT_OK) return;
 
-        if (requestCode == Constants.INTENT_QR_READ) {
+        if (requestCode == Constants.INTENT_SELECT_PRODUCT) {
             if (data != null) {
-                Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
-
-                String productId = UtilMethodsCustom.getProductFromBarcode(barcode.displayValue);
-//                    TODO: Procesar QR CODE
-                int productoId = Integer.parseInt(productId);
-
-                Producto producto = AppDatabase.getInstance().productoModel().getProductoFinal(productoId);
-                String loteId = UtilMethodsCustom.getLoteFromBarcode(barcode.displayValue);
-
-                if (producto != null) {
-                    producto.setLoteId(Integer.parseInt(loteId));
-                    adapter.appendRow(producto);
-                    return;
-                }
+                String productoString = data.getStringExtra(Constants.RESULT_PRODUCTO);
+                Producto producto = new Gson().fromJson(productoString, Producto.class);
+                adapter.appendRow(producto);
+                return;
             }
             UtilMethods.showToast("No es un producto válido");
         }
@@ -105,8 +96,8 @@ public class NecesidadesRegistrarFragment extends BaseFragment {
 
     @OnClick(R.id.bt_scan)
     public void onBtAddClicked() {
-        Intent intent = new Intent(getContext(), BarcodeCaptureActivity.class);
-        startActivityForResult(intent, Constants.INTENT_QR_READ);
+        Intent intent = new Intent(getContext(), ProductoSelectActivity.class);
+        startActivityForResult(intent, Constants.INTENT_SELECT_PRODUCT);
     }
 
     private boolean validar() {

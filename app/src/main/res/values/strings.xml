@@ -27,5 +27,9 @@
     <string name="barcode_success">Barcode read successfully</string>
     <string name="barcode_failure">No barcode captured</string>
     <string name="barcode_error">"Error reading barcode: %1$s"</string>
+    <string name="menu_reg_porongo">Registrar\ningresos de leche</string>
+    <string name="menu_list_porongo">Ingresos de leche</string>
+    <string name="menu_insumos">Calidad de Insumos</string>
+    <string name="menu_produccion">Producción</string>
 
 </resources>

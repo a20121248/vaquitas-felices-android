@@ -81,7 +81,8 @@ public class BaseFormManager {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (TextUtils.isEmpty(editable.toString())){
+                String valueChanged = editable.toString().trim();
+                if (TextUtils.isEmpty(valueChanged) || valueChanged.equals(".")){
                     iEditText.setValue("0");
                 } else {
                     iEditText.setValue(editable.toString());

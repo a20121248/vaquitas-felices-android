@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.github.alvarosct.ascthelper.ui.fragments.BaseFragment;
 import com.github.alvarosct.ascthelper.utils.SimpleDividerItemDecoration;
 import com.github.alvarosct.happycows.R;
+import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
 import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
 import com.github.alvarosct.happycows.utils.Constants;
@@ -58,7 +59,10 @@ public class MaterialSelectFragment extends BaseFragment implements IDetail<Insu
             @Override
             public void onSuccess(boolean fromRemote, List<Insumo> response) {
                 super.onSuccess(fromRemote, response);
-                MaterialSelectAdapter adapter = new MaterialSelectAdapter(MaterialSelectFragment.this, response);
+                AppDatabase.getInstance().insumoModel().insertAll(response);
+                List<Insumo> insumos = AppDatabase.getInstance().insumoModel().listAllUtils();
+                MaterialSelectAdapter adapter =
+                        new MaterialSelectAdapter(MaterialSelectFragment.this, insumos);
                 rvData.setAdapter(adapter);
             }
         });
