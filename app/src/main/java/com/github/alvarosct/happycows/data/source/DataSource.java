@@ -5,6 +5,7 @@ import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Compra;
 import com.github.alvarosct.happycows.data.db.models.DetalleCalidad;
 import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
+import com.github.alvarosct.happycows.data.db.models.District;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
 import com.github.alvarosct.happycows.data.db.models.ParametroCalidad;
@@ -35,6 +36,10 @@ public interface DataSource {
     void listGanadero(boolean loadTableFlg, BaseCallback<List<Ganadero>> callback);
 
     void listUser(boolean loadTableFlg, BaseCallback<List<User>> callback);
+
+    void listDistrict(boolean loadTableFlg, BaseCallback<List<District>> callback);
+
+    void listClient(boolean loadTableFlg, BaseCallback<List<Client>> callback);
 
     void listPregunta(boolean loadTableFlg, BaseCallback<List<Pregunta>> callback);
 

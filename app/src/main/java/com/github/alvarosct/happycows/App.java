@@ -60,6 +60,8 @@ public class App extends Application {
         tables.add(new TableMaster("Ganadero"));
         tables.add(new TableMaster("Porongo"));
         tables.add(new TableMaster("Producto"));
+        tables.add(new TableMaster("District"));
+        tables.add(new TableMaster("Client"));
         tables.add(new TableMaster("Insumo"));
         tables.add(new TableMaster("ParametroCalidad"));
         tables.add(new TableMaster("DetalleCalidad"));

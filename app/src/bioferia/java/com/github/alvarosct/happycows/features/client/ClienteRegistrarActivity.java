@@ -1,11 +1,11 @@
-package com.github.alvarosct.happycows.features.usuario;
+package com.github.alvarosct.happycows.features.client;
 
 import android.support.v4.app.Fragment;
 
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.features.main.NavigationActivity;
 
-public class UsuarioRegistrarActivity extends NavigationActivity {
+public class ClienteRegistrarActivity extends NavigationActivity {
 
     @Override
     public int getLayout() {
@@ -15,9 +15,9 @@ public class UsuarioRegistrarActivity extends NavigationActivity {
     @Override
     public void setupContent() {
 
-        setTitle("Registrar Usuario");
+        setTitle("Registrar Cliente");
 
-        Fragment fragment = new UsuarioRegistrarFragment();
+        Fragment fragment = new ClienteRegistrarFragment();
         fragment.setArguments(getIntent().getExtras());
         showFragment(fragment, true);
 

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CustomTextView">
-        <attr name="hint" format="string"/>
-        <attr name="text" format="string"/>
-        <attr name="hint_size" format="dimension"/>
-        <attr name="text_size" format="dimension"/>
+        <attr name="hint" format="string" />
+        <attr name="text" format="string" />
+        <attr name="hint_size" format="dimension" />
+        <attr name="text_size" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="Custom">
+        <attr name="label" format="string" />
+        <attr name="error" format="string" />
     </declare-styleable>
 </resources>

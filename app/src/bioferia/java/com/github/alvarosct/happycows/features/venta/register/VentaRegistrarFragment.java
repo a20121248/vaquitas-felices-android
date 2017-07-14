@@ -17,17 +17,20 @@ import com.github.alvarosct.ascthelper.utils.dialogs.DialogCustom;
 import com.github.alvarosct.happycows.PreferenceManager;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Producto;
 import com.github.alvarosct.happycows.data.db.pojos.ProductoItem;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
 import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
 import com.github.alvarosct.happycows.data.source.remote.ApiError;
 import com.github.alvarosct.happycows.features.MainMenuActivity;
+import com.github.alvarosct.happycows.features.client.ClientSelectActivity;
 import com.github.alvarosct.happycows.utils.Constants;
 import com.github.alvarosct.happycows.utils.Injector;
 import com.github.alvarosct.happycows.utils.UtilMethodsCustom;
 import com.github.alvarosct.happycows.utils.qr.BarcodeCaptureActivity;
 import com.google.android.gms.vision.barcode.Barcode;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -45,8 +48,11 @@ public class VentaRegistrarFragment extends BaseFragment {
     RecyclerView rvData;
     @BindView(R.id.tv_total)
     TextView tvTotal;
+    @BindView(R.id.tv_client)
+    TextView tvClient;
 
     private VentaRegistrarAdapter adapter;
+    private Client client = null;
     private Unbinder unbinder;
 
     @Nullable
@@ -113,6 +119,12 @@ public class VentaRegistrarFragment extends BaseFragment {
             }
             UtilMethods.showToast("No es un producto válido");
         }
+
+        if (requestCode == Constants.INTENT_SELECT_CLIENT) {
+            String clientString = data.getStringExtra(Constants.RESULT_CLIENT);
+            client = new Gson().fromJson(clientString, Client.class);
+            tvClient.setText(client.getFullname());
+        }
     }
 
     @OnClick(R.id.bt_scan)
@@ -145,7 +157,9 @@ public class VentaRegistrarFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (validar()) {
 
-            VentaFull ventaFull = new VentaFull(1, 1,
+            int clientId = client == null ? 0 : client.getId();
+
+            VentaFull ventaFull = new VentaFull(1, clientId,
                     PreferenceManager.getInstance(getContext()).getUserInfo().getId());
             ventaFull.setProductoItemList(adapter.getObjList());
 
@@ -178,5 +192,12 @@ public class VentaRegistrarFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @OnClick(R.id.ly_client)
+    public void onViewClicked() {
+//        Select CLient
+        Intent i = new Intent(getContext(), ClientSelectActivity.class);
+        startActivityForResult(i, Constants.INTENT_SELECT_CLIENT);
     }
 }

@@ -5,6 +5,7 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.text.TextUtils;
 
+import com.github.alvarosct.ascthelper.IBaseModel;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -12,7 +13,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 @Entity
-public class BaseModel {
+public class BaseModel implements IBaseModel{
 
     private int id;
 
@@ -56,6 +57,16 @@ public class BaseModel {
 
     public void setId(int uid) {
         this.id = uid;
+    }
+
+    @Override
+    public int getModelId() {
+        return getId();
+    }
+
+    @Override
+    public void saveModel() {
+
     }
 
     public boolean isLocalChange() {

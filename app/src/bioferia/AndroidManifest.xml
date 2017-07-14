@@ -14,7 +14,8 @@
             android:name=".features.materiales.MaterialSelectActivity"
             android:theme="@style/AppTheme_FullScreen" />
 
-        <activity android:name=".features.usuario.UsuarioRegistrarActivity" />
+        <activity android:name=".features.client.ClienteRegistrarActivity" />
+        <activity android:name=".features.client.ClientSelectActivity" />
 
         <activity android:name=".features.venta.list.VentasListActivity" />
         <activity android:name=".features.venta.register.VentaRegistrarActivity" />

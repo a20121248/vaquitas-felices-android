@@ -22,11 +22,15 @@ public class Constants {
     public static final String PREF_FLAG_FIRST = "FIRST_TIME";
     public static final String PREF_FLAG_BD_SYNCED = "BD_LOCAL";
 
+    public static final String BUNDLE_FROM_LIST = "FROM_LIST";
+
     public static final String RESULT_INSUMO = "RESULT_INSUMO";
     public static final String RESULT_PRODUCTO = "RESULT_PRODUCTO";
+    public static final String RESULT_CLIENT = "RESULT_CLIENT";
     public static final String RESULT_QR_CODE = "RESULT_QR_CODE";
-    public static final int INTENT_SELECT_MATERIAL = 1234;
-    public static final int INTENT_SELECT_PRODUCT = 3457;
-    public static final int INTENT_QR_READ = 4567;
+    public static final int INTENT_SELECT_MATERIAL = 2222;
+    public static final int INTENT_SELECT_PRODUCT = 3333;
+    public static final int INTENT_QR_READ = 4444;
+    public static final int INTENT_SELECT_CLIENT = 1111;
 
 }

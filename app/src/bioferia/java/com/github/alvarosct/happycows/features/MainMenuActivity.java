@@ -9,7 +9,7 @@ import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.features.degustaciones.DegustacionesRegistrarActivity;
 import com.github.alvarosct.happycows.features.materiales.MaterialesRegistrarActivity;
 import com.github.alvarosct.happycows.features.necesidades.NecesidadesRegistrarActivity;
-import com.github.alvarosct.happycows.features.usuario.UsuarioRegistrarActivity;
+import com.github.alvarosct.happycows.features.client.ClienteRegistrarActivity;
 import com.github.alvarosct.happycows.features.venta.list.VentasListActivity;
 import com.github.alvarosct.happycows.features.venta.register.VentaRegistrarActivity;
 
@@ -44,7 +44,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.bt_new_user:
-                intent = new Intent(MainMenuActivity.this, UsuarioRegistrarActivity.class);
+                intent = new Intent(MainMenuActivity.this, ClienteRegistrarActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_necesidad:

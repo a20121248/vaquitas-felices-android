@@ -23,7 +23,7 @@ public class ApiError {
     @SerializedName("message")
     private String message;
 
-    @SerializedName("messages")
+    @SerializedName("reasons")
     private List<String> reasons;
 
     public String getMessage() {

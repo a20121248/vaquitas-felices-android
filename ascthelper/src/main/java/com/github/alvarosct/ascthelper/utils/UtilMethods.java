@@ -40,6 +40,18 @@ public class UtilMethods {
         toast.show();
     }
 
+    public static int dpFromPx(Context context, float px) {
+        return Math.round((px / context.getResources().getDisplayMetrics().density));
+    }
+
+    public static int pxFromDp(Context context, float dp) {
+        return Math.round((dp * context.getResources().getDisplayMetrics().density));
+    }
+
+    public static int pxFromSp(Context context, float dp) {
+        return Math.round((dp * context.getResources().getDisplayMetrics().scaledDensity));
+    }
+
     public static String parseNumber(int value){
         return value == 0? "-" : String.valueOf(value);
     }
@@ -72,14 +84,6 @@ public class UtilMethods {
             Log.e("ParseException", e.getMessage());
         }
         return calendar;
-    }
-
-    public static float pxFromDp(Context context, float dp) {
-        return dp * context.getResources().getDisplayMetrics().density;
-    }
-
-    public static float pxFromSp(Context context, float sp) {
-        return sp * context.getResources().getDisplayMetrics().scaledDensity;
     }
 
 

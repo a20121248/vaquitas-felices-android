@@ -1,4 +1,4 @@
-package com.github.alvarosct.happycows.features.venta.list;
+package com.github.alvarosct.happycows.features.client;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.data.db.models.Client;
-import com.github.alvarosct.happycows.data.db.models.Venta;
 import com.github.alvarosct.happycows.utils.IDetail;
 
 import java.util.List;
@@ -17,11 +16,11 @@ import java.util.List;
  * Created by Android-Dev on 26/05/2017.
  */
 
-public class VentasListAdapter extends RecyclerView.Adapter<VentasListAdapter.ViewHolder> {
-    protected List<Venta> objList;
-    protected IDetail<Venta> iDetail;
+public class ClientSelectAdapter extends RecyclerView.Adapter<ClientSelectAdapter.ViewHolder> {
+    protected List<Client> objList;
+    protected IDetail<Client> iDetail;
 
-    public VentasListAdapter(IDetail<Venta> iAdapterDetail, List<Venta> objList) {
+    public ClientSelectAdapter(IDetail<Client> iAdapterDetail, List<Client> objList) {
         this.objList = objList;
         this.iDetail = iAdapterDetail;
     }
@@ -29,17 +28,15 @@ public class VentasListAdapter extends RecyclerView.Adapter<VentasListAdapter.Vi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.ventas_list_row, parent, false);
+                .inflate(R.layout.simple_row_list, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Venta obj = objList.get(position);
+        final Client obj = objList.get(position);
 
-        holder.tv_heading.setText(obj.getClientName());
-        holder.tv_subheading.setText(obj.getHora());
-        holder.tv_total.setText(String.valueOf(obj.getMontoTotal()));
+        holder.tv_heading.setText(obj.getFullname());
 
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +54,6 @@ public class VentasListAdapter extends RecyclerView.Adapter<VentasListAdapter.Vi
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_heading, tv_subheading;
-        private TextView tv_total;
         private View holder;
         private View iv_cloud;
 
@@ -66,7 +62,6 @@ public class VentasListAdapter extends RecyclerView.Adapter<VentasListAdapter.Vi
             holder = v.findViewById(R.id.holder);
             tv_heading = (TextView) v.findViewById(R.id.tv_heading);
             tv_subheading = (TextView) v.findViewById(R.id.tv_subheading);
-            tv_total = (TextView) v.findViewById(R.id.tv_total);
             iv_cloud = v.findViewById(R.id.iv_cloud);
         }
     }

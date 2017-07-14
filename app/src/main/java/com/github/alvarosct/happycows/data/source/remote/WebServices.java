@@ -4,6 +4,7 @@ import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Compra;
 import com.github.alvarosct.happycows.data.db.models.DetalleCalidad;
 import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
+import com.github.alvarosct.happycows.data.db.models.District;
 import com.github.alvarosct.happycows.data.db.models.Ganadero;
 import com.github.alvarosct.happycows.data.db.models.Ingrediente;
 import com.github.alvarosct.happycows.data.db.models.Insumo;
@@ -127,6 +128,12 @@ public interface WebServices {
 
     @GET(Urls.VENTAS)
     Call<List<Venta>> listVentas();
+
+    @GET(Urls.CLIENTS)
+    Call<List<Client>> listClients(@Query("update") String updated);
+
+    @GET(Urls.DISTRICTS)
+    Call<List<District>> listDistricts(@Query("update") String updated);
 
     @POST(Urls.SELL)
     Call<JsonObject> registerVenta(@Body VentaFull ventaFull);

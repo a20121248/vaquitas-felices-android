@@ -35,6 +35,7 @@ public class Urls {
     public static final String NECESIDADES = "needs";
     public static final String DEGUSTACIONES = "degustaciones";
     public static final String CLIENTS = "clients_person";
+    public static final String DISTRICTS = "districts";
 
 
 

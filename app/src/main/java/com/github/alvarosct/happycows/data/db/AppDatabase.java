@@ -6,9 +6,11 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.github.alvarosct.happycows.data.db.dao.BaseDao;
+import com.github.alvarosct.happycows.data.db.dao.ClientDao;
 import com.github.alvarosct.happycows.data.db.dao.CompraDao;
 import com.github.alvarosct.happycows.data.db.dao.DetalleCalidadDao;
 import com.github.alvarosct.happycows.data.db.dao.DetalleCompraDao;
+import com.github.alvarosct.happycows.data.db.dao.DistrictDao;
 import com.github.alvarosct.happycows.data.db.dao.ElaboracionIngredienteDao;
 import com.github.alvarosct.happycows.data.db.dao.ElaboracionPasoDao;
 import com.github.alvarosct.happycows.data.db.dao.EncuestaDao;
@@ -26,9 +28,11 @@ import com.github.alvarosct.happycows.data.db.dao.ProductoDao;
 import com.github.alvarosct.happycows.data.db.dao.ProveedorDao;
 import com.github.alvarosct.happycows.data.db.dao.TableMasterDao;
 import com.github.alvarosct.happycows.data.db.dao.UserDao;
+import com.github.alvarosct.happycows.data.db.models.Client;
 import com.github.alvarosct.happycows.data.db.models.Compra;
 import com.github.alvarosct.happycows.data.db.models.DetalleCalidad;
 import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
+import com.github.alvarosct.happycows.data.db.models.District;
 import com.github.alvarosct.happycows.data.db.models.ElaboracionIngrediente;
 import com.github.alvarosct.happycows.data.db.models.ElaboracionPaso;
 import com.github.alvarosct.happycows.data.db.models.Encuesta;
@@ -59,8 +63,9 @@ import java.lang.reflect.Method;
         Pregunta.class, PreguntaInsumo.class, Insumo.class, User.class,
         Compra.class, DetalleCompra.class, ParametroCalidad.class, Proveedor.class, DetalleCalidad.class,
         Paso.class, Ingrediente.class, ElaboracionIngrediente.class, ElaboracionPaso.class,
-        OrdenProduccion.class, Proceso.class, Producto.class
-}, version = 6)
+        OrdenProduccion.class, Proceso.class, Producto.class,
+        Client.class, District.class
+}, version = 7)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
@@ -97,6 +102,10 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PreguntaInsumoDao preguntaInsumoModel();
 
     public abstract InsumoDao insumoModel();
+
+    public abstract DistrictDao districtModel();
+
+    public abstract ClientDao clientModel();
 
     public abstract CompraDao compraModel();
 

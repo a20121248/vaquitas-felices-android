@@ -2,6 +2,8 @@ package com.github.alvarosct.happycows.data.db.models;
 
 import android.arch.persistence.room.Entity;
 
+import com.github.alvarosct.ascthelper.utils.Constants;
+import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -26,8 +28,23 @@ public class Venta extends BaseModel {
     @SerializedName("cliente_emp")
     private Client clienteEmp;
 
+    public Client getClienteBiof() {
+        return clienteBiof;
+    }
+
+    public void setClienteBiof(Client clienteBiof) {
+        this.clienteBiof = clienteBiof;
+    }
+
+    @SerializedName("cliente_biof")
+    private Client clienteBiof;
+
     public String getFecha() {
         return fecha;
+    }
+
+    public String getHora() {
+        return UtilMethods.calendarStringToString(getCreated(), Constants.BD_DATETIME_FORMAT, Constants.TIME_FORMAT);
     }
 
     public void setFecha(String fecha) {
@@ -80,5 +97,16 @@ public class Venta extends BaseModel {
 
     public void setClienteEmp(Client clienteEmp) {
         this.clienteEmp = clienteEmp;
+    }
+
+
+    public String getClientName() {
+        if (getClienteBiof() != null) {
+            return getClienteBiof().getFullname();
+        } else if (getClienteEmp() != null) {
+            return getClienteEmp().getFullname();
+        }
+
+        return "Cliente Anónimo";
     }
 }
