@@ -55,6 +55,8 @@ public class Constants {
 
 
     public static final int INTENT_FORM = 222;
+    public static final int INTENT_PROCESO = 66;
+    public static final int INTENT_INGREDIENTE = 77;
     public static final int INTENT_SELECT_GANADERO = 123;
 
 //    Only APP

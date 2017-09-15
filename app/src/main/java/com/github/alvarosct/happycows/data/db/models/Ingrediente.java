@@ -11,27 +11,60 @@ import com.google.gson.annotations.SerializedName;
 @Entity(primaryKeys = {"id"})
 public class Ingrediente extends BaseModel {
 
-    @SerializedName("id_proceso")
-    private int idProceso;
-    @SerializedName("id_producto")
-    private int idProducto;
+
+    @SerializedName("id_producto_final")
+    private int idProductoFinal;
+    @SerializedName("id_insumo")
+    private String idInsumo;
+    @SerializedName("value")
+    private String value;
+    @SerializedName("id_materia_prima")
+    private int idMateriaPrima;
+    @SerializedName("reduce_stock")
+    private int reduceStock;
+    @SerializedName("valor_ideal")
+    private double valorIdeal;
     @SerializedName("parametros")
     private String parametros;
 
-    public int getIdProceso() {
-        return idProceso;
+    public int getIdProductoFinal() {
+        return idProductoFinal;
     }
 
-    public void setIdProceso(int idProceso) {
-        this.idProceso = idProceso;
+    public void setIdProductoFinal(int idProductoFinal) {
+        this.idProductoFinal = idProductoFinal;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    public String getIdInsumo() {
+        return idInsumo;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setIdInsumo(String idInsumo) {
+        this.idInsumo = idInsumo;
+    }
+
+    public int getIdMateriaPrima() {
+        return idMateriaPrima;
+    }
+
+    public void setIdMateriaPrima(int idMateriaPrima) {
+        this.idMateriaPrima = idMateriaPrima;
+    }
+
+    public int getReduceStock() {
+        return reduceStock;
+    }
+
+    public void setReduceStock(int reduceStock) {
+        this.reduceStock = reduceStock;
+    }
+
+    public double getValorIdeal() {
+        return valorIdeal;
+    }
+
+    public void setValorIdeal(double valorIdeal) {
+        this.valorIdeal = valorIdeal;
     }
 
     public String getParametros() {
@@ -40,5 +73,13 @@ public class Ingrediente extends BaseModel {
 
     public void setParametros(String parametros) {
         this.parametros = parametros;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

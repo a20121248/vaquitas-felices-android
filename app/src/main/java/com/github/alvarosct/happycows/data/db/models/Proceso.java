@@ -11,8 +11,11 @@ import com.google.gson.annotations.SerializedName;
 @Entity(primaryKeys = {"id"})
 public class Proceso extends BaseModel {
 
+    private int idProducto;
     @SerializedName("id_maquina")
     private int idMaquina;
+    @SerializedName("id_orden")
+    private int idOrden;
     @SerializedName("nombre")
     private String nombre;
     @SerializedName("descripcion")
@@ -80,5 +83,21 @@ public class Proceso extends BaseModel {
 
     public void setTempMax(int tempMax) {
         this.tempMax = tempMax;
+    }
+
+    public int getIdOrden() {
+        return idOrden;
+    }
+
+    public void setIdOrden(int idOrden) {
+        this.idOrden = idOrden;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 }

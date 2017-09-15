@@ -38,6 +38,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", "\"http://200.16.7.157/api/v1/\""
         }
         debug {
             buildConfigField "String", "BASE_URL", "\"http://200.16.7.157/api/v1/\""

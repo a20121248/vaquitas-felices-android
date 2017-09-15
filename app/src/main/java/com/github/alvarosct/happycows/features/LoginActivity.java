@@ -7,11 +7,14 @@ import android.support.design.widget.TextInputLayout;
 import com.github.alvarosct.ascthelper.ui.activities.BaseActivity;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.BuildConfig;
+import com.github.alvarosct.happycows.FlavorMethods;
 import com.github.alvarosct.happycows.PreferenceManager;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.data.db.models.User;
 import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
+import com.github.alvarosct.happycows.features.syncDatabase.ISync;
 import com.github.alvarosct.happycows.features.syncDatabase.SyncDatabaseActivity;
+import com.github.alvarosct.happycows.features.syncDatabase.SyncManager;
 import com.github.alvarosct.happycows.utils.Injector;
 
 import butterknife.BindView;
@@ -72,8 +75,15 @@ public class LoginActivity extends BaseActivity {
                         }
 
                         PreferenceManager.getInstance(getContext()).saveUser(response);
-                        startActivity(new Intent(getContext(), SyncDatabaseActivity.class));
-                        finish();
+
+                        UtilMethods.showDialog("Actualizando...", getContext());
+                        new SyncManager(new ISync() {
+                            @Override
+                            public void onSyncDone() {
+                                UtilMethods.hideDialog();
+                                FlavorMethods.openMainActivity(LoginActivity.this);
+                            }
+                        }).startSync();
                     }
                 });
     }

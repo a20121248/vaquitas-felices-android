@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:background="@drawable/rc_solid_white_stroke_secondary"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_default">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.github.alvarosct.happycows.utils.views.CustomEditText
+                android:id="@+id/et_cant"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:label="Cantidad devuelta" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="@dimen/margin_default"
+                android:layout_height="0dp" />
+
+            <com.github.alvarosct.happycows.utils.views.CustomEditText
+                android:id="@+id/et_monto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:label="Monto devuelto (S/.)" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/green"
+            android:text="Registrar devolución"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+    <com.malinskiy.superrecyclerview.SuperRecyclerView
+        android:id="@+id/rv_data"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
+        app:recyclerClipToPadding="false" />
+
+</LinearLayout>

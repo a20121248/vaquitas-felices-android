@@ -55,7 +55,11 @@ public interface DetalleCompraDao extends BaseDao<DetalleCompra> {
 
     @Query("SELECT I.nombres, DC.idCompra AS compraId, DC.idInsumo, DC.cantidad " +
             "FROM DetalleCompra DC INNER JOIN Insumo I on I.id = DC.idInsumo " +
-            "WHERE DC.idCompra = :compraId AND DC.deletedAt IS NULL")
+            "WHERE DC.idCompra = :compraId AND DC.deletedAt IS NULL " +
+            "AND DC.cantidadDevuelta = 0")
     List<DetalleCompraItem> listDetalleCompra(int compraId);
+
+    @Query("SELECT * FROM DetalleCompra WHERE idCompra = :idCompra AND idInsumo = :idInsumo AND deletedAt IS NULL")
+    DetalleCompra getByIds(int idInsumo, int idCompra);
 
 }

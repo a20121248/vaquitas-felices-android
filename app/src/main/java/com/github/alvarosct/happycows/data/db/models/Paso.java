@@ -11,12 +11,15 @@ import com.google.gson.annotations.SerializedName;
 @Entity(primaryKeys = {"id"})
 public class Paso extends BaseModel {
 
+
     @SerializedName("id_proceso")
     private int idProceso;
     @SerializedName("id_producto")
     private int idProducto;
     @SerializedName("parametros")
     private String parametros;
+    @SerializedName("value")
+    private String value;
 
     public int getIdProceso() {
         return idProceso;
@@ -40,5 +43,13 @@ public class Paso extends BaseModel {
 
     public void setParametros(String parametros) {
         this.parametros = parametros;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

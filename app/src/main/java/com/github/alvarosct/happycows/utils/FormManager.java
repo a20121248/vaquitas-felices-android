@@ -117,8 +117,16 @@ public class FormManager extends BaseFormManager {
                 String value = editable.toString();
                 if (value.equals("-")) return;
 
+
+                String valueString = value;
+                if (inputType == InputType.TYPE_CLASS_NUMBER) {
+                    int intValue = (int) Double.parseDouble("0" + value);
+                    valueString = "" + intValue;
+                }
+
+
 //                Prevent empty string
-                iEditText.setValue(value.equals("") ? "0" : value);
+                iEditText.setValue(value.equals("") ? "0" : valueString);
 
 //                Validation
                 if (mandatory && customEditText.getEditText().isEnabled()) {

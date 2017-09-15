@@ -1,5 +1,6 @@
 package com.github.alvarosct.happycows.features.produccion.detail;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +8,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.alvarosct.ascthelper.ui.activities.BaseActivity;
+import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.happycows.R;
-import com.github.alvarosct.happycows.data.db.models.Insumo;
+import com.github.alvarosct.happycows.data.db.models.InsumoBoth;
+import com.github.alvarosct.happycows.features.produccion.detail.insumo.InsumoFormActivity;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -17,10 +21,10 @@ import java.util.List;
  */
 
 public class OrdenProduccionInsumosAdapter extends RecyclerView.Adapter<OrdenProduccionInsumosAdapter.ViewHolder> {
-    protected List<Insumo> objList;
+    protected List<InsumoBoth> objList;
     protected BaseActivity baseActivity;
 
-    public OrdenProduccionInsumosAdapter(List<Insumo> objList, BaseActivity baseActivity) {
+    public OrdenProduccionInsumosAdapter(List<InsumoBoth> objList, BaseActivity baseActivity) {
         this.objList = objList;
         this.baseActivity = baseActivity;
     }
@@ -34,14 +38,16 @@ public class OrdenProduccionInsumosAdapter extends RecyclerView.Adapter<OrdenPro
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Insumo obj = objList.get(position);
+        final InsumoBoth obj = objList.get(position);
 
         holder.tv_heading.setText(obj.getNombres());
 
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                baseActivity.openDetail(obj.getId());
+                Intent intent = new Intent(baseActivity, InsumoFormActivity.class);
+                intent.putExtra(com.github.alvarosct.ascthelper.utils.Constants.BUNDLE_ENTITY, new Gson().toJson(obj));
+                baseActivity.startActivityForResult(intent, Constants.INTENT_INGREDIENTE);
             }
         });
     }

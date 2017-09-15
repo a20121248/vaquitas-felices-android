@@ -16,9 +16,13 @@ import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.ascthelper.utils.SimpleDividerItemDecoration;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
+import com.github.alvarosct.happycows.data.db.models.DetalleCompra;
 import com.github.alvarosct.happycows.data.db.pojos.DetalleCompraItem;
+import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
+import com.github.alvarosct.happycows.data.source.remote.ApiError;
 import com.github.alvarosct.happycows.features.insumos.compras.calidad.ParametrosListActivity;
 import com.github.alvarosct.happycows.features.porongos.PorongoViewActivity;
+import com.github.alvarosct.happycows.utils.Injector;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import java.util.List;
@@ -81,7 +85,7 @@ public class DetalleCompraListFragment extends BaseFragment implements IAdapterD
         if (resultCode == Activity.RESULT_OK && requestCode == Constants.INTENT_FORM) {
 //            DO NOTHING
 
-//            listEntities();
+            listEntitiesLocal();
         }
     }
 
@@ -89,7 +93,23 @@ public class DetalleCompraListFragment extends BaseFragment implements IAdapterD
 
     //    Edit for a NEW Form
     public void listEntities() {
-//        TODO: Call WS FIRST
+        Injector.provideRepository().listDetalleCompra(true,
+                new LoadingCallback<List<DetalleCompra>>(getContext(), "Obteniendo registros...") {
+            @Override
+            public void onSuccess(boolean fromRemote, List<DetalleCompra> response) {
+                super.onSuccess(fromRemote, response);
+                AppDatabase.getInstance().detalleCompraModel().insertAll(response);
+                listEntitiesLocal();
+            }
+
+            @Override
+            public void onError(int statusCode, ApiError apiError) {
+                super.onError(statusCode, apiError);
+                listEntitiesLocal();
+            }
+        });
+    }
+    public void listEntitiesLocal() {
         UtilMethods.calendarToString(Constants.BD_DATE_FORMAT);
 
         List<DetalleCompraItem> entityList = AppDatabase.getInstance()

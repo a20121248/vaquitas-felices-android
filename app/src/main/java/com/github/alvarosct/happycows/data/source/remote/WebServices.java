@@ -20,6 +20,7 @@ import com.github.alvarosct.happycows.data.db.models.User;
 import com.github.alvarosct.happycows.data.db.models.Venta;
 import com.github.alvarosct.happycows.data.db.pojos.InsumoItemWrapper;
 import com.github.alvarosct.happycows.data.db.pojos.VentaFull;
+import com.github.alvarosct.happycows.data.db.models.WrapInsumos;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -47,18 +48,25 @@ public interface WebServices {
     Call<JsonObject> finalizarOrdenProduccion(@Path(Urls.PATH_ID) int id);
 
     @GET(Urls.PROCESOS)
-    Call<List<Proceso>> listProcesosOrden(@Query("id_producto") int idProducto);
+    Call<List<Proceso>> listProcesosOrden(@Query("id_orden") int idOrden, @Query("id_producto") int idProducto);
 
     @GET(Urls.PASOS)
-    Call<List<Paso>> listPasosOrden(@Query("id_producto") int idProducto,
+    Call<List<Paso>> listPasosOrden(@Query("id_orden") int idOrden, @Query("id_producto") int idProducto,
                                @Query("id_proceso") int idProceso);
 
     @GET(Urls.INSUMOS_ORDEN)
-    Call<List<Insumo>> listInsumosOrden(@Query("id_producto") int idProducto);
+    Call<WrapInsumos> listInsumosOrden(@Query("id_orden") int idOrden, @Query("id_producto") int idProducto);
 
     @GET(Urls.INGREDIENTES)
-    Call<List<Ingrediente>> listIngredientesOrden(@Query("id_producto") int idProducto,
-                               @Query("id_insumo") int idProceso);
+    Call<List<Ingrediente>> listIngredientesOrden(@Query("id_orden") int idOrden, @Query("id_producto") int idProducto,
+                               @Query("id_insumo") int idInsumo, @Query("id_materia_prima") int idMateria);
+
+
+    @POST(Urls.INSUMOS_PARAMETROS)
+    Call<JsonObject> registrarInsumosParametros(@Body JsonObject body);
+
+    @POST(Urls.PASOS_PARAMETROS)
+    Call<JsonObject> registrarPasosParametros(@Body JsonObject body);
 
 
     @FormUrlEncoded
@@ -98,6 +106,14 @@ public interface WebServices {
 
     @GET(Urls.DETALLE_COMPRA)
     Call<List<DetalleCompra>> listDetalleCompra(@Query("update") String updated);
+
+    @FormUrlEncoded
+    @POST(Urls.DETALLE_COMPRA)
+    Call<DetalleCompra> postDetalleCompra(
+            @Field("id_insumo") int idInsumo,
+            @Field("id_compra") int idCompra,
+            @Field("cantidad_devuelta") int cant,
+            @Field("monto_devolucion") double monto);
 
     @GET(Urls.PARAMETRO_CALIDAD)
     Call<List<ParametroCalidad>> listParametroCalidad(@Query("update") String updated);
@@ -149,4 +165,7 @@ public interface WebServices {
 
     @POST(Urls.CLIENTS)
     Call<Client> registerClient(@Body Client client);
+
+    @POST(Urls.CLIENTS)
+    Call<Client> list(@Body Client client);
 }

@@ -18,11 +18,10 @@ import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.data.db.AppDatabase;
 import com.github.alvarosct.happycows.data.db.models.Compra;
 import com.github.alvarosct.happycows.data.db.pojos.CompraItem;
-import com.github.alvarosct.happycows.data.db.pojos.PorongoFullItem;
+import com.github.alvarosct.happycows.data.source.callbacks.LoadingCallback;
+import com.github.alvarosct.happycows.data.source.remote.ApiError;
 import com.github.alvarosct.happycows.features.insumos.compras.detalle.DetalleCompraListActivity;
-import com.github.alvarosct.happycows.features.porongos.PorongoAdapter;
-import com.github.alvarosct.happycows.features.porongos.PorongoFormActivity;
-import com.github.alvarosct.happycows.features.porongos.PorongoViewActivity;
+import com.github.alvarosct.happycows.utils.Injector;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import java.util.List;
@@ -89,7 +88,24 @@ public class CompraListFragment extends BaseFragment implements IAdapterDetail {
 
     //    Edit for a NEW Form
     public void listEntities() {
-//        TODO: Call WS FIRST
+        Injector.provideRepository().listCompra(true,
+                new LoadingCallback<List<Compra>>(getContext(), "Obteniendo registros...") {
+                    @Override
+                    public void onSuccess(boolean fromRemote, List<Compra> response) {
+                        super.onSuccess(fromRemote, response);
+                        AppDatabase.getInstance().compraModel().insertAll(response);
+                        listEntitiesLocal();
+                    }
+
+                    @Override
+                    public void onError(int statusCode, ApiError apiError) {
+                        super.onError(statusCode, apiError);
+                        listEntitiesLocal();
+                    }
+                });
+    }
+
+    public void listEntitiesLocal() {
         UtilMethods.calendarToString(Constants.BD_DATE_FORMAT);
 
         List<CompraItem> entityList = AppDatabase.getInstance().compraModel().listCompra();

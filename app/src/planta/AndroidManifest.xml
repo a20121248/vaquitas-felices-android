@@ -17,6 +17,8 @@
         <activity android:name=".features.insumos.compras.detalle.DetalleCompraListActivity" />
         <activity android:name=".features.insumos.compras.calidad.ParametrosListActivity" />
 
+        <activity android:name=".features.produccion.detail.insumo.InsumoFormActivity" />
+        <activity android:name=".features.produccion.detail.proceso.ProcesoFormActivity" />
         <activity android:name=".features.produccion.OrdenProduccionListActivity" />
         <activity android:name=".features.produccion.detail.OrdenProduccionViewActivity" />
 

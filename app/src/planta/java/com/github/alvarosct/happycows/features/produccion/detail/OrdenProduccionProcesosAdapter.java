@@ -1,5 +1,6 @@
 package com.github.alvarosct.happycows.features.produccion.detail;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,9 @@ import com.github.alvarosct.ascthelper.utils.Constants;
 import com.github.alvarosct.ascthelper.utils.UtilMethods;
 import com.github.alvarosct.happycows.R;
 import com.github.alvarosct.happycows.data.db.models.Proceso;
+import com.github.alvarosct.happycows.features.produccion.detail.insumo.InsumoFormActivity;
+import com.github.alvarosct.happycows.features.produccion.detail.proceso.ProcesoFormActivity;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -44,7 +48,10 @@ public class OrdenProduccionProcesosAdapter extends RecyclerView.Adapter<OrdenPr
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                baseActivity.openDetail(obj.getId());
+                Intent intent = new Intent(baseActivity, ProcesoFormActivity.class);
+                intent.putExtra(com.github.alvarosct.ascthelper.utils.Constants.BUNDLE_ENTITY, new Gson().toJson(obj));
+                baseActivity.startActivityForResult(intent, Constants.INTENT_PROCESO);
+
             }
         });
     }
