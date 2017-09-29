@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\Android-Dev\Desktop\happycows-android\HappyCows.iml" filepath="C:\Users\Android-Dev\Desktop\happycows-android\HappyCows.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ascthelper/ascthelper.iml" filepath="$PROJECT_DIR$/ascthelper/ascthelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/happycows-android.iml" filepath="$PROJECT_DIR$/happycows-android.iml" />
