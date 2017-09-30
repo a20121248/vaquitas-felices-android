@@ -28,7 +28,7 @@ public class Porongo extends BaseModel {
     @SerializedName("olor")
     private String olor;
     @SerializedName("devolucion")
-    private int devolucion = 0;
+    private boolean devolucion = false;
 
     @SerializedName("alcohol")
     private double alcohol;
@@ -153,11 +153,11 @@ public class Porongo extends BaseModel {
         this.limpieza = limpieza;
     }
 
-    public int getDevolucion() {
+    public boolean getDevolucion() {
         return devolucion;
     }
 
-    public void setDevolucion(int devolucion) {
+    public void setDevolucion(boolean devolucion) {
         this.devolucion = devolucion;
     }
 

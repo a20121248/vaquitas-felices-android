@@ -113,7 +113,7 @@ public class PorongoViewFragment extends BaseFragment {
 
     private void updateButtons() {
         btDevolver.setVisibility(
-                UtilMethods.getVisibility(entity.getPorongo().getDevolucion() == 0));
+                UtilMethods.getVisibility(entity.getPorongo().getDevolucion()));
     }
 
     @Override
