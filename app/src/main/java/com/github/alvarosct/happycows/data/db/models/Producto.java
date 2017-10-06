@@ -28,11 +28,11 @@ public class Producto extends BaseModel {
     @SerializedName("dias_vencimiento")
     private int diasVencimiento;
     @SerializedName("activo")
-    private int activo;
+    private boolean activo;
     @SerializedName("stock")
     private int stock;
     @SerializedName("materia_prima")
-    private int materiaPrima;
+    private boolean materiaPrima;
     @SerializedName("lote_id")
     private int loteId;
 
@@ -100,11 +100,11 @@ public class Producto extends BaseModel {
         this.diasVencimiento = diasVencimiento;
     }
 
-    public int getActivo() {
+    public boolean getActivo() {
         return activo;
     }
 
-    public void setActivo(int activo) {
+    public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
@@ -116,11 +116,11 @@ public class Producto extends BaseModel {
         this.stock = stock;
     }
 
-    public int getMateriaPrima() {
+    public boolean getMateriaPrima() {
         return materiaPrima;
     }
 
-    public void setMateriaPrima(int materiaPrima) {
+    public void setMateriaPrima(boolean materiaPrima) {
         this.materiaPrima = materiaPrima;
     }
 

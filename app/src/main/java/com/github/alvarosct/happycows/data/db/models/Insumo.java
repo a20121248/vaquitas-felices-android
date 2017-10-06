@@ -30,7 +30,7 @@ public class Insumo extends BaseModel {
     @SerializedName("tiempo_vida")
     private int tiempoVida;
     @SerializedName("es_utilitario")
-    private int esUtilitario;
+    private boolean esUtilitario;
 
     public String getNombres() {
         return nombres;
@@ -104,11 +104,11 @@ public class Insumo extends BaseModel {
         this.tiempoVida = tiempoVida;
     }
 
-    public int getEsUtilitario() {
+    public boolean getEsUtilitario() {
         return esUtilitario;
     }
 
-    public void setEsUtilitario(int esUtilitario) {
+    public void setEsUtilitario(boolean esUtilitario) {
         this.esUtilitario = esUtilitario;
     }
 }
