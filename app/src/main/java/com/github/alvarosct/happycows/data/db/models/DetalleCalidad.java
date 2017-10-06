@@ -18,7 +18,7 @@ public class DetalleCalidad extends BaseModel {
     @SerializedName("id_insumo")
     private int idInsumo;
     @SerializedName("cumple")
-    private int cumple;
+    private boolean cumple;
 
     public int getIdParamCalidad() {
         return idParamCalidad;
@@ -44,11 +44,11 @@ public class DetalleCalidad extends BaseModel {
         this.idInsumo = idInsumo;
     }
 
-    public int getCumple() {
+    public boolean getCumple() {
         return cumple;
     }
 
-    public void setCumple(int cumple) {
+    public void setCumple(boolean cumple) {
         this.cumple = cumple;
     }
 }
